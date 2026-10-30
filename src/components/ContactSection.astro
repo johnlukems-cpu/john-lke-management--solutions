@@ -1,0 +1,293 @@
+---
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+import { hasDirectContact, phoneHref, site, whatsappUrl } from '@/config/site';
+import { services } from '@/data/services';
+
+interface Props {
+  /** Kopniveau-id; maakt meerdere instanties mogelijk */
+  id?: string;
+  title?: string;
+  intro?: string;
+  tone?: 'paper' | 'mist';
+}
+const {
+  id = 'contact',
+  title = 'Neem contact op',
+  intro = 'Stuur ons een bericht via WhatsApp, e-mail of het formulier. Wij reageren zo snel mogelijk, uiterlijk binnen één werkdag.',
+  tone = 'mist',
+} = Astro.props;
+
+const { contact } = site;
+const wa = whatsappUrl();
+const tel = phoneHref();
+---
+
+<section id={id} class:list={['section', tone === 'mist' ? 'bg-mist' : 'bg-paper']} aria-labelledby={`${id}-title`}>
+  <div class="container-site">
+    <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+      <div>
+        <SectionHeading id={`${id}-title`} eyebrow="Contact" title={title} intro={intro} />
+
+        <ul class="reveal mt-10 space-y-4">
+          {wa && (
+            <li>
+              <a href={wa} target="_blank" rel="noopener noreferrer" class="group flex items-center gap-5 border border-line bg-paper p-5 transition-colors hover:border-ink">
+                <span class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-[#128c7e] text-white"><Icon name="whatsapp" class="size-6" stroke={1.6} /></span>
+                <span class="min-w-0 flex-1">
+                  <span class="block font-semibold text-ink">WhatsApp</span>
+                  <span class="block text-sm text-muted">De snelste manier om ons te bereiken</span>
+                </span>
+                <Icon name="arrowRight" class="size-5 text-gold-deep transition-transform group-hover:translate-x-1" />
+              </a>
+            </li>
+          )}
+          {contact.email && (
+            <li>
+              <a href={`mailto:${contact.email}`} class="group flex items-center gap-5 border border-line bg-paper p-5 transition-colors hover:border-ink">
+                <span class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-ink text-white"><Icon name="mail" class="size-5" /></span>
+                <span class="min-w-0 flex-1">
+                  <span class="block font-semibold text-ink">E-mail</span>
+                  <span class="block break-all text-sm text-muted">{contact.email}</span>
+                </span>
+                <Icon name="arrowRight" class="size-5 text-gold-deep transition-transform group-hover:translate-x-1" />
+              </a>
+            </li>
+          )}
+          {tel && (
+            <li>
+              <a href={tel} class="group flex items-center gap-5 border border-line bg-paper p-5 transition-colors hover:border-ink">
+                <span class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-ink text-white"><Icon name="phone" class="size-5" /></span>
+                <span class="min-w-0 flex-1">
+                  <span class="block font-semibold text-ink">Telefoon</span>
+                  <span class="block text-sm text-muted">{contact.phone}</span>
+                </span>
+                <Icon name="arrowRight" class="size-5 text-gold-deep transition-transform group-hover:translate-x-1" />
+              </a>
+            </li>
+          )}
+          {contact.address && (
+            <li class="flex items-start gap-5 p-5">
+              <Icon name="pin" class="mt-0.5 size-5 shrink-0 text-gold-deep" />
+              <address class="not-italic text-muted">{contact.address.street}<br />{contact.address.city}, {site.country}</address>
+            </li>
+          )}
+          {contact.openingHours && (
+            <li class="flex items-center gap-5 px-5"><Icon name="clock" class="size-5 text-gold-deep" /><span class="text-muted">{contact.openingHours}</span></li>
+          )}
+          {!hasDirectContact && (
+            <li class="border-l-2 border-gold bg-paper p-5 text-muted">
+              Vul het formulier in en wij nemen zo snel mogelijk contact met u op — telefonisch, via
+              WhatsApp of per e-mail, net wat u het prettigst vindt.
+            </li>
+          )}
+        </ul>
+      </div>
+
+      <div class="reveal" id="formulier">
+        <form
+          action="/api/contact"
+          method="post"
+          class="contact-form border border-line bg-paper p-6 shadow-[0_30px_60px_-40px_rgba(0,0,0,.3)] sm:p-8 lg:p-10"
+          novalidate
+        >
+          <fieldset>
+            <legend class="font-display text-2xl text-ink">Waarmee kunnen wij u helpen?</legend>
+            <div class="mt-5 grid gap-3 sm:grid-cols-2">
+              <label class="choice">
+                <input type="radio" name="onderwerp" value="kennismaking" checked />
+                <span><Icon name="calendar" class="size-5" />Plan een kennismaking</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="onderwerp" value="vraag" />
+                <span><Icon name="chat" class="size-5" />Ik heb een vraag</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="mt-7 grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for={`${id}-naam`} class="label">Naam <span class="text-error" aria-hidden="true">*</span></label>
+              <input id={`${id}-naam`} name="naam" type="text" class="field" autocomplete="name" required maxlength="120" />
+            </div>
+            <div>
+              <label for={`${id}-bedrijf`} class="label">Bedrijfsnaam</label>
+              <input id={`${id}-bedrijf`} name="bedrijf" type="text" class="field" autocomplete="organization" maxlength="160" />
+            </div>
+            <div>
+              <label for={`${id}-email`} class="label">E-mailadres <span class="text-error" aria-hidden="true">*</span></label>
+              <input id={`${id}-email`} name="email" type="email" class="field" autocomplete="email" required maxlength="200" />
+            </div>
+            <div>
+              <label for={`${id}-telefoon`} class="label">Telefoon of WhatsApp</label>
+              <input id={`${id}-telefoon`} name="telefoon" type="tel" class="field" autocomplete="tel" maxlength="40" placeholder="+597" />
+            </div>
+            <div class="sm:col-span-2">
+              <label for={`${id}-dienst`} class="label">Dienst</label>
+              <select id={`${id}-dienst`} name="dienst" class="field">
+                <option value="">Maak een keuze (optioneel)</option>
+                {services.map((s) => <option value={s.slug}>{s.name} — {s.subtitle}</option>)}
+                <option value="meerdere">Meerdere diensten / weet ik nog niet</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label for={`${id}-bericht`} class="label">Bericht <span class="text-error" aria-hidden="true">*</span></label>
+              <textarea id={`${id}-bericht`} name="bericht" rows="5" class="field" required maxlength="4000" placeholder="Vertel kort iets over uw onderneming en waar u hulp bij zoekt."></textarea>
+            </div>
+          </div>
+
+          {/* Honeypot tegen spam — onzichtbaar voor bezoekers */}
+          <div class="hp" aria-hidden="true">
+            <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+          </div>
+          <input type="hidden" name="gestart" value="" />
+
+          <label class="mt-6 flex items-start gap-3 text-sm text-muted">
+            <input type="checkbox" name="akkoord" value="ja" required class="mt-0.5 size-4 accent-[#161616]" />
+            <span>Ik ga akkoord met het verwerken van mijn gegevens om mijn aanvraag te beantwoorden, zoals beschreven in de <a href="/privacy" class="underline underline-offset-2 hover:text-ink">privacyverklaring</a>. <span class="text-error" aria-hidden="true">*</span></span>
+          </label>
+
+          <p class="form-status mt-6 hidden border-l-2 p-4 text-[0.9375rem]" role="status" aria-live="polite"></p>
+
+          <button type="submit" class="btn btn-primary mt-6 w-full sm:w-auto">
+            <span class="submit-label">Verstuur aanvraag</span>
+            <Icon name="arrowRight" class="size-4" />
+          </button>
+          <p class="mt-4 text-xs text-muted">Velden met <span class="text-error">*</span> zijn verplicht.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  textarea.field {
+    min-height: 8rem;
+    resize: vertical;
+  }
+  .choice {
+    position: relative;
+    display: block;
+    cursor: pointer;
+  }
+  .choice input {
+    position: absolute;
+    opacity: 0;
+  }
+  .choice span {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid var(--color-line);
+    padding: 0.9rem 1rem;
+    font-weight: 500;
+    transition: border-color 150ms, background-color 150ms;
+  }
+  .choice:hover span {
+    border-color: var(--color-muted);
+  }
+  .choice input:checked + span {
+    border-color: var(--color-ink);
+    background: var(--color-mist);
+    box-shadow: inset 3px 0 0 var(--color-gold);
+  }
+  .choice input:focus-visible + span {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+  .hp {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  import { site } from '@/config/site';
+
+  const MESSAGES = {
+    success:
+      'Hartelijk dank voor uw bericht. Wij nemen zo snel mogelijk contact met u op.',
+    invalid: 'Controleer de gemarkeerde velden en probeer het opnieuw.',
+    failed: site.contact.email
+      ? `Het versturen is helaas niet gelukt. Probeer het later opnieuw of mail ons op ${site.contact.email}.`
+      : 'Het versturen is helaas niet gelukt. Probeer het later opnieuw.',
+  };
+
+  for (const form of document.querySelectorAll<HTMLFormElement>('form.contact-form')) {
+    const status = form.querySelector<HTMLElement>('.form-status')!;
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    const label = form.querySelector<HTMLElement>('.submit-label')!;
+    const started = form.querySelector<HTMLInputElement>('input[name="gestart"]')!;
+    started.value = String(Date.now());
+
+    // Onderwerp en dienst voorselecteren vanuit de URL (?onderwerp=…&dienst=…)
+    const params = new URLSearchParams(location.search);
+    const onderwerp = params.get('onderwerp');
+    if (onderwerp) {
+      const radio = form.querySelector<HTMLInputElement>(`input[name="onderwerp"][value="${CSS.escape(onderwerp)}"]`);
+      if (radio) radio.checked = true;
+    }
+    const dienst = params.get('dienst');
+    const select = form.querySelector<HTMLSelectElement>('select[name="dienst"]');
+    if (dienst && select && [...select.options].some((o) => o.value === dienst)) select.value = dienst;
+    if (params.get('verzonden') === '1') show('success');
+    if (params.get('fout') === '1') show('failed');
+
+    function show(kind: keyof typeof MESSAGES) {
+      status.textContent = MESSAGES[kind];
+      status.classList.remove('hidden', 'border-success', 'border-error', 'bg-mist');
+      status.classList.add(kind === 'success' ? 'border-success' : 'border-error', 'bg-mist');
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      // Validatie in de browser, met duidelijke markering
+      let firstInvalid: HTMLElement | null = null;
+      for (const el of form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[required]')) {
+        const valid = el.type === 'checkbox' ? (el as HTMLInputElement).checked : el.checkValidity() && el.value.trim() !== '';
+        el.setAttribute('aria-invalid', String(!valid));
+        if (!valid && !firstInvalid) firstInvalid = el;
+      }
+      if (firstInvalid) {
+        show('invalid');
+        firstInvalid.focus();
+        return;
+      }
+
+      button.disabled = true;
+      label.textContent = 'Bezig met versturen…';
+      try {
+        const data = Object.fromEntries(new FormData(form).entries());
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (res.ok) {
+          form.reset();
+          started.value = String(Date.now());
+          show('success');
+        } else {
+          show(res.status === 422 ? 'invalid' : 'failed');
+        }
+      } catch {
+        show('failed');
+      } finally {
+        button.disabled = false;
+        label.textContent = 'Verstuur aanvraag';
+        status.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    });
+  }
+</script>

@@ -1,0 +1,81 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { phoneHref, site, whatsappUrl } from '@/config/site';
+import { services, servicePath } from '@/data/services';
+import { kennismakingHref } from '@/data/navigation';
+
+const { contact, social } = site;
+const wa = whatsappUrl();
+const tel = phoneHref();
+const year = new Date().getFullYear();
+const socials = [
+  { label: 'Facebook', href: social.facebook },
+  { label: 'Instagram', href: social.instagram },
+  { label: 'LinkedIn', href: social.linkedin },
+].filter((s): s is { label: string; href: string } => Boolean(s.href));
+---
+
+<footer class="hatch-dark on-dark bg-ink text-on-dark">
+  <div class="container-site py-16 lg:py-20">
+    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr]">
+      <div>
+        <Logo onDark height={110} heightLg={130} />
+        <p class="mt-6 max-w-sm text-[0.9375rem] leading-relaxed text-on-dark-muted">{site.description}</p>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-xs font-semibold tracking-[0.2em] !text-gold-light uppercase">Diensten</h2>
+        <ul class="mt-5 space-y-3">
+          {services.map((s) => (
+            <li><a href={servicePath(s)} class="text-on-dark-muted transition-colors hover:text-on-dark">{s.name}</a></li>
+          ))}
+          <li><a href="/diensten" class="text-on-dark-muted transition-colors hover:text-on-dark">Alle diensten</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-xs font-semibold tracking-[0.2em] !text-gold-light uppercase">Bedrijf</h2>
+        <ul class="mt-5 space-y-3">
+          <li><a href="/over-ons" class="text-on-dark-muted transition-colors hover:text-on-dark">Over ons</a></li>
+          <li><a href="/#werkwijze" class="text-on-dark-muted transition-colors hover:text-on-dark">Werkwijze</a></li>
+          <li><a href="/veelgestelde-vragen" class="text-on-dark-muted transition-colors hover:text-on-dark">Veelgestelde vragen</a></li>
+          <li><a href="/contact" class="text-on-dark-muted transition-colors hover:text-on-dark">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-sans text-xs font-semibold tracking-[0.2em] !text-gold-light uppercase">Contact</h2>
+        <ul class="mt-5 space-y-3 text-on-dark-muted">
+          {wa && (
+            <li><a href={wa} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 hover:text-on-dark"><Icon name="whatsapp" class="size-4 text-gold" />WhatsApp</a></li>
+          )}
+          {contact.email && (
+            <li><a href={`mailto:${contact.email}`} class="inline-flex items-center gap-3 break-all hover:text-on-dark"><Icon name="mail" class="size-4 shrink-0 text-gold" />{contact.email}</a></li>
+          )}
+          {tel && (
+            <li><a href={tel} class="inline-flex items-center gap-3 hover:text-on-dark"><Icon name="phone" class="size-4 text-gold" />{contact.phone}</a></li>
+          )}
+          {contact.address && (
+            <li class="flex items-start gap-3"><Icon name="pin" class="mt-1 size-4 shrink-0 text-gold" /><address class="not-italic">{contact.address.street}<br />{contact.address.city}, {site.country}</address></li>
+          )}
+          {contact.openingHours && (
+            <li class="flex items-center gap-3"><Icon name="clock" class="size-4 text-gold" />{contact.openingHours}</li>
+          )}
+          <li><a href="/contact#formulier" class="inline-flex items-center gap-3 hover:text-on-dark"><Icon name="chat" class="size-4 text-gold" />Contactformulier</a></li>
+        </ul>
+        <a href={kennismakingHref} class="btn btn-gold mt-7">Plan een kennismaking <Icon name="arrowRight" class="size-4" /></a>
+      </div>
+    </div>
+
+    <div class="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-on-dark-muted md:flex-row md:items-center md:justify-between">
+      <p>© {year} {site.name}{contact.kkf ? ` · KKF ${contact.kkf}` : ''} · {site.country}</p>
+      <ul class="flex flex-wrap gap-x-6 gap-y-2">
+        {socials.map((s) => (
+          <li><a href={s.href} target="_blank" rel="noopener noreferrer" class="hover:text-on-dark">{s.label}</a></li>
+        ))}
+        <li><a href="/privacy" class="hover:text-on-dark">Privacyverklaring</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

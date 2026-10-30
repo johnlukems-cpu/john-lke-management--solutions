@@ -1,0 +1,44 @@
+---
+import { Picture } from 'astro:assets';
+import { getPhoto, photoSlots, type PhotoSlot } from '@/data/photos';
+import logoZwart from '@/assets/brand/logo-zwart.png';
+import { Image } from 'astro:assets';
+
+interface Props {
+  slot: PhotoSlot;
+  /** CSS-klassen voor het kader (bepaal hier de verhouding, bijv. aspect-[4/3]) */
+  class?: string;
+  /** sizes-attribuut voor responsive laden */
+  sizes?: string;
+  priority?: boolean;
+  /** Toon het logo als watermerk in het vervangende vlak */
+  mark?: boolean;
+}
+
+const { slot, class: className = 'aspect-[4/3]', sizes = '(min-width: 1024px) 50vw, 100vw', priority = false, mark = true } = Astro.props;
+const photo = getPhoto(slot);
+const { alt } = photoSlots[slot];
+---
+
+<figure class:list={['relative overflow-hidden bg-mist', className]}>
+  {
+    photo ? (
+      <Picture
+        src={photo}
+        alt={alt}
+        formats={['avif', 'webp']}
+        widths={[480, 800, 1200, 1600].filter((w) => w <= photo.width)}
+        sizes={sizes}
+        loading={priority ? 'eager' : 'lazy'}
+        fetchpriority={priority ? 'high' : 'auto'}
+        class="absolute inset-0 size-full object-cover"
+      />
+    ) : (
+      /* Neutraal vlak in de huisstijl zolang de foto nog niet is aangeleverd */
+      <div class="hatch absolute inset-0 grid place-items-center" data-photo-placeholder={slot}>
+        {mark && <Image src={logoZwart} alt="" width={120} height={90} class="h-auto w-[22%] max-w-28 opacity-[0.13]" />}
+      </div>
+    )
+  }
+  <slot />
+</figure>

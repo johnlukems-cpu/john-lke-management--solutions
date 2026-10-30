@@ -1,0 +1,14 @@
+{
+  "name": "John-Luke Management Solutions",
+  "short_name": "John-Luke",
+  "description": "Administratie, payroll, tax en jaarrekening voor ondernemers in Suriname.",
+  "lang": "nl",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#161616",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

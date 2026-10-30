@@ -1,0 +1,302 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/fraunces';
+
+/* =============================================================================
+   HUISSTIJL — John-Luke Management Solutions
+   Afgeleid van het logo: zwart/antraciet lijnwerk op wit, met een subtiel goud
+   accent voor knoppen, lijnen en details. Pas kleuren uitsluitend hier aan.
+   ============================================================================ */
+@theme {
+  --color-*: initial;
+  --color-ink: #161616; /* primaire merkkleur (zwart) */
+  --color-ink-soft: #26262a; /* antraciet */
+  --color-ink-muted: #3a3a3f;
+  --color-paper: #ffffff;
+  --color-mist: #f4f4f1; /* lichtgrijze achtergrond */
+  --color-mist-strong: #e9e8e3;
+  --color-line: #dcdad3;
+  --color-text: #1d1d1f;
+  --color-muted: #55555b; /* AA op wit en mist */
+  --color-gold: #b39250; /* decoratief accent */
+  --color-gold-deep: #7f6328; /* goud voor tekst op licht (AA) */
+  --color-gold-light: #d9c28e; /* goud op donker */
+  --color-on-dark: #ffffff;
+  --color-on-dark-muted: #c4c3bd;
+  --color-success: #23683f;
+  --color-error: #a3261d;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-display: 'Fraunces Variable', ui-serif, Georgia, 'Times New Roman', serif;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--color-ink);
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+    font-variation-settings: 'opsz' 72, 'SOFT' 0, 'WONK' 0;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--color-gold-light);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-site {
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-site {
+      padding-inline: 2rem;
+    }
+  }
+
+  .section {
+    padding-block: 4rem;
+  }
+  @media (min-width: 1024px) {
+    .section {
+      padding-block: 6rem;
+    }
+  }
+
+  /* Label boven koppen — echoot "— MANAGEMENT SOLUTIONS —" uit het logo */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-gold-deep);
+  }
+  .eyebrow::before {
+    content: '';
+    width: 1.75rem;
+    height: 1px;
+    background: currentColor;
+  }
+  .eyebrow-center::after {
+    content: '';
+    width: 1.75rem;
+    height: 1px;
+    background: currentColor;
+  }
+  .on-dark .eyebrow {
+    color: var(--color-gold-light);
+  }
+
+  /* Gravure-arcering, zoals in de manchetten van het logo */
+  .hatch {
+    background-color: var(--color-mist);
+    background-image: repeating-linear-gradient(
+      -62deg,
+      transparent 0 9px,
+      rgba(22, 22, 22, 0.075) 9px 10px
+    );
+  }
+  .hatch-dark {
+    background-image: repeating-linear-gradient(
+      -62deg,
+      transparent 0 9px,
+      rgba(255, 255, 255, 0.05) 9px 10px
+    );
+  }
+
+  /* Knoppen */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 3rem;
+    padding: 0.75rem 1.4rem;
+    border-radius: 2px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-align: center;
+    border: 1px solid transparent;
+    transition:
+      background-color 200ms var(--ease-out),
+      color 200ms var(--ease-out),
+      border-color 200ms var(--ease-out),
+      transform 200ms var(--ease-out);
+  }
+  .btn svg {
+    transition: transform 200ms var(--ease-out);
+  }
+  .btn:hover svg {
+    transform: translateX(3px);
+  }
+  .btn-primary {
+    background: var(--color-ink);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--color-ink-muted);
+  }
+  .btn-gold {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+  .btn-gold:hover {
+    background: var(--color-gold-light);
+  }
+  .btn-outline {
+    border-color: var(--color-ink);
+    color: var(--color-ink);
+  }
+  .btn-outline:hover {
+    background: var(--color-ink);
+    color: #fff;
+  }
+  .btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.45);
+    color: #fff;
+  }
+  .btn-outline-light:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .btn-whatsapp {
+    background: #128c7e;
+    color: #fff;
+  }
+  .btn-whatsapp:hover {
+    background: #0f7569;
+  }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--color-ink);
+    border-bottom: 1px solid var(--color-gold);
+    padding-bottom: 2px;
+  }
+  .link-arrow svg {
+    transition: transform 200ms var(--ease-out);
+  }
+  .link-arrow:hover svg,
+  .group:hover .link-arrow svg {
+    transform: translateX(3px);
+  }
+
+  /* Formuliervelden */
+  .field {
+    width: 100%;
+    min-height: 3rem;
+    border: 1px solid var(--color-line);
+    border-radius: 2px;
+    background: #fff;
+    padding: 0.7rem 0.9rem;
+    font-size: 1rem;
+    color: var(--color-text);
+    transition: border-color 150ms;
+  }
+  .field:hover {
+    border-color: var(--color-muted);
+  }
+  .field:focus {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 0;
+    border-color: var(--color-ink);
+  }
+  .field[aria-invalid='true'] {
+    border-color: var(--color-error);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100px;
+    z-index: 100;
+    padding: 0.6rem 1rem;
+    background: var(--color-ink);
+    color: #fff;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+}
+
+/* Subtiele fade-in bij scrollen (alleen met JS, respecteert reduced motion) */
+@layer utilities {
+  .js .reveal {
+    opacity: 0;
+    translate: 0 16px;
+    transition:
+      opacity 700ms var(--ease-out),
+      translate 700ms var(--ease-out);
+  }
+  .js .reveal.is-visible {
+    opacity: 1;
+    translate: 0 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+}

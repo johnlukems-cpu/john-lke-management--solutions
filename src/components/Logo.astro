@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '@/config/site';
+import logoZwart from '@/assets/brand/logo-zwart.png';
+import logoWit from '@/assets/brand/logo-wit.png';
+
+interface Props {
+  /** Witte variant voor donkere achtergronden */
+  onDark?: boolean;
+  /** Weergavehoogte in px; de breedte volgt de originele verhouding */
+  height?: number;
+  /** Hoogte vanaf 1024 px schermbreedte (optioneel) */
+  heightLg?: number;
+  link?: boolean;
+  priority?: boolean;
+  class?: string;
+}
+
+const { onDark = false, height = 64, heightLg, link = true, priority = false, class: className = '' } = Astro.props;
+const src = onDark ? logoWit : logoZwart;
+const ratio = src.width / src.height;
+const maxH = heightLg ?? height;
+const style = `--logo-h:${height}px;--logo-h-lg:${maxH}px`;
+---
+
+{
+  link ? (
+    <a href="/" class:list={['logo inline-flex shrink-0', className]} style={style} aria-label={`${site.name} — naar de homepage`}>
+      <Image
+        src={src}
+        alt={`Logo ${site.name}`}
+        width={Math.round(maxH * ratio)}
+        height={maxH}
+        densities={[1, 2]}
+        format="webp"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchpriority={priority ? 'high' : 'auto'}
+      />
+    </a>
+  ) : (
+    <span class:list={['logo inline-flex shrink-0', className]} style={style}>
+      <Image
+        src={src}
+        alt={`Logo ${site.name}`}
+        width={Math.round(maxH * ratio)}
+        height={maxH}
+        densities={[1, 2]}
+        format="webp"
+        loading={priority ? 'eager' : 'lazy'}
+      />
+    </span>
+  )
+}
+
+<style>
+  .logo :global(img) {
+    height: var(--logo-h);
+    width: auto;
+  }
+  @media (min-width: 1024px) {
+    .logo :global(img) {
+      height: var(--logo-h-lg);
+    }
+  }
+</style>

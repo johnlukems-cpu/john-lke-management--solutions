@@ -1,0 +1,47 @@
+---
+import Icon from './Icon.astro';
+import { whatsappUrl } from '@/config/site';
+const href = whatsappUrl();
+---
+
+{
+  href && (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="whatsapp-fab"
+      aria-label="Stuur ons een bericht via WhatsApp (opent in een nieuw venster)"
+    >
+      <Icon name="whatsapp" class="size-7" stroke={1.6} />
+    </a>
+  )
+}
+
+<style>
+  .whatsapp-fab {
+    position: fixed;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    z-index: 40;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 9999px;
+    background: #128c7e;
+    color: #fff;
+    box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.35);
+    transition: transform 200ms, background-color 200ms;
+  }
+  .whatsapp-fab:hover {
+    background: #0f7569;
+    transform: scale(1.06);
+  }
+  @media print {
+    .whatsapp-fab {
+      display: none;
+    }
+  }
+</style>

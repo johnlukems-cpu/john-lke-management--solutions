@@ -1,0 +1,22 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+import { services, servicePath } from '@/data/services';
+---
+
+<BaseLayout title="Pagina niet gevonden" description="Deze pagina bestaat niet (meer)." noindex>
+  <section class="section hatch">
+    <div class="container-site max-w-3xl text-center">
+      <p class="eyebrow eyebrow-center mb-5">404</p>
+      <h1 class="text-[2.5rem] sm:text-5xl">Deze pagina bestaat niet</h1>
+      <p class="mt-5 text-lg text-muted">Misschien is de pagina verplaatst. Kies hieronder waar u naartoe wilt.</p>
+      <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+        <a href="/" class="btn btn-primary">Naar de homepage <Icon name="arrowRight" class="size-4" /></a>
+        <a href="/contact" class="btn btn-outline">Neem contact op</a>
+      </div>
+      <ul class="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-3">
+        {services.map((s) => <li><a href={servicePath(s)} class="link-arrow">{s.name}</a></li>)}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

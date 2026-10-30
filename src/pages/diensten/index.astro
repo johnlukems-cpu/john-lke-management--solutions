@@ -1,0 +1,55 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import Photo from '@/components/Photo.astro';
+import Icon from '@/components/Icon.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { services, servicePath } from '@/data/services';
+import { breadcrumbSchema } from '@/lib/schema';
+
+const origin = (Astro.site?.origin ?? Astro.url.origin).replace(/\/$/, '');
+const crumbs = [{ name: 'Diensten', path: '/diensten' }];
+---
+
+<BaseLayout
+  title="Administratieve dienstverlening in Suriname"
+  description="Administratieve dienstverlening in Suriname: boekhouding, payroll en salarisadministratie, belastingondersteuning en jaarrekening voor kleine en middelgrote ondernemingen."
+  schema={[
+    breadcrumbSchema(origin, crumbs),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      itemListElement: services.map((s, i) => ({ '@type': 'ListItem', position: i + 1, name: s.name, url: `${origin}${servicePath(s)}` })),
+    },
+  ]}
+>
+  <PageHero
+    eyebrow="Onze diensten"
+    title="Administratieve dienstverlening voor ondernemers in Suriname"
+    intro="Administratie, payroll, tax en jaarrekening: los af te nemen of als compleet pakket, altijd met één vertrouwd aanspreekpunt."
+    crumbs={crumbs}
+  />
+
+  <section class="section bg-paper">
+    <div class="container-site space-y-20 lg:space-y-28">
+      {services.map((s, i) => (
+        <article class="grid items-center gap-10 lg:grid-cols-2 lg:gap-20" aria-labelledby={`dienst-${s.slug}`}>
+          <Photo slot={s.photo} class:list={['reveal aspect-[4/3]', i % 2 === 1 && 'lg:order-last']} />
+          <div class="reveal">
+            <p class="eyebrow mb-5">0{i + 1} · {s.subtitle}</p>
+            <h2 id={`dienst-${s.slug}`} class="text-[2rem] leading-[1.15] sm:text-[2.5rem]">{s.name}</h2>
+            <p class="mt-5 text-lg leading-relaxed text-muted">{s.summary}</p>
+            <ul class="mt-7 grid gap-3 sm:grid-cols-2">
+              {s.tasks.map((t) => (
+                <li class="flex items-start gap-3 text-[0.9375rem] text-ink"><Icon name="check" class="mt-0.5 size-4 shrink-0 text-gold-deep" stroke={2.2} />{t}</li>
+              ))}
+            </ul>
+            <a href={servicePath(s)} class="btn btn-primary mt-9">Meer over {s.name} <Icon name="arrowRight" class="size-4" /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

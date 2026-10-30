@@ -1,0 +1,55 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import { site } from '@/config/site';
+---
+
+<BaseLayout title="Privacyverklaring" description={`Hoe ${site.name} omgaat met persoonsgegevens die u via deze website verstrekt.`}>
+  <PageHero eyebrow="Privacy" title="Privacyverklaring" crumbs={[{ name: 'Privacyverklaring', path: '/privacy' }]} />
+  <section class="section bg-paper">
+    <div class="container-site">
+      <div class="prose-legal max-w-3xl space-y-8 text-muted">
+        <p class="text-lg">{site.name} gaat zorgvuldig en vertrouwelijk om met de persoonsgegevens die u aan ons verstrekt. In deze verklaring leest u welke gegevens wij via deze website verwerken en waarvoor.</p>
+        <div>
+          <h2>Welke gegevens</h2>
+          <p>Via het contactformulier vragen wij uw naam en e-mailadres, en optioneel uw bedrijfsnaam, telefoonnummer, de dienst waarin u interesse heeft en uw bericht.</p>
+        </div>
+        <div>
+          <h2>Waarvoor</h2>
+          <p>Wij gebruiken deze gegevens uitsluitend om uw vraag te beantwoorden en, als u dat wenst, een kennismaking met u in te plannen. Wij verkopen uw gegevens niet en delen ze niet met derden voor marketingdoeleinden.</p>
+        </div>
+        <div>
+          <h2>Verwerking</h2>
+          <p>Berichten uit het formulier worden via een beveiligde verbinding per e-mail aan ons doorgestuurd. Daarvoor maken wij gebruik van een externe e-maildienst die de gegevens alleen voor dat doel verwerkt.</p>
+        </div>
+        <div>
+          <h2>Bewaartermijn</h2>
+          <p>Wij bewaren uw gegevens niet langer dan nodig is voor het afhandelen van uw vraag, of — als u klant wordt — zolang als nodig is voor onze dienstverlening en wettelijke verplichtingen.</p>
+        </div>
+        <div>
+          <h2>Cookies</h2>
+          <p>Deze website gebruikt geen tracking- of advertentiecookies.</p>
+        </div>
+        <div>
+          <h2>Uw rechten</h2>
+          <p>U kunt ons altijd vragen welke gegevens wij van u hebben, en verzoeken om die te corrigeren of te verwijderen. Neem daarvoor contact met ons op via de <a href="/contact">contactpagina</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .prose-legal h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose-legal p {
+    line-height: 1.75;
+  }
+  .prose-legal a {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>

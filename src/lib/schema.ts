@@ -1,0 +1,90 @@
+import { site, whatsappUrl } from '@/config/site';
+import type { FaqItem, Service } from '@/data/services';
+
+/**
+ * Structured data (JSON-LD) voor Google. Bevat uitsluitend bevestigde gegevens:
+ * velden die in src/config/site.ts op null staan, worden weggelaten.
+ */
+export function organizationSchema(origin: string, logoUrl: string) {
+  const { contact, social } = site;
+  const sameAs = [social.facebook, social.instagram, social.linkedin].filter(Boolean);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': `${origin}/#organisatie`,
+    name: site.name,
+    description: site.description,
+    url: `${origin}/`,
+    logo: logoUrl,
+    image: logoUrl,
+    areaServed: { '@type': 'Country', name: 'Suriname' },
+    currenciesAccepted: site.currency,
+    knowsLanguage: 'nl',
+    ...(contact.email && { email: contact.email }),
+    ...(contact.phone && { telephone: contact.phone }),
+    ...(contact.address && {
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: contact.address.street,
+        addressLocality: contact.address.city,
+        ...(contact.address.district && { addressRegion: contact.address.district }),
+        addressCountry: 'SR',
+      },
+    }),
+    ...(sameAs.length && { sameAs }),
+    ...(whatsappUrl() && {
+      contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', url: whatsappUrl() },
+    }),
+  };
+}
+
+export function websiteSchema(origin: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${origin}/#website`,
+    name: site.name,
+    url: `${origin}/`,
+    inLanguage: 'nl',
+    publisher: { '@id': `${origin}/#organisatie` },
+  };
+}
+
+export function serviceSchema(origin: string, s: Service) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `${s.name} — ${s.subtitle}`,
+    serviceType: s.subtitle,
+    description: s.seoDescription,
+    url: `${origin}/diensten/${s.slug}`,
+    areaServed: { '@type': 'Country', name: 'Suriname' },
+    provider: { '@id': `${origin}/#organisatie` },
+  };
+}
+
+export function faqSchema(items: FaqItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((q) => ({
+      '@type': 'Question',
+      name: q.question,
+      acceptedAnswer: { '@type': 'Answer', text: q.answer },
+    })),
+  };
+}
+
+export function breadcrumbSchema(origin: string, crumbs: { name: string; path: string }[]) {
+  const all = [{ name: 'Home', path: '/' }, ...crumbs];
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: all.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.name,
+      item: `${origin}${c.path === '/' ? '/' : c.path}`,
+    })),
+  };
+}
