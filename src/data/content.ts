@@ -11,7 +11,7 @@ export const reasons: { icon: IconName; title: string; text: string }[] = [
   {
     icon: 'layers',
     title: 'Alles onder één dak',
-    text: 'Administratie, payroll, tax, jaarrekening, advies, audit en automatisering sluiten op elkaar aan, omdat ze vanuit één administratie worden verzorgd.',
+    text: 'Administratie, payroll, tax, jaarrekening, advies en automatisering sluiten op elkaar aan, omdat ze vanuit één administratie worden verzorgd.',
   },
   {
     icon: 'shield',
@@ -83,7 +83,7 @@ export const audiences = {
 /** Algemene veelgestelde vragen (homepage + FAQ-pagina). */
 export const generalFaq: FaqItem[] = [
   {
-    question: 'Voor welke ondernemingen werkt John-Luke Management Solutions?',
+    question: 'Voor welke ondernemingen werkt John-Luke Finance & Advies?',
     answer:
       'Wij werken voor kleine en middelgrote ondernemingen in Suriname: van zelfstandige ondernemers, winkels, horeca en starters tot handelsbedrijven en organisaties met personeel en een uitgebreidere administratie.',
   },

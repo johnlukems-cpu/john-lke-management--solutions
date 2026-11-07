@@ -6,16 +6,14 @@ export const icons = {
   ledger:
     '<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v15H5.5A1.5 1.5 0 0 0 4 19.5v-15Z"/><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H19v-3"/><path d="M8 7h7M8 10.5h7M8 14h4"/>',
   payroll:
-    '<rect x="3" y="6" width="18" height="12" rx="1.5"/><circle cx="12" cy="12" r="2.5"/><path d="M6.5 9.5v.01M17.5 14.5v.01"/>',
+    '<path d="M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21z"/><path d="M9 7.5h6M9 11h6M9 14.5h3.5"/>',
   tax: '<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="m10 16.5 5-5"/><circle cx="10.5" cy="12" r=".9"/><circle cx="14.5" cy="16" r=".9"/>',
   report:
-    '<path d="M4 20h16"/><path d="M6.5 16.5v-5M11 16.5V7.5M15.5 16.5v-7M20 4l-4 3.5-4-2.5-5 4"/>',
+    '<path d="M12 4v16M8 20h8M4.5 7h15"/><path d="M4.5 7 2 13a2.5 2.5 0 0 0 5 0z"/><path d="M19.5 7 17 13a2.5 2.5 0 0 0 5 0z"/>',
   advice:
     '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3Z"/>',
-  audit:
-    '<path d="M9 4h6v3H9z"/><path d="M15 5.5h2.5V21h-11V5.5H9"/><circle cx="11.5" cy="13" r="2.6"/><path d="m13.4 14.9 2.1 2.1"/>',
   automation:
-    '<rect x="5" y="7" width="14" height="11" rx="2"/><path d="M12 7V4M9 4h6"/><circle cx="9.5" cy="12" r="1.2"/><circle cx="14.5" cy="12" r="1.2"/><path d="M9.5 15.5h5M3 11.5v3M21 11.5v3"/>',
+    '<rect x="3" y="4" width="6" height="5" rx="1"/><rect x="15" y="15" width="6" height="5" rx="1"/><path d="M6 9v3.5a2 2 0 0 0 2 2h7"/><path d="m13 12.5 2 2-2 2"/><circle cx="18" cy="6.5" r="2.5"/><path d="M9 6.5h6.5"/>',
   arrowRight: '<path d="M5 12h14M13 6l6 6-6 6"/>',
   check: '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
   whatsapp:

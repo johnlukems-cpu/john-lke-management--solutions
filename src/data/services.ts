@@ -48,13 +48,13 @@ export const services: Service[] = [
     photo: 'administratie',
     seoTitle: 'Administratie en boekhouding in Suriname',
     seoDescription:
-      'Boekhouding uitbesteden in Suriname? John-Luke Management Solutions verzorgt uw financiële administratie: facturen, bankmutaties, debiteuren, crediteuren en rapportages.',
+      'Boekhouding uitbesteden in Suriname? John-Luke Finance & Advies verzorgt uw financiële administratie: facturen, bankmutaties, debiteuren, crediteuren en rapportages.',
     summary:
       'Inkoop- en verkoopfacturen, bankmutaties, debiteuren en crediteuren: uw financiële administratie actueel en op orde.',
     heading: 'Financiële administratie voor ondernemers in Suriname',
     intro: [
       'Een kloppende administratie is de basis van elke onderneming. Toch schuift de boekhouding vaak naar achteren, omdat klanten, personeel en de dagelijkse gang van zaken voorgaan.',
-      'John-Luke Management Solutions neemt de verwerking van uw financiële administratie van u over. Wij verwerken uw facturen en bankmutaties, houden uw debiteuren en crediteuren bij en zorgen voor overzichtelijke rapportages. Zo weet u op elk moment hoe uw onderneming ervoor staat.',
+      'John-Luke Finance & Advies neemt de verwerking van uw financiële administratie van u over. Wij verwerken uw facturen en bankmutaties, houden uw debiteuren en crediteuren bij en zorgen voor overzichtelijke rapportages. Zo weet u op elk moment hoe uw onderneming ervoor staat.',
     ],
     tasks: [
       'Financiële administratie',
@@ -110,13 +110,13 @@ export const services: Service[] = [
     photo: 'payroll',
     seoTitle: 'Payroll en salarisadministratie in Suriname',
     seoDescription:
-      'Salarisadministratie uitbesteden in Suriname. John-Luke Management Solutions verzorgt loonberekeningen, loonstroken, loonmutaties en loonbelastinggerelateerd administratief werk.',
+      'Salarisadministratie uitbesteden in Suriname. John-Luke Finance & Advies verzorgt loonberekeningen, loonstroken, loonmutaties en loonbelastinggerelateerd administratief werk.',
     summary:
       'Loonberekeningen, loonstroken en loonmutaties: uw salarisadministratie elke periode correct en op tijd verwerkt.',
     heading: 'Payroll en salarisadministratie in Suriname',
     intro: [
       'Uw personeel rekent erop dat het salaris op tijd en correct wordt uitbetaald. Tegelijk vraagt de salarisadministratie om nauwkeurigheid: loonberekeningen, mutaties, loonstroken en de loonbelastinggerelateerde administratie moeten kloppen.',
-      'John-Luke Management Solutions verzorgt uw salarisadministratie van begin tot eind. Wij verwerken de loonmutaties die u aanlevert, maken de loonberekeningen en loonstroken en ondersteunen u bij de personeelsadministratie. U houdt tijd over voor uw mensen en uw onderneming.',
+      'John-Luke Finance & Advies verzorgt uw salarisadministratie van begin tot eind. Wij verwerken de loonmutaties die u aanlevert, maken de loonberekeningen en loonstroken en ondersteunen u bij de personeelsadministratie. U houdt tijd over voor uw mensen en uw onderneming.',
     ],
     tasks: [
       'Salarisadministratie',
@@ -172,13 +172,13 @@ export const services: Service[] = [
     photo: 'tax',
     seoTitle: 'Belastingaangifte en btw-ondersteuning in Suriname',
     seoDescription:
-      'Hulp bij belastingaangiften in Suriname. John-Luke Management Solutions ondersteunt bij aangiften, btw-werkzaamheden en het voorbereiden en controleren van belastinggegevens.',
+      'Hulp bij belastingaangiften in Suriname. John-Luke Finance & Advies ondersteunt bij aangiften, btw-werkzaamheden en het voorbereiden en controleren van belastinggegevens.',
     summary:
       'Ondersteuning bij belastingaangiften en btw-werkzaamheden, met zorgvuldig voorbereide en gecontroleerde gegevens.',
     heading: 'Ondersteuning bij belastingaangiften in Suriname',
     intro: [
       'Fiscale verplichtingen vragen om tijdige en zorgvuldige voorbereiding. Gegevens moeten compleet zijn, aansluiten op uw administratie en op tijd klaarstaan.',
-      'John-Luke Management Solutions ondersteunt u bij uw belastingaangiften en btw-gerelateerde werkzaamheden in Suriname. Wij bereiden de belastinggegevens voor op basis van uw administratie, controleren ze en zorgen dat u overzicht houdt over uw fiscale verplichtingen.',
+      'John-Luke Finance & Advies ondersteunt u bij uw belastingaangiften en btw-gerelateerde werkzaamheden in Suriname. Wij bereiden de belastinggegevens voor op basis van uw administratie, controleren ze en zorgen dat u overzicht houdt over uw fiscale verplichtingen.',
     ],
     tasks: [
       'Ondersteuning bij belastingaangiften',
@@ -235,13 +235,13 @@ export const services: Service[] = [
     photo: 'jaarrekening',
     seoTitle: 'Jaarrekening en jaarafsluiting in Suriname',
     seoDescription:
-      'Jaarrekening laten opstellen in Suriname? John-Luke Management Solutions verzorgt jaarafsluitingen, balans en winst-en-verliesrekening en de voorbereiding voor uw accountant.',
+      'Jaarrekening laten opstellen in Suriname? John-Luke Finance & Advies verzorgt jaarafsluitingen, balans en winst-en-verliesrekening en de voorbereiding voor uw accountant.',
     summary:
       'Jaarafsluiting, balans en winst-en-verliesrekening: uw boekjaar netjes afgesloten en uw gegevens klaar voor uw accountant.',
     heading: 'Jaarrekening en jaarafsluiting in Suriname',
     intro: [
       'Aan het einde van het boekjaar moet uw administratie compleet zijn en kloppen. Banken, investeerders, de belastingdienst en uw eigen onderneming vragen om betrouwbare financiële overzichten.',
-      'John-Luke Management Solutions bereidt uw jaarrekening en jaarafsluiting voor. Wij stellen de balans en de winst-en-verliesrekening op, maken heldere financiële overzichten en bereiden de gegevens voor uw accountant of andere financiële adviseurs voor.',
+      'John-Luke Finance & Advies bereidt uw jaarrekening en jaarafsluiting voor. Wij stellen de balans en de winst-en-verliesrekening op, maken heldere financiële overzichten en bereiden de gegevens voor uw accountant of andere financiële adviseurs voor.',
     ],
     tasks: [
       'Voorbereiding van jaarrekeningen',
@@ -288,7 +288,7 @@ export const services: Service[] = [
       },
     ],
     scopeNote:
-      'John-Luke Management Solutions is geen accountantskantoor. Wij bereiden jaarrekeningen voor en leveren de gegevens aan uw accountant of financiële adviseur; een accountantsverklaring geven wij niet af.',
+      'John-Luke Finance & Advies is geen accountantskantoor. Wij bereiden jaarrekeningen voor en leveren de gegevens aan uw accountant of financiële adviseur; een accountantsverklaring geven wij niet af.',
   },
   {
     slug: 'advies',
@@ -298,13 +298,13 @@ export const services: Service[] = [
     photo: 'advies',
     seoTitle: 'Financieel en administratief advies in Suriname',
     seoDescription:
-      'Advies over uw administratie en financiën in Suriname. John-Luke Management Solutions adviseert over de inrichting van uw administratie, financieel inzicht, begrotingen en het starten van een onderneming.',
+      'Advies over uw administratie en financiën in Suriname. John-Luke Finance & Advies adviseert over de inrichting van uw administratie, financieel inzicht, begrotingen en het starten van een onderneming.',
     summary:
       'Praktisch advies over de inrichting van uw administratie, uw cijfers en de financiële kant van uw onderneming.',
     heading: 'Financieel-administratief advies voor ondernemers in Suriname',
     intro: [
       'Goede beslissingen beginnen bij inzicht in uw cijfers. Toch is het als ondernemer niet altijd duidelijk wat uw administratie u vertelt, hoe u die het beste inricht of waar u op moet letten als uw onderneming groeit.',
-      'John-Luke Management Solutions denkt met u mee. Wij adviseren over de opzet van uw administratie, maken uw cijfers begrijpelijk en helpen u bij financiële keuzes, zoals een begroting, een liquiditeitsoverzicht of de administratieve kant van het starten of uitbreiden van uw onderneming.',
+      'John-Luke Finance & Advies denkt met u mee. Wij adviseren over de opzet van uw administratie, maken uw cijfers begrijpelijk en helpen u bij financiële keuzes, zoals een begroting, een liquiditeitsoverzicht of de administratieve kant van het starten of uitbreiden van uw onderneming.',
     ],
     tasks: [
       'Advies over de inrichting van uw administratie',
@@ -355,70 +355,6 @@ export const services: Service[] = [
       'Ons advies richt zich op administratie en financiën. Voor juridisch advies en complexe fiscale vraagstukken adviseren wij u een gespecialiseerde adviseur in te schakelen.',
   },
   {
-    slug: 'audit',
-    name: 'Audit',
-    subtitle: 'Interne audit en administratieve controle',
-    icon: 'audit',
-    photo: 'audit',
-    seoTitle: 'Interne audit en administratieve controle in Suriname',
-    seoDescription:
-      'Interne audit in Suriname: John-Luke Management Solutions controleert uw administratie, processen en interne beheersing en rapporteert concrete bevindingen en verbeterpunten.',
-    summary:
-      'Een onafhankelijke controle van uw administratie en processen, met heldere bevindingen en concrete verbeterpunten.',
-    heading: 'Interne audit en administratieve controle in Suriname',
-    intro: [
-      'Klopt uw administratie echt? Zijn uw processen zo ingericht dat fouten en onregelmatigheden op tijd worden opgemerkt? Een frisse, onafhankelijke blik geeft daar antwoord op.',
-      'John-Luke Management Solutions voert interne audits en administratieve controles uit. Wij controleren uw administratie en werkwijzen, beoordelen de interne beheersing en leggen onze bevindingen vast in een overzichtelijke rapportage met concrete verbeterpunten.',
-    ],
-    tasks: [
-      'Controle van de volledigheid en juistheid van uw administratie',
-      'Beoordeling van administratieve processen en interne beheersing',
-      'Controle van kas, bank, debiteuren en crediteuren',
-      'Controle van de salarisadministratie',
-      'Rapportage met bevindingen en verbeterpunten',
-      'Ondersteuning bij het doorvoeren van verbeteringen',
-    ],
-    benefits: [
-      {
-        title: 'Zekerheid over uw administratie',
-        text: 'U weet of uw administratie volledig en juist is, en waar eventuele fouten of hiaten zitten.',
-      },
-      {
-        title: 'Sterkere interne beheersing',
-        text: 'Zwakke plekken in uw processen worden zichtbaar, zodat u risico’s op fouten en onregelmatigheden kunt verkleinen.',
-      },
-      {
-        title: 'Concrete verbeterpunten',
-        text: 'Geen vage conclusies, maar een rapportage met duidelijke bevindingen en praktische aanbevelingen.',
-      },
-    ],
-    audience: [
-      'Ondernemers die zekerheid willen over hun administratie',
-      'Bedrijven met personeel en meerdere mensen die financiële handelingen verrichten',
-      'Organisaties die hun interne beheersing willen versterken',
-      'Ondernemingen die een overdracht, investering of financiering voorbereiden',
-    ],
-    faq: [
-      {
-        question: 'Is een interne audit hetzelfde als een accountantscontrole?',
-        answer:
-          'Nee. Een interne audit is een controle van uw administratie en processen in opdracht van uzelf, gericht op inzicht en verbetering. Een wettelijke controle van de jaarrekening met een accountantsverklaring wordt uitgevoerd door een accountant; die verklaring geven wij niet af.',
-      },
-      {
-        question: 'Wat ontvang ik na de audit?',
-        answer:
-          'U ontvangt een rapportage met onze bevindingen en aanbevelingen. Wij lichten die graag in een gesprek toe en kunnen u helpen bij het doorvoeren van verbeteringen.',
-      },
-      {
-        question: 'Hoe lang duurt een interne audit?',
-        answer:
-          'Dat hangt af van de omvang van uw onderneming en van wat er gecontroleerd moet worden. Wij spreken de reikwijdte en planning vooraf met u af.',
-      },
-    ],
-    scopeNote:
-      'Onze audits zijn interne controles in opdracht van de onderneming zelf. John-Luke Management Solutions is geen accountantskantoor en voert geen wettelijke controle van de jaarrekening uit; een accountantsverklaring geven wij niet af.',
-  },
-  {
     slug: 'ai-automation',
     ctaTitle: 'Klaar om slimmer te werken?',
     name: 'AI & Automation',
@@ -427,13 +363,13 @@ export const services: Service[] = [
     photo: 'automation',
     seoTitle: 'AI en automatisering van uw administratie in Suriname',
     seoDescription:
-      'Automatiseer uw administratie in Suriname. John-Luke Management Solutions helpt ondernemers met digitale facturen, automatische verwerking, dashboards en verantwoord gebruik van AI.',
+      'Automatiseer uw administratie in Suriname. John-Luke Finance & Advies helpt ondernemers met digitale facturen, automatische verwerking, dashboards en verantwoord gebruik van AI.',
     summary:
       'Minder handwerk en sneller inzicht: wij helpen uw administratieve processen te digitaliseren en slim te automatiseren.',
     heading: 'AI en automatisering voor uw administratie',
     intro: [
       'Veel administratief werk is herhaling: facturen overtypen, bankafschriften afstemmen, dezelfde overzichten elke maand opnieuw maken. Dat kost tijd en vergroot de kans op fouten.',
-      'John-Luke Management Solutions helpt u dat werk te digitaliseren en te automatiseren. Wij brengen uw huidige werkwijze in kaart, kijken waar automatisering en AI-hulpmiddelen echt tijd besparen en richten die samen met u in. Altijd met aandacht voor de betrouwbaarheid van uw cijfers en de vertrouwelijkheid van uw gegevens.',
+      'John-Luke Finance & Advies helpt u dat werk te digitaliseren en te automatiseren. Wij brengen uw huidige werkwijze in kaart, kijken waar automatisering en AI-hulpmiddelen echt tijd besparen en richten die samen met u in. Altijd met aandacht voor de betrouwbaarheid van uw cijfers en de vertrouwelijkheid van uw gegevens.',
     ],
     tasks: [
       'Analyse van uw administratieve processen en verbetermogelijkheden',

@@ -1,5 +1,5 @@
 /**
- * Centrale bedrijfsgegevens van John-Luke Management Solutions.
+ * Centrale bedrijfsgegevens van John-Luke Finance & Advies.
  *
  * LET OP — niets in dit bestand mag worden verzonnen.
  * Velden met `null` zijn nog niet bevestigd en worden NIET op de website getoond.
@@ -16,11 +16,11 @@ export interface Address {
 
 export const site = {
   /** Officiële bedrijfsnaam — schrijf dit altijd exact zo */
-  name: 'John-Luke Management Solutions',
+  name: 'John-Luke Finance & Advies',
   shortName: 'John-Luke',
   tagline: 'Uw financiële administratie. Onze zorg. Uw ruimte om te groeien.',
   description:
-    'John-Luke Management Solutions ondersteunt kleine en middelgrote ondernemingen in Suriname met professionele administratie, salarisverwerking, belastingondersteuning, jaarrekeningen, advies, interne audits en AI & automation.',
+    'John-Luke Finance & Advies ondersteunt kleine en middelgrote ondernemingen in Suriname met professionele administratie, salarisverwerking, belastingondersteuning, jaarrekeningen, advies en AI & automation.',
   locale: 'nl_SR',
   language: 'nl',
   country: 'Suriname',
@@ -53,7 +53,7 @@ export const site = {
 
 /** Standaardbericht dat in WhatsApp wordt voorgevuld. */
 export const whatsappMessage =
-  'Goedendag, ik heb een vraag over de dienstverlening van John-Luke Management Solutions.';
+  'Goedendag, ik heb een vraag over de dienstverlening van John-Luke Finance & Advies.';
 
 /** Volledige wa.me-link, of null als er (nog) geen WhatsApp-nummer is. */
 export function whatsappUrl(message: string = whatsappMessage): string | null {
