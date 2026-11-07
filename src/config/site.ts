@@ -20,7 +20,7 @@ export const site = {
   shortName: 'John-Luke',
   tagline: 'Uw financiële administratie. Onze zorg. Uw ruimte om te groeien.',
   description:
-    'John-Luke Management Solutions ondersteunt kleine en middelgrote ondernemingen in Suriname met professionele administratie, salarisverwerking, belastingondersteuning en jaarrekeningen.',
+    'John-Luke Management Solutions ondersteunt kleine en middelgrote ondernemingen in Suriname met professionele administratie, salarisverwerking, belastingondersteuning, jaarrekeningen, advies en interne audits.',
   locale: 'nl_SR',
   language: 'nl',
   country: 'Suriname',

@@ -15,6 +15,8 @@ jaarrekening voor kleine en middelgrote ondernemingen in Suriname.
 | Payroll             | `/diensten/payroll`         | Payroll / salarisadministratie Suriname      |
 | Tax                 | `/diensten/tax`             | Belastingaangifte Suriname                   |
 | Jaarrekening        | `/diensten/jaarrekening`    | Jaarrekening Suriname                        |
+| Advies              | `/diensten/advies`          | Financieel / administratief advies Suriname  |
+| Audit               | `/diensten/audit`           | Interne audit Suriname                       |
 | Over ons            | `/over-ons`                 |                                              |
 | Veelgestelde vragen | `/veelgestelde-vragen`      |                                              |
 | Contact             | `/contact`                  | (formulier, WhatsApp, e-mail, telefoon)      |
@@ -41,7 +43,7 @@ npm run preview   # gebouwde site bekijken
 | Wat                                                     | Waar                                   |
 | ------------------------------------------------------- | -------------------------------------- |
 | **E-mail, telefoon, WhatsApp, adres, KKF, social media** | `src/config/site.ts`                   |
-| De vier diensten (teksten, werkzaamheden, FAQ, SEO)     | `src/data/services.ts`                 |
+| De zes diensten (teksten, werkzaamheden, FAQ, SEO)     | `src/data/services.ts`                 |
 | Waarom wij, werkwijze, doelgroepen, algemene FAQ        | `src/data/content.ts`                  |
 | Navigatie                                               | `src/data/navigation.ts`               |
 | **Foto's**                                              | `src/assets/photos/` (zie README daar) |
@@ -59,7 +61,7 @@ de zwevende WhatsApp-knop en de WhatsApp-knoppen op de dienstpagina's.
 
 Plaats foto's in `src/assets/photos/` met de bestandsnamen uit `src/assets/photos/README.md`
 (`hero.jpg`, `intro.jpg`, `administratie.jpg`, `payroll.jpg`, `tax.jpg`, `jaarrekening.jpg`,
-`werkwijze.jpg`). Ze worden bij de build automatisch geoptimaliseerd (AVIF/WebP, 480–1600 px).
+`advies.jpg`, `audit.jpg`, `werkwijze.jpg`). Ze worden bij de build automatisch geoptimaliseerd (AVIF/WebP, 480–1600 px).
 Zolang een foto ontbreekt, toont de site een neutraal vlak in de huisstijl.
 
 ## Logo

@@ -10,6 +10,10 @@ export const icons = {
   tax: '<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="m10 16.5 5-5"/><circle cx="10.5" cy="12" r=".9"/><circle cx="14.5" cy="16" r=".9"/>',
   report:
     '<path d="M4 20h16"/><path d="M6.5 16.5v-5M11 16.5V7.5M15.5 16.5v-7M20 4l-4 3.5-4-2.5-5 4"/>',
+  advice:
+    '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3Z"/>',
+  audit:
+    '<path d="M9 4h6v3H9z"/><path d="M15 5.5h2.5V21h-11V5.5H9"/><circle cx="11.5" cy="13" r="2.6"/><path d="m13.4 14.9 2.1 2.1"/>',
   arrowRight: '<path d="M5 12h14M13 6l6 6-6 6"/>',
   check: '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
   whatsapp:

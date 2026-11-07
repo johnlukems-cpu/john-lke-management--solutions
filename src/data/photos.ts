@@ -36,6 +36,14 @@ export const photoSlots = {
     alt: 'Bureau met financiële jaaroverzichten en een balans',
     brief: 'Een bureau met financiële jaaroverzichten.',
   },
+  advies: {
+    alt: 'Notitieboek met financiële aantekeningen en een begroting naast een laptop',
+    brief: 'Een notitieboek met aantekeningen, een begroting en een laptop op een vergadertafel.',
+  },
+  audit: {
+    alt: 'Mappen met administratie en gecontroleerde documenten op een bureau',
+    brief: 'Ordners en gecontroleerde documenten, eventueel met een vergrootglas of afvinklijst.',
+  },
   werkwijze: {
     alt: 'Laptop met een boekhoudkundig dashboard',
     brief: 'Een laptop met een boekhoudkundig dashboard.',

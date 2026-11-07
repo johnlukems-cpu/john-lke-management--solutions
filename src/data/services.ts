@@ -288,6 +288,134 @@ export const services: Service[] = [
     scopeNote:
       'John-Luke Management Solutions is geen accountantskantoor. Wij bereiden jaarrekeningen voor en leveren de gegevens aan uw accountant of financiële adviseur; een accountantsverklaring geven wij niet af.',
   },
+  {
+    slug: 'advies',
+    name: 'Advies',
+    subtitle: 'Financieel-administratief advies',
+    icon: 'advice',
+    photo: 'advies',
+    seoTitle: 'Financieel en administratief advies in Suriname',
+    seoDescription:
+      'Advies over uw administratie en financiën in Suriname. John-Luke Management Solutions adviseert over de inrichting van uw administratie, financieel inzicht, begrotingen en het starten van een onderneming.',
+    summary:
+      'Praktisch advies over de inrichting van uw administratie, uw cijfers en de financiële kant van uw onderneming.',
+    heading: 'Financieel-administratief advies voor ondernemers in Suriname',
+    intro: [
+      'Goede beslissingen beginnen bij inzicht in uw cijfers. Toch is het als ondernemer niet altijd duidelijk wat uw administratie u vertelt, hoe u die het beste inricht of waar u op moet letten als uw onderneming groeit.',
+      'John-Luke Management Solutions denkt met u mee. Wij adviseren over de opzet van uw administratie, maken uw cijfers begrijpelijk en helpen u bij financiële keuzes, zoals een begroting, een liquiditeitsoverzicht of de administratieve kant van het starten of uitbreiden van uw onderneming.',
+    ],
+    tasks: [
+      'Advies over de inrichting van uw administratie',
+      'Uitleg en analyse van uw financiële cijfers',
+      'Opstellen van begrotingen en liquiditeitsoverzichten',
+      'Advies over administratieve processen en interne werkwijzen',
+      'Begeleiding bij het starten van een onderneming',
+      'Financiële onderbouwing voor gesprekken met bank of financier',
+    ],
+    benefits: [
+      {
+        title: 'Inzicht in uw cijfers',
+        text: 'Wij vertalen uw administratie naar heldere inzichten, zodat u weet waar uw onderneming staat en waar kansen en risico’s liggen.',
+      },
+      {
+        title: 'Een administratie die past',
+        text: 'Een opzet die aansluit bij de omvang van uw onderneming: niet te zwaar, niet te licht, en klaar om mee te groeien.',
+      },
+      {
+        title: 'Onderbouwde beslissingen',
+        text: 'Met een begroting en liquiditeitsoverzicht neemt u beslissingen op basis van cijfers in plaats van gevoel.',
+      },
+    ],
+    audience: [
+      'Startende ondernemers die hun administratie goed willen opzetten',
+      'Groeiende bedrijven die meer grip op hun cijfers willen',
+      'Ondernemers die een financiering of investering voorbereiden',
+      'Bedrijven die hun administratieve processen willen verbeteren',
+    ],
+    faq: [
+      {
+        question: 'Kan ik advies vragen zonder dat jullie mijn administratie verzorgen?',
+        answer:
+          'Ja. U kunt ook los advies bij ons vragen. Wij bekijken dan eerst uw situatie en spreken vooraf af wat het advies omvat.',
+      },
+      {
+        question: 'Helpen jullie bij het opstellen van een begroting of ondernemingsplan?',
+        answer:
+          'Wij helpen bij het financiële deel: de begroting, het liquiditeitsoverzicht en de onderbouwing van de cijfers. Bespreek tijdens de kennismaking wat u nodig heeft.',
+      },
+      {
+        question: 'Geven jullie ook juridisch of fiscaal advies?',
+        answer:
+          'Ons advies richt zich op de administratieve en financiële kant van uw onderneming. Voor juridische vraagstukken en complexe fiscale vragen verwijzen wij u naar een gespecialiseerde adviseur.',
+      },
+    ],
+    scopeNote:
+      'Ons advies richt zich op administratie en financiën. Voor juridisch advies en complexe fiscale vraagstukken adviseren wij u een gespecialiseerde adviseur in te schakelen.',
+  },
+  {
+    slug: 'audit',
+    name: 'Audit',
+    subtitle: 'Interne audit en administratieve controle',
+    icon: 'audit',
+    photo: 'audit',
+    seoTitle: 'Interne audit en administratieve controle in Suriname',
+    seoDescription:
+      'Interne audit in Suriname: John-Luke Management Solutions controleert uw administratie, processen en interne beheersing en rapporteert concrete bevindingen en verbeterpunten.',
+    summary:
+      'Een onafhankelijke controle van uw administratie en processen, met heldere bevindingen en concrete verbeterpunten.',
+    heading: 'Interne audit en administratieve controle in Suriname',
+    intro: [
+      'Klopt uw administratie echt? Zijn uw processen zo ingericht dat fouten en onregelmatigheden op tijd worden opgemerkt? Een frisse, onafhankelijke blik geeft daar antwoord op.',
+      'John-Luke Management Solutions voert interne audits en administratieve controles uit. Wij controleren uw administratie en werkwijzen, beoordelen de interne beheersing en leggen onze bevindingen vast in een overzichtelijke rapportage met concrete verbeterpunten.',
+    ],
+    tasks: [
+      'Controle van de volledigheid en juistheid van uw administratie',
+      'Beoordeling van administratieve processen en interne beheersing',
+      'Controle van kas, bank, debiteuren en crediteuren',
+      'Controle van de salarisadministratie',
+      'Rapportage met bevindingen en verbeterpunten',
+      'Ondersteuning bij het doorvoeren van verbeteringen',
+    ],
+    benefits: [
+      {
+        title: 'Zekerheid over uw administratie',
+        text: 'U weet of uw administratie volledig en juist is, en waar eventuele fouten of hiaten zitten.',
+      },
+      {
+        title: 'Sterkere interne beheersing',
+        text: 'Zwakke plekken in uw processen worden zichtbaar, zodat u risico’s op fouten en onregelmatigheden kunt verkleinen.',
+      },
+      {
+        title: 'Concrete verbeterpunten',
+        text: 'Geen vage conclusies, maar een rapportage met duidelijke bevindingen en praktische aanbevelingen.',
+      },
+    ],
+    audience: [
+      'Ondernemers die zekerheid willen over hun administratie',
+      'Bedrijven met personeel en meerdere mensen die financiële handelingen verrichten',
+      'Organisaties die hun interne beheersing willen versterken',
+      'Ondernemingen die een overdracht, investering of financiering voorbereiden',
+    ],
+    faq: [
+      {
+        question: 'Is een interne audit hetzelfde als een accountantscontrole?',
+        answer:
+          'Nee. Een interne audit is een controle van uw administratie en processen in opdracht van uzelf, gericht op inzicht en verbetering. Een wettelijke controle van de jaarrekening met een accountantsverklaring wordt uitgevoerd door een accountant; die verklaring geven wij niet af.',
+      },
+      {
+        question: 'Wat ontvang ik na de audit?',
+        answer:
+          'U ontvangt een rapportage met onze bevindingen en aanbevelingen. Wij lichten die graag in een gesprek toe en kunnen u helpen bij het doorvoeren van verbeteringen.',
+      },
+      {
+        question: 'Hoe lang duurt een interne audit?',
+        answer:
+          'Dat hangt af van de omvang van uw onderneming en van wat er gecontroleerd moet worden. Wij spreken de reikwijdte en planning vooraf met u af.',
+      },
+    ],
+    scopeNote:
+      'Onze audits zijn interne controles in opdracht van de onderneming zelf. John-Luke Management Solutions is geen accountantskantoor en voert geen wettelijke controle van de jaarrekening uit; een accountantsverklaring geven wij niet af.',
+  },
 ];
 
 export const serviceBySlug = (slug: string) => services.find((s) => s.slug === slug);

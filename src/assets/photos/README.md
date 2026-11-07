@@ -17,6 +17,8 @@ Gebruik alleen foto's waarvoor u een licentie heeft (eigen foto's, of bijv. Unsp
 | `payroll.jpg`       | Dienst Payroll                     | Georganiseerde werkplek voor salarisadministratie      |
 | `tax.jpg`           | Dienst Tax                         | Calculator, notitieboek en kantoorbenodigdheden        |
 | `jaarrekening.jpg`  | Dienst Jaarrekening                | Bureau met financiële jaaroverzichten                  |
+| `advies.jpg`        | Dienst Advies                      | Notitieboek, begroting en laptop op een vergadertafel  |
+| `audit.jpg`         | Dienst Audit                       | Ordners en gecontroleerde documenten                   |
 | `werkwijze.jpg`     | Homepage — werkwijze               | Laptop met een boekhoudkundig dashboard                |
 
 Zolang een foto ontbreekt, toont de site op die plek een neutraal vlak in de huisstijl.
