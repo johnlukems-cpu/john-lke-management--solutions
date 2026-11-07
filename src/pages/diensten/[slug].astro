@@ -25,7 +25,9 @@ const crumbs = [
 ];
 const others = services.filter((s) => s.slug !== service.slug);
 const contactHref = `/contact?onderwerp=kennismaking&dienst=${service.slug}#formulier`;
-const wa = whatsappUrl(`Goedendag, ik heb een vraag over ${service.name.toLowerCase()} (${service.subtitle.toLowerCase()}).`);
+/** Kleine letters in lopende tekst, behalve bij afkortingen zoals 'AI'. */
+const inText = (s: string) => (/[A-Z]{2}/.test(s) ? s : s.toLowerCase());
+const wa = whatsappUrl(`Goedendag, ik heb een vraag over ${inText(service.name)} (${inText(service.subtitle)}).`);
 ---
 
 <BaseLayout
@@ -95,7 +97,7 @@ const wa = whatsappUrl(`Goedendag, ik heb een vraag over ${service.name.toLowerC
         <p class="reveal mt-8 text-muted">Tarieven in SRD, afgestemd op de omvang van uw administratie. U ontvangt na de kennismaking een helder voorstel.</p>
       </div>
       <div>
-        <h2 class="reveal text-[1.75rem] sm:text-[2rem]">Vragen over {service.name.toLowerCase()}</h2>
+        <h2 class="reveal text-[1.75rem] sm:text-[2rem]">Vragen over {inText(service.name)}</h2>
         <div class="mt-6"><FaqList items={service.faq} /></div>
       </div>
     </div>
@@ -121,5 +123,5 @@ const wa = whatsappUrl(`Goedendag, ik heb een vraag over ${service.name.toLowerC
     </div>
   </section>
 
-  <CtaBand title={`Uw ${service.name.toLowerCase()} uit handen geven?`} />
+  <CtaBand title={service.ctaTitle ?? `Uw ${inText(service.name)} uit handen geven?`} />
 </BaseLayout>

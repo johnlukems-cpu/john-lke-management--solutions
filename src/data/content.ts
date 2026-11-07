@@ -11,7 +11,7 @@ export const reasons: { icon: IconName; title: string; text: string }[] = [
   {
     icon: 'layers',
     title: 'Alles onder één dak',
-    text: 'Administratie, payroll, tax, jaarrekening, advies en audit sluiten op elkaar aan, omdat ze vanuit één administratie worden verzorgd.',
+    text: 'Administratie, payroll, tax, jaarrekening, advies, audit en automatisering sluiten op elkaar aan, omdat ze vanuit één administratie worden verzorgd.',
   },
   {
     icon: 'shield',

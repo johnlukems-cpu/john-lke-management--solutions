@@ -17,7 +17,7 @@ import { site } from '@/config/site';
 <BaseLayout
   title="Administratiekantoor in Suriname | John-Luke Management Solutions"
   rawTitle
-  description="Administratiekantoor in Suriname voor kleine en middelgrote ondernemingen: boekhouding, payroll en salarisadministratie, belastingaangifte, jaarrekening, advies en audit. Plan een kennismaking."
+  description="Administratiekantoor in Suriname voor kleine en middelgrote ondernemingen: boekhouding, payroll en salarisadministratie, belastingaangifte, jaarrekening, advies, audit en AI & automation. Plan een kennismaking."
   schema={[faqSchema(generalFaq)]}
 >
   <!-- 1. HERO -->
@@ -75,7 +75,7 @@ import { site } from '@/config/site';
         <div class="reveal mt-6 space-y-4 text-muted">
           <p>
             Wij verzorgen de administratie, payroll, belastingondersteuning en jaarrekening van kleine en
-            middelgrote ondernemingen in Suriname, en staan u bij met advies en interne audits. Persoonlijk, overzichtelijk en in begrijpelijke taal.
+            middelgrote ondernemingen in Suriname, en staan u bij met advies, interne audits en slimme automatisering. Persoonlijk, overzichtelijk en in begrijpelijke taal.
           </p>
         </div>
         <ul class="reveal mt-8 grid gap-3 sm:grid-cols-2">
@@ -97,13 +97,23 @@ import { site } from '@/config/site';
         <SectionHeading
           id="diensten-title"
           eyebrow="Onze diensten"
-          title="Zes diensten, één vertrouwd aanspreekpunt"
+          title="Zeven diensten, één vertrouwd aanspreekpunt"
           intro="Kies één dienst of laat uw volledige financiële administratie door ons verzorgen. Alles sluit op elkaar aan."
         />
         <a href="/diensten" class="link-arrow reveal shrink-0 self-start lg:self-end">Alle diensten <Icon name="arrowRight" class="size-4" /></a>
       </div>
-      <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {services.map((service, index) => <ServiceCard service={service} index={index} />)}
+        <li class="reveal hatch-dark on-dark flex flex-col justify-between bg-ink p-7 text-on-dark lg:p-8">
+          <div>
+            <p class="eyebrow mb-5">Maatwerk</p>
+            <h3 class="text-2xl !text-on-dark">Niet zeker welke dienst bij u past?</h3>
+            <p class="mt-3 leading-relaxed text-on-dark-muted">
+              Vertel ons over uw onderneming. Wij adviseren welke ondersteuning het beste aansluit, los of als combinatie.
+            </p>
+          </div>
+          <a href={kennismakingHref} class="btn btn-gold mt-8 self-start">Plan een kennismaking <Icon name="arrowRight" class="size-4" /></a>
+        </li>
       </ul>
     </div>
   </section>

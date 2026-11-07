@@ -33,6 +33,8 @@ export interface Service {
   audience: string[];
   /** Dienstspecifieke vragen (ook als FAQPage in structured data) */
   faq: FaqItem[];
+  /** Afwijkende kop voor de afsluitende call-to-action */
+  ctaTitle?: string;
   /** Optionele afbakening (wat wij níét claimen) */
   scopeNote?: string;
 }
@@ -415,6 +417,71 @@ export const services: Service[] = [
     ],
     scopeNote:
       'Onze audits zijn interne controles in opdracht van de onderneming zelf. John-Luke Management Solutions is geen accountantskantoor en voert geen wettelijke controle van de jaarrekening uit; een accountantsverklaring geven wij niet af.',
+  },
+  {
+    slug: 'ai-automation',
+    ctaTitle: 'Klaar om slimmer te werken?',
+    name: 'AI & Automation',
+    subtitle: 'Slimmer werken met AI en automatisering',
+    icon: 'automation',
+    photo: 'automation',
+    seoTitle: 'AI en automatisering van uw administratie in Suriname',
+    seoDescription:
+      'Automatiseer uw administratie in Suriname. John-Luke Management Solutions helpt ondernemers met digitale facturen, automatische verwerking, dashboards en verantwoord gebruik van AI.',
+    summary:
+      'Minder handwerk en sneller inzicht: wij helpen uw administratieve processen te digitaliseren en slim te automatiseren.',
+    heading: 'AI en automatisering voor uw administratie',
+    intro: [
+      'Veel administratief werk is herhaling: facturen overtypen, bankafschriften afstemmen, dezelfde overzichten elke maand opnieuw maken. Dat kost tijd en vergroot de kans op fouten.',
+      'John-Luke Management Solutions helpt u dat werk te digitaliseren en te automatiseren. Wij brengen uw huidige werkwijze in kaart, kijken waar automatisering en AI-hulpmiddelen echt tijd besparen en richten die samen met u in. Altijd met aandacht voor de betrouwbaarheid van uw cijfers en de vertrouwelijkheid van uw gegevens.',
+    ],
+    tasks: [
+      'Analyse van uw administratieve processen en verbetermogelijkheden',
+      'Digitaliseren van facturen, bonnen en documenten',
+      'Automatische verwerking van facturen en bankmutaties',
+      'Inrichten van overzichtelijke financiële dashboards',
+      'Advies over en inzet van AI-hulpmiddelen voor administratief werk',
+      'Begeleiding en uitleg, zodat u en uw medewerkers ermee kunnen werken',
+    ],
+    benefits: [
+      {
+        title: 'Minder handwerk',
+        text: 'Terugkerende taken verlopen automatisch, zodat u en uw medewerkers tijd overhouden voor belangrijker werk.',
+      },
+      {
+        title: 'Sneller inzicht',
+        text: 'Met een actueel dashboard ziet u op elk moment hoe uw onderneming ervoor staat, zonder te wachten op losse overzichten.',
+      },
+      {
+        title: 'Verantwoord gebruik van AI',
+        text: 'Wij zetten AI alleen in waar het waarde toevoegt, met menselijke controle op de uitkomst en zorg voor uw gegevens.',
+      },
+    ],
+    audience: [
+      'Ondernemers die veel tijd kwijt zijn aan handmatige administratie',
+      'Bedrijven die van papier naar een digitale administratie willen',
+      'Groeiende ondernemingen die hun processen willen opschalen',
+      'Ondernemers die willen weten wat AI voor hun bedrijf kan betekenen',
+    ],
+    faq: [
+      {
+        question: 'Heb ik dure software nodig om te automatiseren?',
+        answer:
+          'Niet per se. Wij kijken eerst naar wat u al gebruikt en stemmen de oplossing af op de omvang en het budget van uw onderneming.',
+      },
+      {
+        question: 'Is het veilig om AI te gebruiken voor mijn administratie?',
+        answer:
+          'Wij gaan zorgvuldig om met uw gegevens. Wij kiezen per toepassing welke hulpmiddelen geschikt zijn, delen geen vertrouwelijke gegevens zonder uw toestemming en houden altijd menselijke controle op de uitkomst.',
+      },
+      {
+        question: 'Vervangt automatisering mijn administratiekantoor of medewerkers?',
+        answer:
+          'Nee. Automatisering neemt herhalend werk over, maar controle, interpretatie en advies blijven mensenwerk. Zo combineert u efficiëntie met betrouwbaarheid.',
+      },
+    ],
+    scopeNote:
+      'AI-hulpmiddelen ondersteunen het werk, maar vervangen geen menselijke controle. Wij controleren de uitkomsten en gaan vertrouwelijk om met uw gegevens.',
   },
 ];
 

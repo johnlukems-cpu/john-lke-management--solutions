@@ -44,6 +44,10 @@ export const photoSlots = {
     alt: 'Mappen met administratie en gecontroleerde documenten op een bureau',
     brief: 'Ordners en gecontroleerde documenten, eventueel met een vergrootglas of afvinklijst.',
   },
+  automation: {
+    alt: 'Laptop met geautomatiseerde administratie en gedigitaliseerde documenten',
+    brief: 'Een laptop met digitale administratie of een dashboard, naast een scanner of gedigitaliseerde documenten.',
+  },
   werkwijze: {
     alt: 'Laptop met een boekhoudkundig dashboard',
     brief: 'Een laptop met een boekhoudkundig dashboard.',

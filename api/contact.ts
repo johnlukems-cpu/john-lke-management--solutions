@@ -19,6 +19,7 @@ const SERVICES: Record<string, string> = {
   jaarrekening: 'Jaarrekening',
   advies: 'Advies',
   audit: 'Audit',
+  'ai-automation': 'AI & Automation',
   meerdere: 'Meerdere diensten / weet ik nog niet',
 };
 const SUBJECTS: Record<string, string> = {

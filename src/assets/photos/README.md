@@ -19,6 +19,7 @@ Gebruik alleen foto's waarvoor u een licentie heeft (eigen foto's, of bijv. Unsp
 | `jaarrekening.jpg`  | Dienst Jaarrekening                | Bureau met financiële jaaroverzichten                  |
 | `advies.jpg`        | Dienst Advies                      | Notitieboek, begroting en laptop op een vergadertafel  |
 | `audit.jpg`         | Dienst Audit                       | Ordners en gecontroleerde documenten                   |
+| `automation.jpg`    | Dienst AI & Automation             | Laptop met digitale administratie, scanner/documenten  |
 | `werkwijze.jpg`     | Homepage — werkwijze               | Laptop met een boekhoudkundig dashboard                |
 
 Zolang een foto ontbreekt, toont de site op die plek een neutraal vlak in de huisstijl.
