@@ -66,7 +66,7 @@ Zolang een foto ontbreekt, toont de site een neutraal vlak in de huisstijl.
 
 ## Logo
 
-`src/assets/brand/logo-origineel.webp` is het aangeleverde, officiële logo. Daarvan zijn
+`src/assets/brand/logo-origineel.png` is het officiële logo (handdruk, John-Luke, — FINANCE & ADVIES —). Daarvan zijn
 zonder vormwijziging twee transparante varianten afgeleid:
 
 - `logo-zwart.png` — voor lichte achtergronden (header, hero, over ons)
