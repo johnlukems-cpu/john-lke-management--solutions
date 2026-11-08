@@ -26,6 +26,16 @@ export const site = {
   country: 'Suriname',
   currency: 'SRD',
 
+  /** Oprichting en eigenaar — door de eigenaar aangeleverd */
+  founded: '2025-06',
+  owner: {
+    name: 'Jagernath John',
+    role: 'Eigenaar en Finance Controller',
+    education: 'Master of Accounting',
+    experience: 'Meer dan 10 jaar ervaring in financiële administratie',
+    quote: 'Sterke financiële controle is de ruggengraat van goed bestuur.',
+  },
+
   contact: {
     /** Zakelijk e-mailadres, bijv. 'info@uwdomein.sr'. null = niet tonen. */
     email: null as string | null,

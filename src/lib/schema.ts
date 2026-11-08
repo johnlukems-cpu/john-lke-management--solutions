@@ -14,6 +14,13 @@ export function organizationSchema(origin: string, logoUrl: string) {
     '@id': `${origin}/#organisatie`,
     name: site.name,
     description: site.description,
+    foundingDate: site.founded,
+    founder: {
+      '@type': 'Person',
+      name: site.owner.name,
+      jobTitle: site.owner.role,
+      hasCredential: { '@type': 'EducationalOccupationalCredential', name: site.owner.education },
+    },
     url: `${origin}/`,
     logo: logoUrl,
     image: logoUrl,
