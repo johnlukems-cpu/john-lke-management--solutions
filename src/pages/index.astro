@@ -51,9 +51,11 @@ import { site } from '@/config/site';
 
       <div class="reveal relative">
         <Photo slot="hero" class="aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5]" sizes="(min-width: 1024px) 45vw, 100vw" priority mark={false} />
+        <div aria-hidden="true" class="pointer-events-none absolute inset-0 bg-[radial-gradient(closest-side,rgba(255,255,255,.88),rgba(255,255,255,.55)_55%,rgba(255,255,255,0))]"></div>
         <div class="absolute inset-0 grid place-items-center p-6">
-          <div class="border border-line bg-paper/95 px-8 py-7 shadow-[0_30px_60px_-30px_rgba(0,0,0,.35)] backdrop-blur sm:px-12 sm:py-10">
-            <Logo height={150} heightLg={190} link={false} priority />
+          <!-- Logo zonder achtergrondvlak; een zachte witte gloed houdt het leesbaar op de foto -->
+          <div class="[filter:drop-shadow(0_0_2px_rgba(255,255,255,.95))_drop-shadow(0_0_10px_rgba(255,255,255,.9))]">
+            <Logo height={170} heightLg={220} link={false} priority />
           </div>
         </div>
         <span aria-hidden="true" class="absolute -top-3 -right-3 hidden size-24 border-t border-r border-gold lg:block"></span>
