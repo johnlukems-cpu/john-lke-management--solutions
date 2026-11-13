@@ -11,16 +11,16 @@ const origin = (Astro.site?.origin ?? Astro.url.origin).replace(/\/$/, '');
 const crumbs = [{ name: 'Veelgestelde vragen', path: '/veelgestelde-vragen' }];
 const groups = [
   { id: 'algemeen', title: 'Algemeen', items: generalFaq },
-  ...services.map((s) => ({ id: s.slug, title: s.name, items: s.faq, href: servicePath(s) })),
+  ...services.map((s) => ({ id: s.slug, title: s.name, items: s.faq, href: servicePath(s) })).filter((g) => g.items.length > 0),
 ];
 ---
 
 <BaseLayout
   title="Veelgestelde vragen"
-  description="Antwoorden op veelgestelde vragen over administratie, payroll, belastingaangifte, jaarrekening, advies en AI & automation bij John-Luke Finance & Advies in Suriname."
+  description="Antwoorden op veelgestelde vragen over financial outsourcing voor administratie- en accountantskantoren: werken op afstand, gegevensbescherming, verantwoordelijkheden en tarieven."
   schema={[breadcrumbSchema(origin, crumbs), faqSchema(groups.flatMap((g) => g.items))]}
 >
-  <PageHero eyebrow="Vragen" title="Veelgestelde vragen" intro="Over samenwerken, tarieven en onze zes diensten. Staat uw vraag er niet tussen? Neem gerust contact met ons op." crumbs={crumbs} />
+  <PageHero eyebrow="Vragen" title="Veelgestelde vragen" intro="Over samenwerken op afstand, gegevensbescherming, verantwoordelijkheden, tarieven en onze diensten. Staat uw vraag er niet tussen? Neem gerust contact met ons op." crumbs={crumbs} />
 
   <section class="section bg-paper">
     <div class="container-site grid gap-12 lg:grid-cols-[0.3fr_1fr] lg:gap-16">

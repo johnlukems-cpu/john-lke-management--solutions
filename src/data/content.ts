@@ -1,115 +1,41 @@
 import type { IconName } from '@/data/icons';
 import type { FaqItem } from '@/data/services';
 
-/** Waarom ondernemers voor John-Luke kiezen — geen beloftes over resultaten. */
+/** Onderscheidend vermogen — praktijkervaring, geen certificeringen of verzonnen resultaten. */
 export const reasons: { icon: IconName; title: string; text: string }[] = [
-  {
-    icon: 'handshake',
-    title: 'Persoonlijk en betrokken',
-    text: 'U heeft een vast aanspreekpunt dat uw onderneming kent. U hoeft uw situatie niet telkens opnieuw uit te leggen.',
-  },
-  {
-    icon: 'layers',
-    title: 'Alles onder één dak',
-    text: 'Administratie, payroll, tax, jaarrekening, advies en automatisering sluiten op elkaar aan, omdat ze vanuit één administratie worden verzorgd.',
-  },
-  {
-    icon: 'shield',
-    title: 'Zorgvuldig en vertrouwelijk',
-    text: 'Wij gaan nauwkeurig en discreet om met uw financiële gegevens en die van uw personeel.',
-  },
-  {
-    icon: 'chat',
-    title: 'Begrijpelijke taal',
-    text: 'Wij leggen uit wat uw cijfers betekenen, zonder onnodig vakjargon, zodat u onderbouwd kunt beslissen.',
-  },
-  {
-    icon: 'calendar',
-    title: 'Duidelijke afspraken',
-    text: 'Vooraf staat vast welke werkzaamheden wij uitvoeren, wat u aanlevert en wanneer u iets van ons hoort.',
-  },
-  {
-    icon: 'sprout',
-    title: 'Gericht op Suriname',
-    text: 'Onze dienstverlening is volledig afgestemd op de Surinaamse zakelijke praktijk, in SRD en volgens de lokale regels.',
-  },
+  { icon: 'briefcase', title: 'Praktijkervaring met Nederlandse administraties', text: 'Al 2,5 jaar actief in financiële outsourcing voor Nederlandse klanten, met kennis van Nederlandse werkmethoden en btw-processen.' },
+  { icon: 'layers', title: 'Flexibele capaciteit', text: 'Ondersteuning die meebeweegt met uw werklast: structureel, tijdens piekperiodes of als project.' },
+  { icon: 'handshake', title: 'Persoonlijke samenwerking', text: 'Een vast aanspreekpunt dat uw kantoor, uw klanten en uw werkwijze kent.' },
+  { icon: 'ledger', title: 'Kennis van uw software', text: 'Ervaring met onder meer AFAS, Exact Online, Yuki, Nmbrs, Zenvoices, Basecone en Zoho Books.' },
+  { icon: 'check', title: 'Gestructureerde werkprocessen', text: 'Vaste checklists per werkzaamheid, zodat de kwaliteit voorspelbaar is.' },
+  { icon: 'shield', title: 'Kwaliteitscontroles', text: 'Controle op boekingen, btw-coderingen, aansluitingen en dubbele facturen, met vastgelegde correcties.' },
+  { icon: 'chat', title: 'Vertrouwelijk', text: 'Zorgvuldige omgang met financiële gegevens, met afspraken over toegang, beveiliging en gegevensverwerking.' },
+  { icon: 'globe', title: 'Ondersteuning vanuit Suriname', text: 'Nederlandstalig, met een werkdag die overlapt met de Nederlandse middag.' },
+  { icon: 'sprout', title: 'Groeit met u mee', text: 'Wij bouwen onze capaciteit stap voor stap uit, zodat de ondersteuning kan meegroeien met uw kantoor.' },
 ];
 
-/** Werkwijze in vier stappen. */
+/** Werkwijze van kennismaking tot vaste samenwerking. */
 export const steps: { title: string; text: string }[] = [
-  {
-    title: 'Kennismaking',
-    text: 'In een vrijblijvend gesprek bespreken wij uw onderneming, uw administratie en wat u uit handen wilt geven.',
-  },
-  {
-    title: 'Voorstel op maat',
-    text: 'U ontvangt een helder voorstel in SRD, met een duidelijke afbakening van de werkzaamheden.',
-  },
-  {
-    title: 'Overdracht en opstart',
-    text: 'Wij spreken af hoe u stukken aanlevert en zetten uw administratie op of nemen die zorgvuldig over.',
-  },
-  {
-    title: 'Doorlopende zorg',
-    text: 'Wij verwerken uw administratie periodiek en houden u op de hoogte van uw cijfers en verplichtingen.',
-  },
+  { title: 'Kennismaking', text: 'Wij bespreken uw kantoor, de administraties, de software en de werkzaamheden die u wilt uitbesteden.' },
+  { title: 'Voorstel en afspraken', text: 'U ontvangt een voorstel met afbakening, planning, tarief en afspraken over verantwoordelijkheden en gegevensverwerking.' },
+  { title: 'Pilot en onboarding', text: 'Wij starten met een afgebakende pilot: toegang tot uw systemen, werkinstructies en een eerste set administraties.' },
+  { title: 'Vaste samenwerking', text: 'Na evaluatie volgt een vaste werkwijze met vaste verwerkingsmomenten, kwaliteitscontroles en periodieke terugkoppeling.' },
 ];
 
-/** Voor welke bedrijven wij werken. */
-export const audiences = {
-  klein: {
-    title: 'Kleine ondernemingen',
-    icon: 'store' as IconName,
-    items: [
-      { icon: 'user' as IconName, label: 'Zelfstandige ondernemers' },
-      { icon: 'store' as IconName, label: 'Winkels' },
-      { icon: 'briefcase' as IconName, label: 'Dienstverlenende bedrijven' },
-      { icon: 'utensils' as IconName, label: 'Horecabedrijven' },
-      { icon: 'sprout' as IconName, label: 'Startende ondernemingen' },
-    ],
-  },
-  middelgroot: {
-    title: 'Middelgrote ondernemingen',
-    icon: 'building' as IconName,
-    items: [
-      { icon: 'users' as IconName, label: 'Bedrijven met personeel' },
-      { icon: 'truck' as IconName, label: 'Handelsbedrijven' },
-      { icon: 'building' as IconName, label: 'Dienstverlenende organisaties' },
-      { icon: 'layers' as IconName, label: 'Ondernemingen met uitgebreidere administraties' },
-    ],
-  },
-};
+/** Praktijkervaring (Over ons) — door de eigenaar opgegeven. */
+export const experience = [
+  '2,5 jaar praktijkervaring in financiële outsourcing voor Nederlandse klanten',
+  'Ervaring met Nederlandse administratieve werkmethoden en btw-processen',
+  'Ervaring met verschillende boekhoud- en administratiesystemen',
+  'Meer dan 10 jaar ervaring in financiële administratie',
+];
 
 /** Algemene veelgestelde vragen (homepage + FAQ-pagina). */
 export const generalFaq: FaqItem[] = [
-  {
-    question: 'Voor welke ondernemingen werkt John-Luke Finance & Advies?',
-    answer:
-      'Wij werken voor kleine en middelgrote ondernemingen in Suriname: van zelfstandige ondernemers, winkels, horeca en starters tot handelsbedrijven en organisaties met personeel en een uitgebreidere administratie.',
-  },
-  {
-    question: 'Kan ik één dienst afnemen, of moet ik alles uitbesteden?',
-    answer:
-      'U kiest zelf. U kunt bijvoorbeeld alleen uw salarisadministratie uitbesteden, of uw volledige administratie inclusief tax en jaarrekening. Wij stemmen de dienstverlening af op wat u nodig heeft.',
-  },
-  {
-    question: 'Wat kost het?',
-    answer:
-      'De kosten hangen af van de omvang en complexiteit van uw administratie en van de diensten die u afneemt. Na een kennismaking ontvangt u een helder voorstel in SRD, zodat u vooraf weet waar u aan toe bent.',
-  },
-  {
-    question: 'Hoe verloopt de eerste kennismaking?',
-    answer:
-      'U neemt contact op via het formulier, WhatsApp of e-mail. Wij plannen een gesprek waarin wij uw onderneming en wensen bespreken. De kennismaking is vrijblijvend.',
-  },
-  {
-    question: 'Hoe gaan jullie om met mijn financiële gegevens?',
-    answer:
-      'Vertrouwelijk. Uw gegevens en die van uw personeel worden uitsluitend gebruikt voor de werkzaamheden die wij voor u uitvoeren.',
-  },
-  {
-    question: 'Mijn administratie is niet op orde. Kan ik toch bij jullie terecht?',
-    answer:
-      'Ja. Juist dan is het verstandig om contact op te nemen. Wij bekijken samen met u wat er nodig is om uw administratie weer bij te werken.',
-  },
+  { question: 'Voor welke kantoren werkt John-Luke Finance & Advies?', answer: 'Voor Nederlandse administratiekantoren, accountantskantoren, boekhoudkantoren en financiële dienstverleners die financiële administratieve werkzaamheden willen uitbesteden — structureel of tijdelijk.' },
+  { question: 'Hoe werkt ondersteuning op afstand vanuit Suriname?', answer: 'Wij werken in de (online) software van uw kantoor of uw klanten, met de toegang die u verleent. Communicatie verloopt via e-mail, telefoon of videobellen. Nederlands is in Suriname de officiële taal.' },
+  { question: 'Wat is het tijdsverschil met Nederland?', answer: 'Suriname loopt 4 uur achter op Nederland in de winter en 5 uur in de zomer. Onze werkdag overlapt met de Nederlandse middag; werk dat u ’s middags aanlevert, kan dezelfde dag nog worden opgepakt.' },
+  { question: 'Hoe gaan jullie om met de gegevens van onze klanten?', answer: 'Vertrouwelijk. Wij werken uitsluitend met de gegevens die nodig zijn voor de opdracht, met persoonlijke accounts en tweestapsverificatie, en leggen afspraken over gegevensverwerking en internationale doorgifte vooraf contractueel vast.' },
+  { question: 'Wat kost outsourcing?', answer: 'Dat hangt af van de werkzaamheden, het aantal administraties en het volume. Wij werken met een vast maandbedrag, een tarief per administratie of een uurtarief. Na de kennismaking ontvangt u een voorstel; een pilot is mogelijk.' },
+  { question: 'Wie is verantwoordelijk voor de eindcontrole en de aangiften?', answer: 'Uw kantoor. Wij verzorgen de verwerking en de voorbereidende controles; beoordeling, fiscale keuzes en indiening van aangiften blijven bij uw kantoor. Dat leggen wij vooraf vast.' },
 ];

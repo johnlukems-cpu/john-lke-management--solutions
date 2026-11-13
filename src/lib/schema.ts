@@ -24,20 +24,18 @@ export function organizationSchema(origin: string, logoUrl: string) {
     url: `${origin}/`,
     logo: logoUrl,
     image: logoUrl,
-    areaServed: { '@type': 'Country', name: 'Suriname' },
-    currenciesAccepted: site.currency,
+    slogan: site.tagline,
+    areaServed: { '@type': 'Country', name: 'Nederland' },
     knowsLanguage: 'nl',
     ...(contact.email && { email: contact.email }),
     ...(contact.phone && { telephone: contact.phone }),
-    ...(contact.address && {
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: contact.address.street,
-        addressLocality: contact.address.city,
-        ...(contact.address.district && { addressRegion: contact.address.district }),
-        addressCountry: 'SR',
-      },
-    }),
+    address: {
+      '@type': 'PostalAddress',
+      ...(contact.address && { streetAddress: contact.address.street }),
+      addressLocality: contact.address?.city ?? site.city,
+      ...(contact.address?.district && { addressRegion: contact.address.district }),
+      addressCountry: 'SR',
+    },
     ...(sameAs.length && { sameAs }),
     ...(whatsappUrl() && {
       contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', url: whatsappUrl() },
@@ -65,7 +63,7 @@ export function serviceSchema(origin: string, s: Service) {
     serviceType: s.subtitle,
     description: s.seoDescription,
     url: `${origin}/diensten/${s.slug}`,
-    areaServed: { '@type': 'Country', name: 'Suriname' },
+    areaServed: { '@type': 'Country', name: 'Nederland' },
     provider: { '@id': `${origin}/#organisatie` },
   };
 }

@@ -1,0 +1,87 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import Icon from '@/components/Icon.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { software } from '@/data/software';
+import { contactHref } from '@/data/navigation';
+import { breadcrumbSchema } from '@/lib/schema';
+
+const origin = (Astro.site?.origin ?? Astro.url.origin).replace(/\/$/, '');
+const crumbs = [{ name: 'Software', path: '/software' }];
+const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+---
+
+<BaseLayout
+  title="Softwarekennis — AFAS, Exact Online, Yuki, Nmbrs en meer"
+  description="Praktijkervaring met AFAS Profit, AFAS SB, Nmbrs, Exact Online, Yuki, Zenvoices, Basecone en Zoho Books. Outsourcing in de software van uw administratie- of accountantskantoor."
+  schema={[breadcrumbSchema(origin, crumbs)]}
+>
+  <PageHero
+    eyebrow="Software"
+    title="Wij werken in de software van uw kantoor"
+    intro="Geen nieuwe systemen of extra licenties: wij voeren de werkzaamheden uit in de boekhoud- en administratiesoftware die uw kantoor en uw klanten al gebruiken."
+    crumbs={crumbs}
+  />
+
+  <section class="section bg-paper" aria-labelledby="overzicht-title">
+    <div class="container-site">
+      <SectionHeading
+        id="overzicht-title"
+        eyebrow="Praktijkervaring"
+        title="Systemen waarmee wij werken"
+        intro="Per pakket ziet u waarvoor het wordt gebruikt, welke werkzaamheden wij ermee ondersteunen en wat dat uw kantoor oplevert."
+      />
+      <nav aria-label="Pakketten" class="reveal mt-8 flex flex-wrap gap-2">
+        {software.map((s) => <a href={`#${slug(s.name)}`} class="border border-line px-3.5 py-2 text-sm font-medium text-ink transition-colors hover:border-ink">{s.name}</a>)}
+      </nav>
+      <ul class="mt-12 grid gap-6 lg:grid-cols-2">
+        {software.map((s) => (
+          <li id={slug(s.name)} class="reveal scroll-mt-32 border border-line bg-paper p-7 lg:p-8">
+            <p class="text-sm font-medium text-gold-deep">{s.type}</p>
+            <h2 class="mt-2 text-[1.75rem]">{s.name}</h2>
+            <p class="mt-3 leading-relaxed text-muted">{s.usedFor}</p>
+            <h3 class="mt-6 font-sans text-sm font-semibold text-ink">Wat wij ermee ondersteunen</h3>
+            <ul class="mt-3 space-y-2">
+              {s.tasks.map((t) => <li class="flex items-start gap-3 text-ink"><Icon name="check" class="mt-1 size-4 shrink-0 text-gold-deep" stroke={2.2} />{t}</li>)}
+            </ul>
+            <p class="mt-6 border-l-2 border-gold pl-4 text-[0.9375rem] leading-relaxed text-muted"><span class="font-semibold text-ink">Voor uw kantoor: </span>{s.helps}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="reveal mt-10 max-w-3xl text-sm leading-relaxed text-muted">
+        Wij beschrijven onze praktijkervaring met deze pakketten. Wij zijn geen officiële partner of gecertificeerde
+        reseller van de genoemde leveranciers. Productnamen zijn merken van hun respectieve eigenaren. Werkt uw kantoor met
+        een ander pakket? Bespreek het gerust met ons.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-mist" aria-labelledby="hoe-title">
+    <div class="container-site grid gap-12 lg:grid-cols-2 lg:gap-20">
+      <SectionHeading id="hoe-title" eyebrow="Zo werkt het" title="Veilig werken in uw omgeving" />
+      <ul class="reveal space-y-5">
+        {[
+          ['Eigen, persoonlijke accounts', 'U maakt voor ons persoonlijke gebruikers aan, met alleen de rechten die nodig zijn. Nooit gedeelde inloggegevens.'],
+          ['Tweestapsverificatie', 'Wij werken waar mogelijk met multifactor-authenticatie op alle systemen.'],
+          ['Uw instructies en rekeningschema', 'Wij volgen uw werkinstructies, coderingen en controles; twijfelgevallen stemmen wij af.'],
+          ['Toegang intrekken wanneer u wilt', 'U houdt volledige controle over de toegang tot uw systemen en administraties.'],
+        ].map(([t, d]) => (
+          <li class="flex gap-4 border-b border-line pb-5 last:border-0">
+            <span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-ink text-gold-light"><Icon name="check" class="size-3.5" stroke={2.5} /></span>
+            <span><span class="block font-semibold text-ink">{t}</span><span class="mt-1 block text-muted">{d}</span></span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow="Software"
+    title="Werkt uw kantoor met een van deze pakketten?"
+    text="Bespreek welke administraties en werkzaamheden u wilt uitbesteden. Wij starten graag met een pilot in uw eigen omgeving."
+    primary={{ label: 'Plan een kennismakingsgesprek', href: contactHref() }}
+    secondary={{ label: 'Bekijk onze diensten', href: '/diensten' }}
+  />
+</BaseLayout>

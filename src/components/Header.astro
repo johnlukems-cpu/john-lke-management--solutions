@@ -5,7 +5,7 @@ import { kennismakingHref, mainNav } from '@/data/navigation';
 
 const current = Astro.url.pathname.replace(/\.html$/, '').replace(/(^|\/)index$/, '').replace(/\/$/, '') || '/';
 const isActive = (href: string) =>
-  href !== '/' && !href.includes('#') && (current === href || current.startsWith(`${href}/`));
+  href === '/' ? current === '/' : !href.includes('#') && (current === href || current.startsWith(`${href}/`));
 ---
 
 <header id="site-header" class="sticky top-0 z-40 border-b border-transparent bg-paper/95 backdrop-blur transition-[border-color,box-shadow] duration-200">
@@ -50,7 +50,7 @@ const isActive = (href: string) =>
 
     <div class="flex items-center gap-2">
       <a href={kennismakingHref} class="btn btn-primary hidden md:inline-flex">
-        Plan een kennismaking
+        Plan een kennismakingsgesprek
         <Icon name="arrowRight" class="size-4" />
       </a>
       <button
@@ -88,7 +88,7 @@ const isActive = (href: string) =>
         }
       </ul>
       <a href={kennismakingHref} class="btn btn-primary mt-4 w-full">
-        Plan een kennismaking
+        Plan een kennismakingsgesprek
         <Icon name="arrowRight" class="size-4" />
       </a>
     </nav>

@@ -21,7 +21,8 @@ const socials = [
     <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.1fr]">
       <div>
         <Logo onDark height={110} heightLg={130} />
-        <p class="mt-6 max-w-sm text-[0.9375rem] leading-relaxed text-on-dark-muted">{site.description}</p>
+        <p class="mt-5 font-display text-lg italic text-gold-light">{site.tagline}</p>
+        <p class="mt-4 max-w-sm text-[0.9375rem] leading-relaxed text-on-dark-muted">{site.description}</p>
       </div>
 
       <div>
@@ -37,6 +38,7 @@ const socials = [
       <div>
         <h2 class="font-sans text-xs font-semibold tracking-[0.2em] !text-gold-light uppercase">Bedrijf</h2>
         <ul class="mt-5 space-y-3">
+          <li><a href="/software" class="text-on-dark-muted transition-colors hover:text-on-dark">Software</a></li>
           <li><a href="/over-ons" class="text-on-dark-muted transition-colors hover:text-on-dark">Over ons</a></li>
           <li><a href="/#werkwijze" class="text-on-dark-muted transition-colors hover:text-on-dark">Werkwijze</a></li>
           <li><a href="/veelgestelde-vragen" class="text-on-dark-muted transition-colors hover:text-on-dark">Veelgestelde vragen</a></li>
@@ -57,20 +59,21 @@ const socials = [
           {tel && (
             <li><a href={tel} class="inline-flex items-center gap-3 hover:text-on-dark"><Icon name="phone" class="size-4 text-gold" />{contact.phone}</a></li>
           )}
-          {contact.address && (
-            <li class="flex items-start gap-3"><Icon name="pin" class="mt-1 size-4 shrink-0 text-gold" /><address class="not-italic">{contact.address.street}<br />{contact.address.city}, {site.country}</address></li>
-          )}
+          <li class="flex items-start gap-3">
+            <Icon name="pin" class="mt-1 size-4 shrink-0 text-gold" />
+            <address class="not-italic">{contact.address && <>{contact.address.street}<br /></>}{contact.address?.city ?? site.city}, {site.country}<br /><span class="text-sm">Ondersteuning op afstand voor Nederland</span></address>
+          </li>
           {contact.openingHours && (
             <li class="flex items-center gap-3"><Icon name="clock" class="size-4 text-gold" />{contact.openingHours}</li>
           )}
           <li><a href="/contact#formulier" class="inline-flex items-center gap-3 hover:text-on-dark"><Icon name="chat" class="size-4 text-gold" />Contactformulier</a></li>
         </ul>
-        <a href={kennismakingHref} class="btn btn-gold mt-7">Plan een kennismaking <Icon name="arrowRight" class="size-4" /></a>
+        <a href={kennismakingHref} class="btn btn-gold mt-7">Plan een kennismakingsgesprek <Icon name="arrowRight" class="size-4" /></a>
       </div>
     </div>
 
     <div class="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-on-dark-muted md:flex-row md:items-center md:justify-between">
-      <p>© {year} {site.name}{contact.kkf ? ` · KKF ${contact.kkf}` : ''} · {site.country}</p>
+      <p>© {year} {site.name}{contact.kkf ? ` · KKF ${contact.kkf}` : ''} · {site.tagline}</p>
       <ul class="flex flex-wrap gap-x-6 gap-y-2">
         {socials.map((s) => (
           <li><a href={s.href} target="_blank" rel="noopener noreferrer" class="hover:text-on-dark">{s.label}</a></li>

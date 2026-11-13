@@ -5,6 +5,7 @@ import Photo from '@/components/Photo.astro';
 import Icon from '@/components/Icon.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import { services, servicePath } from '@/data/services';
+import { contactHref } from '@/data/navigation';
 import { breadcrumbSchema } from '@/lib/schema';
 
 const origin = (Astro.site?.origin ?? Astro.url.origin).replace(/\/$/, '');
@@ -12,8 +13,8 @@ const crumbs = [{ name: 'Diensten', path: '/diensten' }];
 ---
 
 <BaseLayout
-  title="Administratieve dienstverlening in Suriname"
-  description="Administratieve dienstverlening in Suriname: boekhouding, payroll en salarisadministratie, belastingondersteuning, jaarrekening, advies en AI & automation voor kleine en middelgrote ondernemingen."
+  title="Diensten — financiële administratie uitbesteden"
+  description="Financial outsourcing voor administratie- en accountantskantoren: financiële administratie, btw-administratie, debiteuren en crediteuren, maand- en jaarafsluitingen en backoffice-ondersteuning."
   schema={[
     breadcrumbSchema(origin, crumbs),
     {
@@ -24,32 +25,45 @@ const crumbs = [{ name: 'Diensten', path: '/diensten' }];
   ]}
 >
   <PageHero
-    eyebrow="Onze diensten"
-    title="Administratieve dienstverlening voor ondernemers in Suriname"
-    intro="Administratie, payroll, tax, jaarrekening, advies en AI & automation: los af te nemen of als compleet pakket, altijd met één vertrouwd aanspreekpunt."
+    eyebrow="Diensten"
+    title="Financial Outsourcing voor uw kantoor"
+    intro="Vier vaste diensten voor terugkerend verwerkings- en controlewerk, aangevuld met jaarafsluiting en backoffice-ondersteuning op aanvraag. Altijd in uw software en volgens uw werkwijze."
     crumbs={crumbs}
-  />
+  >
+    <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+      <a href={contactHref()} class="btn btn-gold">Plan een kennismakingsgesprek <Icon name="arrowRight" class="size-4" /></a>
+    </div>
+  </PageHero>
 
-  <section class="section bg-paper">
+  <section class="section bg-paper" aria-label="Overzicht van de diensten">
     <div class="container-site space-y-20 lg:space-y-28">
       {services.map((s, i) => (
         <article class="grid items-center gap-10 lg:grid-cols-2 lg:gap-20" aria-labelledby={`dienst-${s.slug}`}>
-          <Photo slot={s.photo} class:list={['reveal aspect-[4/3]', i % 2 === 1 && 'lg:order-last']} />
-          <div class="reveal">
-            <p class="eyebrow mb-5">0{i + 1} · {s.subtitle}</p>
-            <h2 id={`dienst-${s.slug}`} class="text-[2rem] leading-[1.15] sm:text-[2.5rem]">{s.name}</h2>
+          <Photo slot={s.photo} class:list={['reveal aspect-[4/3] min-w-0', i % 2 === 1 && 'lg:order-last']} />
+          <div class="reveal min-w-0">
+            <p class="eyebrow mb-5">{s.availability === 'op-aanvraag' ? 'Op aanvraag' : 'Standaarddienst'} · {s.subtitle}</p>
+            <h2 id={`dienst-${s.slug}`} class="text-[1.625rem] leading-[1.15] min-[400px]:text-[2rem] sm:text-[2.5rem]">{s.name}</h2>
             <p class="mt-5 text-lg leading-relaxed text-muted">{s.summary}</p>
             <ul class="mt-7 grid gap-3 sm:grid-cols-2">
               {s.tasks.map((t) => (
                 <li class="flex items-start gap-3 text-[0.9375rem] text-ink"><Icon name="check" class="mt-0.5 size-4 shrink-0 text-gold-deep" stroke={2.2} />{t}</li>
               ))}
             </ul>
-            <a href={servicePath(s)} class="btn btn-primary mt-9">Meer over {s.name} <Icon name="arrowRight" class="size-4" /></a>
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a href={servicePath(s)} class="btn btn-primary">Meer over {s.name.toLowerCase()} <Icon name="arrowRight" class="size-4" /></a>
+              <a href={contactHref(s.slug)} class="btn btn-outline">Vraag outsourcing aan</a>
+            </div>
           </div>
         </article>
       ))}
     </div>
   </section>
 
-  <CtaBand />
+  <CtaBand
+    eyebrow="Financial Outsourcing"
+    title="Meer capaciteit voor uw kantoor nodig?"
+    text="Bespreek met ons welke werkzaamheden u wilt uitbesteden. Wij starten graag met een afgebakende pilot."
+    primary={{ label: 'Plan een kennismakingsgesprek', href: contactHref() }}
+    secondary={{ label: 'Bekijk onze softwarekennis', href: '/software' }}
+  />
 </BaseLayout>

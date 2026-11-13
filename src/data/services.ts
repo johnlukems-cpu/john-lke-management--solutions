@@ -6,418 +6,247 @@ export interface FaqItem {
   answer: string;
 }
 
+/** Een outsourcingdienst voor Nederlandse administratie- en accountantskantoren. */
 export interface Service {
-  /** URL-deel: /diensten/<slug> */
+  /** URL-deel: /diensten/<slug> (gelijk aan de formulierwaarde) */
   slug: string;
-  /** Korte naam (navigatie, kaarten) */
   name: string;
-  /** Beschrijvende ondertitel */
   subtitle: string;
   icon: IconName;
   photo: PhotoSlot;
-  /** <title> — bevat de belangrijkste zoekterm */
+  /** 'standaard' = vast onderdeel van het aanbod; 'op-aanvraag' = projectmatig of seizoensgebonden */
+  availability: 'standaard' | 'op-aanvraag';
   seoTitle: string;
-  /** Meta description (±150 tekens) */
   seoDescription: string;
-  /** Korte omschrijving op dienstkaarten */
+  /** Korte omschrijving op kaarten */
   summary: string;
   /** H1 van de dienstpagina */
   heading: string;
-  /** Introductie op de dienstpagina */
   intro: string[];
-  /** Werkzaamheden (uit de projectopdracht) */
+  /** Werkzaamheden die standaard worden uitgevoerd */
   tasks: string[];
-  /** Wat de ondernemer eraan heeft */
+  /** Aanvullende werkzaamheden, in overleg */
+  onRequest?: string[];
   benefits: { title: string; text: string }[];
-  /** Voor wie deze dienst bedoeld is */
-  audience: string[];
-  /** Dienstspecifieke vragen (ook als FAQPage in structured data) */
   faq: FaqItem[];
-  /** Afwijkende kop voor de afsluitende call-to-action */
-  ctaTitle?: string;
-  /** Optionele afbakening (wat wij níét claimen) */
+  /** Afbakening van verantwoordelijkheden */
   scopeNote?: string;
 }
 
 export const services: Service[] = [
   {
-    slug: 'administratie',
-    name: 'Administratie',
-    subtitle: 'Financiële administratie en boekhouding',
+    slug: 'financiele-administratie',
+    name: 'Financiële administratie',
+    subtitle: 'Verwerking van facturen, bank en grootboek',
     icon: 'ledger',
     photo: 'administratie',
-    seoTitle: 'Administratie en boekhouding in Suriname',
+    availability: 'standaard',
+    seoTitle: 'Financiële administratie uitbesteden | Outsourcing voor administratiekantoren',
     seoDescription:
-      'Boekhouding uitbesteden in Suriname? John-Luke Finance & Advies verzorgt uw financiële administratie: facturen, bankmutaties, debiteuren, crediteuren en rapportages.',
+      'Financiële administratie uitbesteden: wij verwerken inkoop- en verkoopfacturen, bankmutaties en grootboekboekingen voor Nederlandse administratie- en accountantskantoren.',
     summary:
-      'Inkoop- en verkoopfacturen, bankmutaties, debiteuren en crediteuren: uw financiële administratie actueel en op orde.',
-    heading: 'Financiële administratie voor ondernemers in Suriname',
+      'Inkoop- en verkoopfacturen, bankmutaties en grootboekboekingen verwerkt volgens de werkwijze van uw kantoor.',
+    heading: 'Financiële administratie uitbesteden',
     intro: [
-      'Een kloppende administratie is de basis van elke onderneming. Toch schuift de boekhouding vaak naar achteren, omdat klanten, personeel en de dagelijkse gang van zaken voorgaan.',
-      'John-Luke Finance & Advies neemt de verwerking van uw financiële administratie van u over. Wij verwerken uw facturen en bankmutaties, houden uw debiteuren en crediteuren bij en zorgen voor overzichtelijke rapportages. Zo weet u op elk moment hoe uw onderneming ervoor staat.',
+      'De dagelijkse verwerking van facturen en bankmutaties neemt in veel kantoren een groot deel van de beschikbare uren in beslag. Uren die uw medewerkers liever besteden aan controle, advies en klantcontact.',
+      'Wij nemen de verwerking van financiële administraties van uw kantoor over: in uw eigen boekhoudsoftware, volgens uw rekeningschema, coderingsafspraken en werkinstructies. U behoudt het overzicht en de eindverantwoordelijkheid; wij leveren capaciteit en nauwkeurigheid.',
     ],
     tasks: [
-      'Financiële administratie',
-      'Verwerken van inkoop- en verkoopfacturen',
-      'Bankmutaties verwerken',
-      'Debiteuren- en crediteurenadministratie',
-      'Boekhoudkundige controles',
-      'Financiële rapportages',
+      'Verwerken van inkoopfacturen',
+      'Verwerken van verkoopfacturen',
+      'Verwerken van bankmutaties',
+      'Debiteurenadministratie',
+      'Crediteurenadministratie',
+      'Grootboekverwerking',
+      'Coderen en verwerken van financiële transacties',
+      'Controleren van administratieve aansluitingen',
     ],
+    onRequest: ['Verwerken van administratieve achterstanden'],
     benefits: [
-      {
-        title: 'Altijd een actueel overzicht',
-        text: 'Door periodiek te verwerken blijft uw administratie bij en ziet u wat er binnenkomt, wat eruit gaat en wat nog openstaat.',
-      },
-      {
-        title: 'Grip op openstaande posten',
-        text: 'U ziet welke klanten nog moeten betalen en welke rekeningen u nog moet voldoen, zodat u tijdig kunt bijsturen.',
-      },
-      {
-        title: 'Een basis voor tax en jaarrekening',
-        text: 'Een bijgewerkte administratie maakt belastingwerkzaamheden en de jaarafsluiting eenvoudiger en sneller.',
-      },
-    ],
-    audience: [
-      'Zelfstandige ondernemers die geen tijd hebben voor de boekhouding',
-      'Winkels en horecabedrijven met veel dagelijkse transacties',
-      'Handels- en dienstverlenende bedrijven met meerdere bankrekeningen',
-      'Ondernemingen die hun administratie willen professionaliseren',
+      { title: 'Meer capaciteit', text: 'Uw medewerkers worden ontlast van terugkerend verwerkingswerk en houden tijd over voor controle en advies.' },
+      { title: 'Volgens uw werkwijze', text: 'Wij werken in uw software, met uw rekeningschema en uw coderingsafspraken.' },
+      { title: 'Voorspelbare doorlooptijd', text: 'Vaste verwerkingsmomenten per administratie, zodat u weet wanneer de administratie bij is.' },
     ],
     faq: [
-      {
-        question: 'Hoe lever ik mijn facturen en bankafschriften aan?',
-        answer:
-          'Dat stemmen wij af tijdens de kennismaking. Wij spreken een vaste werkwijze en vaste momenten af die passen bij uw onderneming, zodat het aanleveren zo weinig mogelijk tijd kost.',
-      },
-      {
-        question: 'Kan ik mijn administratie in SRD én in vreemde valuta laten bijhouden?',
-        answer:
-          'Veel Surinaamse ondernemingen werken met SRD én met US-dollar of euro. Bespreek tijdens de kennismaking welke valuta en bankrekeningen in uw administratie voorkomen, dan nemen wij dat mee in de afspraken.',
-      },
-      {
-        question: 'Mijn administratie loopt achter. Kunnen jullie die bijwerken?',
-        answer:
-          'Ja, neem contact met ons op. Wij bekijken samen met u wat er ontbreekt en spreken af hoe en in welke volgorde de achterstand wordt weggewerkt.',
-      },
+      { question: 'Werken jullie in onze software of in een eigen omgeving?', answer: 'Altijd in de software van uw kantoor of uw klanten, met de toegang die u verleent. Zo blijft de administratie bij u en heeft u op elk moment inzicht in de verwerking.' },
+      { question: 'Hoe gaan jullie om met twijfelgevallen bij het coderen?', answer: 'Twijfelgevallen boeken wij niet op aanname. Wij leggen ze vast en stemmen ze met uw kantoor af, volgens een vooraf afgesproken werkwijze.' },
+      { question: 'Kunnen jullie ook een achterstand wegwerken?', answer: 'Ja, dat is mogelijk als afgebakend project op aanvraag. Wij spreken vooraf de omvang, planning en prioriteit af.' },
     ],
   },
   {
-    slug: 'payroll',
-    name: 'Payroll',
-    subtitle: 'Salarisadministratie en loonverwerking',
-    icon: 'payroll',
-    photo: 'payroll',
-    seoTitle: 'Payroll en salarisadministratie in Suriname',
-    seoDescription:
-      'Salarisadministratie uitbesteden in Suriname. John-Luke Finance & Advies verzorgt loonberekeningen, loonstroken, loonmutaties en loonbelastinggerelateerd administratief werk.',
-    summary:
-      'Loonberekeningen, loonstroken en loonmutaties: uw salarisadministratie elke periode correct en op tijd verwerkt.',
-    heading: 'Payroll en salarisadministratie in Suriname',
-    intro: [
-      'Uw personeel rekent erop dat het salaris op tijd en correct wordt uitbetaald. Tegelijk vraagt de salarisadministratie om nauwkeurigheid: loonberekeningen, mutaties, loonstroken en de loonbelastinggerelateerde administratie moeten kloppen.',
-      'John-Luke Finance & Advies verzorgt uw salarisadministratie van begin tot eind. Wij verwerken de loonmutaties die u aanlevert, maken de loonberekeningen en loonstroken en ondersteunen u bij de personeelsadministratie. U houdt tijd over voor uw mensen en uw onderneming.',
-    ],
-    tasks: [
-      'Salarisadministratie',
-      'Loonberekeningen',
-      'Loonstroken',
-      'Verwerking van loonmutaties',
-      'Ondersteuning bij personeelsadministratie',
-      'Loonbelastinggerelateerde administratieve werkzaamheden',
-    ],
-    benefits: [
-      {
-        title: 'Correcte en tijdige verwerking',
-        text: 'Elke loonperiode volgens een vaste planning verwerkt, zodat uw medewerkers weten waar zij aan toe zijn.',
-      },
-      {
-        title: 'Duidelijke loonstroken',
-        text: 'Overzichtelijke loonstroken per medewerker, met de verwerkte uren, toeslagen en inhoudingen.',
-      },
-      {
-        title: 'Overzicht voor de loonbelasting',
-        text: 'De loonbelastinggerelateerde gegevens administratief voorbereid, zodat u uw verplichtingen kunt nakomen.',
-      },
-    ],
-    audience: [
-      'Bedrijven met personeel, van enkele medewerkers tot grotere teams',
-      'Horeca en winkels met wisselende uren en roosters',
-      'Ondernemers die voor het eerst personeel aannemen',
-      'Bedrijven die de salarisverwerking willen uitbesteden',
-    ],
-    faq: [
-      {
-        question: 'Welke gegevens heeft u van mij nodig per loonperiode?',
-        answer:
-          'In de basis de gewerkte uren, eventuele overuren, toeslagen, verlof en wijzigingen in het personeelsbestand. Tijdens de kennismaking spreken wij precies af welke gegevens u wanneer aanlevert.',
-      },
-      {
-        question: 'Werken jullie met wekelijkse, tweewekelijkse of maandelijkse verloning?',
-        answer:
-          'Wij stemmen de verwerking af op de loonperiode die uw onderneming hanteert. Bespreek uw situatie met ons, dan nemen wij die mee in het voorstel.',
-      },
-      {
-        question: 'Kunnen jullie ook helpen als ik voor het eerst personeel aanneem?',
-        answer:
-          'Ja. Wij ondersteunen bij het opzetten van de personeels- en salarisadministratie, zodat u vanaf de eerste loonperiode een goede basis heeft.',
-      },
-    ],
-  },
-  {
-    slug: 'tax',
-    name: 'Tax',
-    subtitle: 'Belastingaangiften en fiscale ondersteuning',
+    slug: 'btw-administratie',
+    name: 'Btw-administratie',
+    subtitle: 'Voorbereiding en controle van btw-gegevens',
     icon: 'tax',
     photo: 'tax',
-    seoTitle: 'Belastingaangifte en btw-ondersteuning in Suriname',
+    availability: 'standaard',
+    seoTitle: 'Btw-administratie uitbesteden | Ondersteuning voor administratiekantoren',
     seoDescription:
-      'Hulp bij belastingaangiften in Suriname. John-Luke Finance & Advies ondersteunt bij aangiften, btw-werkzaamheden en het voorbereiden en controleren van belastinggegevens.',
+      'Btw-administratie uitbesteden: wij bereiden btw-administraties voor, controleren btw-coderingen en aansluitingen en leveren de gegevens voor de btw-aangifte aan uw kantoor.',
     summary:
-      'Ondersteuning bij belastingaangiften en btw-werkzaamheden, met zorgvuldig voorbereide en gecontroleerde gegevens.',
-    heading: 'Ondersteuning bij belastingaangiften in Suriname',
+      'Btw-coderingen en aansluitingen gecontroleerd en de gegevens voor de btw-aangifte voorbereid voor uw kantoor.',
+    heading: 'Btw-administratie uitbesteden',
     intro: [
-      'Fiscale verplichtingen vragen om tijdige en zorgvuldige voorbereiding. Gegevens moeten compleet zijn, aansluiten op uw administratie en op tijd klaarstaan.',
-      'John-Luke Finance & Advies ondersteunt u bij uw belastingaangiften en btw-gerelateerde werkzaamheden in Suriname. Wij bereiden de belastinggegevens voor op basis van uw administratie, controleren ze en zorgen dat u overzicht houdt over uw fiscale verplichtingen.',
+      'Rond de btw-deadlines loopt de werkdruk in veel kantoren op. Coderingen moeten kloppen, aansluitingen moeten sluiten en de onderliggende documentatie moet compleet zijn.',
+      'Wij bereiden de btw-administratie voor, controleren btw-coderingen en aansluitingen en zetten de gegevens voor de aangifte voor uw kantoor klaar. Met praktijkervaring in Nederlandse btw-processen signaleren wij afwijkingen tijdig.',
     ],
     tasks: [
-      'Ondersteuning bij belastingaangiften',
-      'Btw-gerelateerde werkzaamheden',
-      'Fiscale administratieve ondersteuning',
-      'Voorbereiden en controleren van belastinggegevens',
-      'Ondersteuning bij fiscale verplichtingen in Suriname',
+      'Voorbereiden van btw-administraties',
+      'Controleren van btw-coderingen',
+      'Controleren van btw-aansluitingen',
+      'Ondersteuning bij Nederlandse btw-processen',
+      'Voorbereiden van gegevens voor btw-aangiften',
+      'Controleren van administratieve documentatie',
     ],
     benefits: [
-      {
-        title: 'Op tijd voorbereid',
-        text: 'Uw belastinggegevens worden tijdig voorbereid, zodat aangiften niet op het laatste moment hoeven te worden samengesteld.',
-      },
-      {
-        title: 'Aansluitend op uw administratie',
-        text: 'Omdat de gegevens uit uw eigen administratie komen, sluiten aangiften en boekhouding op elkaar aan.',
-      },
-      {
-        title: 'Overzicht over uw verplichtingen',
-        text: 'U weet welke fiscale verplichtingen voor uw onderneming gelden en welke gegevens daarvoor nodig zijn.',
-      },
-    ],
-    audience: [
-      'Ondernemers die hun aangiften zorgvuldig willen laten voorbereiden',
-      'Btw-plichtige ondernemingen',
-      'Bedrijven die fiscale administratie willen uitbesteden',
-      'Startende ondernemers die hun fiscale verplichtingen op orde willen hebben',
+      { title: 'Rust rond de deadlines', text: 'De voorbereiding is gedaan voordat de aangifteperiode begint, zodat uw kantoor zich op de beoordeling kan richten.' },
+      { title: 'Afwijkingen tijdig zichtbaar', text: 'Wij signaleren afwijkende coderingen en verschillen en leggen ze met onderbouwing aan u voor.' },
+      { title: 'Aansluitend op de administratie', text: 'De btw-gegevens sluiten aan op het grootboek, omdat ze uit dezelfde verwerking komen.' },
     ],
     faq: [
-      {
-        question: 'Volgen jullie de Surinaamse belastingregels?',
-        answer:
-          'Ja. Onze ondersteuning is uitsluitend gericht op ondernemingen in Suriname en op de fiscale verplichtingen die daar gelden.',
-      },
-      {
-        question: 'Wat heeft u nodig om mijn aangifte voor te bereiden?',
-        answer:
-          'Een bijgewerkte administratie en de onderliggende stukken. Verzorgen wij ook uw administratie, dan zijn de meeste gegevens al aanwezig.',
-      },
-      {
-        question: 'Kan ik alleen voor btw-werkzaamheden bij jullie terecht?',
-        answer:
-          'Ja, u kunt ook losse fiscale werkzaamheden met ons bespreken. Wij stemmen de ondersteuning af op wat u nodig heeft.',
-      },
+      { question: 'Dienen jullie de btw-aangifte in?', answer: 'Nee. Wij bereiden de gegevens voor en controleren ze. De fiscale beoordeling en de indiening van de aangifte blijven bij uw kantoor, zoals wij dat ook in de samenwerkingsafspraken vastleggen.' },
+      { question: 'Hebben jullie ervaring met Nederlandse btw-regels?', answer: 'Wij hebben praktijkervaring met de verwerking van btw in Nederlandse administraties, zoals de gebruikelijke tarieven en coderingen. Bij bijzondere fiscale situaties stemmen wij altijd af met uw kantoor.' },
     ],
     scopeNote:
-      'Wij verzorgen de administratieve voorbereiding en ondersteuning. De verantwoordelijkheid voor de ingediende aangifte blijft bij de onderneming; bij complexe fiscale vraagstukken adviseren wij u een fiscaal specialist in te schakelen.',
+      'Wij verzorgen de administratieve voorbereiding en controle. De fiscale beoordeling en de indiening van btw-aangiften blijven de verantwoordelijkheid van uw kantoor; dat leggen wij vooraf contractueel vast.',
   },
   {
-    slug: 'jaarrekening',
-    name: 'Jaarrekening',
-    subtitle: 'Jaarafsluiting en jaarrekening',
+    slug: 'debiteuren-crediteuren',
+    name: 'Debiteuren en crediteuren',
+    subtitle: 'Openstaande posten en afletteren',
+    icon: 'payroll',
+    photo: 'payroll',
+    availability: 'standaard',
+    seoTitle: 'Debiteuren- en crediteurenadministratie uitbesteden',
+    seoDescription:
+      'Debiteuren- en crediteurenadministratie uitbesteden: wij verwerken openstaande posten, controleren betalingen, afletteren bankmutaties en signaleren verschillen voor uw kantoor.',
+    summary:
+      'Openstaande posten bijgewerkt, betalingen afgeletterd en verschillen tijdig gesignaleerd.',
+    heading: 'Debiteuren- en crediteurenadministratie uitbesteden',
+    intro: [
+      'Een betrouwbaar overzicht van openstaande posten is de basis voor goed debiteuren- en crediteurenbeheer. Toch blijven afletteren en het uitzoeken van verschillen vaak liggen.',
+      'Wij houden de openstaande posten van de administraties van uw kantoor actueel: betalingen controleren, bankmutaties afletteren en verschillen signaleren, zodat u en uw klanten op juiste cijfers kunnen sturen.',
+    ],
+    tasks: [
+      'Verwerken van openstaande posten',
+      'Controleren van betalingen',
+      'Afletteren van bankmutaties',
+      'Controleren van openstaande facturen',
+      'Signaleren van verschillen',
+      'Ondersteunen bij debiteuren- en crediteurenbeheer',
+    ],
+    benefits: [
+      { title: 'Actuele openstaande posten', text: 'Een betrouwbaar overzicht van wat er nog openstaat, per debiteur en crediteur.' },
+      { title: 'Verschillen snel opgelost', text: 'Onduidelijke betalingen en verschillen worden gesignaleerd en met onderbouwing voorgelegd.' },
+      { title: 'Betere basis voor afsluitingen', text: 'Schone subadministraties maken maand- en jaarafsluitingen sneller.' },
+    ],
+    faq: [
+      { question: 'Benaderen jullie ook debiteuren van onze klanten?', answer: 'Standaard niet: wij verzorgen de administratieve kant. Contact met debiteuren of crediteuren loopt via uw kantoor, tenzij daar uitdrukkelijk andere afspraken over worden gemaakt.' },
+    ],
+  },
+  {
+    slug: 'maand-kwartaalafsluitingen',
+    name: 'Maand- en kwartaalafsluitingen',
+    subtitle: 'Periodieke controle en rapportage',
     icon: 'report',
-    photo: 'jaarrekening',
-    seoTitle: 'Jaarrekening en jaarafsluiting in Suriname',
-    seoDescription:
-      'Jaarrekening laten opstellen in Suriname? John-Luke Finance & Advies verzorgt jaarafsluitingen, balans en winst-en-verliesrekening en de voorbereiding voor uw accountant.',
-    summary:
-      'Jaarafsluiting, balans en winst-en-verliesrekening: uw boekjaar netjes afgesloten en uw gegevens klaar voor uw accountant.',
-    heading: 'Jaarrekening en jaarafsluiting in Suriname',
-    intro: [
-      'Aan het einde van het boekjaar moet uw administratie compleet zijn en kloppen. Banken, investeerders, de belastingdienst en uw eigen onderneming vragen om betrouwbare financiële overzichten.',
-      'John-Luke Finance & Advies bereidt uw jaarrekening en jaarafsluiting voor. Wij stellen de balans en de winst-en-verliesrekening op, maken heldere financiële overzichten en bereiden de gegevens voor uw accountant of andere financiële adviseurs voor.',
-    ],
-    tasks: [
-      'Voorbereiding van jaarrekeningen',
-      'Jaarafsluitingen',
-      'Balans en winst-en-verliesrekening',
-      'Financiële overzichten',
-      'Voorbereiding van gegevens voor accountants en andere financiële adviseurs',
-    ],
-    benefits: [
-      {
-        title: 'Een afgesloten boekjaar',
-        text: 'Uw administratie gecontroleerd en afgesloten, zodat het nieuwe boekjaar met een schone lei begint.',
-      },
-      {
-        title: 'Inzicht in uw resultaat',
-        text: 'Een balans en winst-en-verliesrekening die laten zien hoe uw onderneming het afgelopen jaar heeft gepresteerd.',
-      },
-      {
-        title: 'Klaar voor uw adviseur',
-        text: 'Overzichtelijke, onderbouwde gegevens maken het werk van uw accountant of financiële adviseur eenvoudiger.',
-      },
-    ],
-    audience: [
-      'Ondernemingen die een jaarrekening nodig hebben voor bank of financier',
-      'Bedrijven die hun boekjaar netjes willen afsluiten',
-      'Ondernemers die gegevens voor hun accountant willen laten voorbereiden',
-      'Middelgrote ondernemingen met uitgebreidere administraties',
-    ],
-    faq: [
-      {
-        question: 'Wanneer moet ik beginnen met de jaarafsluiting?',
-        answer:
-          'Hoe eerder, hoe beter. Een administratie die het hele jaar bij is, maakt de jaarafsluiting veel eenvoudiger. Neem tijdig contact op, dan plannen wij de werkzaamheden samen in.',
-      },
-      {
-        question: 'Zijn jullie een accountantskantoor?',
-        answer:
-          'Nee. Wij verzorgen de voorbereiding van jaarrekeningen en jaarafsluitingen en bereiden de gegevens voor uw accountant of andere financiële adviseurs voor. Een controle- of samenstellingsverklaring van een accountant geven wij niet af.',
-      },
-      {
-        question: 'Kunnen jullie ook een jaarrekening maken als iemand anders mijn boekhouding doet?',
-        answer:
-          'Ja, dat is in overleg mogelijk. Wij bekijken eerst de staat van de administratie en bespreken met u wat er nodig is.',
-      },
-    ],
-    scopeNote:
-      'John-Luke Finance & Advies is geen accountantskantoor. Wij bereiden jaarrekeningen voor en leveren de gegevens aan uw accountant of financiële adviseur; een accountantsverklaring geven wij niet af.',
-  },
-  {
-    slug: 'advies',
-    name: 'Advies',
-    subtitle: 'Financieel-administratief advies',
-    icon: 'advice',
-    photo: 'advies',
-    seoTitle: 'Financieel en administratief advies in Suriname',
-    seoDescription:
-      'Advies over uw administratie en financiën in Suriname. John-Luke Finance & Advies adviseert over de inrichting van uw administratie, financieel inzicht, begrotingen en het starten van een onderneming.',
-    summary:
-      'Praktisch advies over de inrichting van uw administratie, uw cijfers en de financiële kant van uw onderneming.',
-    heading: 'Financieel-administratief advies voor ondernemers in Suriname',
-    intro: [
-      'Goede beslissingen beginnen bij inzicht in uw cijfers. Toch is het als ondernemer niet altijd duidelijk wat uw administratie u vertelt, hoe u die het beste inricht of waar u op moet letten als uw onderneming groeit.',
-      'John-Luke Finance & Advies denkt met u mee. Wij adviseren over de opzet van uw administratie, maken uw cijfers begrijpelijk en helpen u bij financiële keuzes, zoals een begroting, een liquiditeitsoverzicht of de administratieve kant van het starten of uitbreiden van uw onderneming.',
-    ],
-    tasks: [
-      'Advies over de inrichting van uw administratie',
-      'Uitleg en analyse van uw financiële cijfers',
-      'Opstellen van begrotingen en liquiditeitsoverzichten',
-      'Advies over administratieve processen en interne werkwijzen',
-      'Begeleiding bij het starten van een onderneming',
-      'Financiële onderbouwing voor gesprekken met bank of financier',
-    ],
-    benefits: [
-      {
-        title: 'Inzicht in uw cijfers',
-        text: 'Wij vertalen uw administratie naar heldere inzichten, zodat u weet waar uw onderneming staat en waar kansen en risico’s liggen.',
-      },
-      {
-        title: 'Een administratie die past',
-        text: 'Een opzet die aansluit bij de omvang van uw onderneming: niet te zwaar, niet te licht, en klaar om mee te groeien.',
-      },
-      {
-        title: 'Onderbouwde beslissingen',
-        text: 'Met een begroting en liquiditeitsoverzicht neemt u beslissingen op basis van cijfers in plaats van gevoel.',
-      },
-    ],
-    audience: [
-      'Startende ondernemers die hun administratie goed willen opzetten',
-      'Groeiende bedrijven die meer grip op hun cijfers willen',
-      'Ondernemers die een financiering of investering voorbereiden',
-      'Bedrijven die hun administratieve processen willen verbeteren',
-    ],
-    faq: [
-      {
-        question: 'Kan ik advies vragen zonder dat jullie mijn administratie verzorgen?',
-        answer:
-          'Ja. U kunt ook los advies bij ons vragen. Wij bekijken dan eerst uw situatie en spreken vooraf af wat het advies omvat.',
-      },
-      {
-        question: 'Helpen jullie bij het opstellen van een begroting of ondernemingsplan?',
-        answer:
-          'Wij helpen bij het financiële deel: de begroting, het liquiditeitsoverzicht en de onderbouwing van de cijfers. Bespreek tijdens de kennismaking wat u nodig heeft.',
-      },
-      {
-        question: 'Geven jullie ook juridisch of fiscaal advies?',
-        answer:
-          'Ons advies richt zich op de administratieve en financiële kant van uw onderneming. Voor juridische vraagstukken en complexe fiscale vragen verwijzen wij u naar een gespecialiseerde adviseur.',
-      },
-    ],
-    scopeNote:
-      'Ons advies richt zich op administratie en financiën. Voor juridisch advies en complexe fiscale vraagstukken adviseren wij u een gespecialiseerde adviseur in te schakelen.',
-  },
-  {
-    slug: 'ai-automation',
-    ctaTitle: 'Klaar om slimmer te werken?',
-    name: 'AI & Automation',
-    subtitle: 'Slimmer werken met AI en automatisering',
-    icon: 'automation',
     photo: 'automation',
-    seoTitle: 'AI en automatisering van uw administratie in Suriname',
+    availability: 'standaard',
+    seoTitle: 'Maand- en kwartaalafsluitingen uitbesteden | Administratieve backoffice',
     seoDescription:
-      'Automatiseer uw administratie in Suriname. John-Luke Finance & Advies helpt ondernemers met digitale facturen, automatische verwerking, dashboards en verantwoord gebruik van AI.',
+      'Maand- en kwartaalafsluitingen uitbesteden: grootboekcontroles, bankaansluitingen, controle van tussenrekeningen en balansposten en periodieke rapportages voor uw kantoor.',
     summary:
-      'Minder handwerk en sneller inzicht: wij helpen uw administratieve processen te digitaliseren en slim te automatiseren.',
-    heading: 'AI en automatisering voor uw administratie',
+      'Grootboek, bank, tussenrekeningen en balansposten gecontroleerd en periodieke rapportages voorbereid.',
+    heading: 'Maand- en kwartaalafsluitingen uitbesteden',
     intro: [
-      'Veel administratief werk is herhaling: facturen overtypen, bankafschriften afstemmen, dezelfde overzichten elke maand opnieuw maken. Dat kost tijd en vergroot de kans op fouten.',
-      'John-Luke Finance & Advies helpt u dat werk te digitaliseren en te automatiseren. Wij brengen uw huidige werkwijze in kaart, kijken waar automatisering en AI-hulpmiddelen echt tijd besparen en richten die samen met u in. Altijd met aandacht voor de betrouwbaarheid van uw cijfers en de vertrouwelijkheid van uw gegevens.',
+      'Periodieke afsluitingen zorgen ervoor dat administraties op orde blijven en dat de jaarafsluiting geen verrassingen oplevert. Maar ze vragen juist tijd op momenten dat het in uw kantoor al druk is.',
+      'Wij voeren de periodieke controles uit en bereiden de rapportages voor. Afwijkingen leggen wij vast en stemmen wij met uw kantoor af.',
     ],
     tasks: [
-      'Analyse van uw administratieve processen en verbetermogelijkheden',
-      'Digitaliseren van facturen, bonnen en documenten',
-      'Automatische verwerking van facturen en bankmutaties',
-      'Inrichten van overzichtelijke financiële dashboards',
-      'Advies over en inzet van AI-hulpmiddelen voor administratief werk',
-      'Begeleiding en uitleg, zodat u en uw medewerkers ermee kunnen werken',
+      'Controleren van grootboekrekeningen',
+      'Bankaansluitingen',
+      'Crediteuren- en debiteurencontroles',
+      'Controle van tussenrekeningen',
+      'Controleren van balansposten',
+      'Voorbereiden van periodieke rapportages',
+      'Signaleren van afwijkingen',
     ],
     benefits: [
-      {
-        title: 'Minder handwerk',
-        text: 'Terugkerende taken verlopen automatisch, zodat u en uw medewerkers tijd overhouden voor belangrijker werk.',
-      },
-      {
-        title: 'Sneller inzicht',
-        text: 'Met een actueel dashboard ziet u op elk moment hoe uw onderneming ervoor staat, zonder te wachten op losse overzichten.',
-      },
-      {
-        title: 'Verantwoord gebruik van AI',
-        text: 'Wij zetten AI alleen in waar het waarde toevoegt, met menselijke controle op de uitkomst en zorg voor uw gegevens.',
-      },
-    ],
-    audience: [
-      'Ondernemers die veel tijd kwijt zijn aan handmatige administratie',
-      'Bedrijven die van papier naar een digitale administratie willen',
-      'Groeiende ondernemingen die hun processen willen opschalen',
-      'Ondernemers die willen weten wat AI voor hun bedrijf kan betekenen',
+      { title: 'Administraties blijven op orde', text: 'Fouten en verschillen worden periodiek gevonden in plaats van pas bij de jaarafsluiting.' },
+      { title: 'Rapportages op tijd', text: 'Periodieke rapportages liggen klaar voor beoordeling door uw kantoor.' },
+      { title: 'Vaste werkwijze', text: 'Iedere afsluiting volgt dezelfde checklist, zodat de kwaliteit voorspelbaar is.' },
     ],
     faq: [
-      {
-        question: 'Heb ik dure software nodig om te automatiseren?',
-        answer:
-          'Niet per se. Wij kijken eerst naar wat u al gebruikt en stemmen de oplossing af op de omvang en het budget van uw onderneming.',
-      },
-      {
-        question: 'Is het veilig om AI te gebruiken voor mijn administratie?',
-        answer:
-          'Wij gaan zorgvuldig om met uw gegevens. Wij kiezen per toepassing welke hulpmiddelen geschikt zijn, delen geen vertrouwelijke gegevens zonder uw toestemming en houden altijd menselijke controle op de uitkomst.',
-      },
-      {
-        question: 'Vervangt automatisering mijn administratiekantoor of medewerkers?',
-        answer:
-          'Nee. Automatisering neemt herhalend werk over, maar controle, interpretatie en advies blijven mensenwerk. Zo combineert u efficiëntie met betrouwbaarheid.',
-      },
+      { question: 'Welke rapportages kunnen jullie voorbereiden?', answer: 'Standaardrapportages uit de boekhoudsoftware, zoals een balans, winst-en-verliesrekening en overzichten van openstaande posten, aangevuld met een korte toelichting op afwijkingen. Specifieke formats stemmen wij met u af.' },
+    ],
+  },
+  {
+    slug: 'jaarafsluiting',
+    name: 'Jaarafsluiting',
+    subtitle: 'Voorbereiding van jaarwerk en dossiers',
+    icon: 'layers',
+    photo: 'jaarrekening',
+    availability: 'op-aanvraag',
+    seoTitle: 'Jaarafsluiting uitbesteden | Ondersteuning bij jaarwerk voor accountantskantoren',
+    seoDescription:
+      'Ondersteuning bij jaarwerk: wij bereiden administratieve jaarafsluitingen, balansspecificaties, aansluitingen en dossiers voor Nederlandse accountants- en administratiekantoren voor.',
+    summary:
+      'Administratieve jaarafsluitingen, balansspecificaties en dossiers voorbereid voor beoordeling door uw kantoor.',
+    heading: 'Ondersteuning bij de jaarafsluiting',
+    intro: [
+      'In het jaarwerkseizoen is capaciteit schaars. Voorbereidend werk zoals aansluitingen en balansspecificaties neemt veel tijd in beslag, terwijl uw medewerkers nodig zijn voor beoordeling en klantgesprekken.',
+      'Wij bereiden de administratieve jaarafsluiting voor: grootboekrekeningen controleren, balansspecificaties opstellen, financiële gegevens aansluiten en het dossier klaarzetten voor uw beoordeling.',
+    ],
+    tasks: [
+      'Voorbereiden van administratieve jaarafsluitingen',
+      'Controleren van grootboekrekeningen',
+      'Voorbereiden van balansspecificaties',
+      'Aansluitingen van financiële gegevens',
+      'Voorbereiden van administratieve dossiers',
+      'Ondersteuning bij jaarwerkzaamheden',
+    ],
+    benefits: [
+      { title: 'Capaciteit in het seizoen', text: 'Extra handen precies wanneer de druk het hoogst is.' },
+      { title: 'Navolgbare dossiers', text: 'Specificaties en aansluitingen zo opgebouwd dat uw kantoor ze snel kan beoordelen.' },
+      { title: 'Uw uren naar beoordeling', text: 'Voorbereidend werk uit handen, zodat uw team zich op beoordeling en advies richt.' },
+    ],
+    faq: [
+      { question: 'Stellen jullie de jaarrekening samen?', answer: 'Wij verzorgen de administratieve voorbereiding. Het samenstellen en de beoordeling van de jaarrekening blijven bij uw kantoor. Wij geven geen accountantsverklaring af.' },
     ],
     scopeNote:
-      'AI-hulpmiddelen ondersteunen het werk, maar vervangen geen menselijke controle. Wij controleren de uitkomsten en gaan vertrouwelijk om met uw gegevens.',
+      'Wij bereiden het jaarwerk administratief voor. De beoordeling, het samenstellen van de jaarrekening en eventuele verklaringen blijven de verantwoordelijkheid van uw kantoor.',
+  },
+  {
+    slug: 'backoffice-ondersteuning',
+    name: 'Backoffice-ondersteuning',
+    subtitle: 'Piekcapaciteit, achterstanden en structurele ondersteuning',
+    icon: 'users',
+    photo: 'advies',
+    availability: 'op-aanvraag',
+    seoTitle: 'Administratieve backoffice uitbesteden | Flexibele capaciteit voor kantoren',
+    seoDescription:
+      'Administratieve backoffice-ondersteuning voor Nederlandse kantoren: tijdelijke capaciteitsuitbreiding, achterstanden wegwerken en structurele ondersteuning bij terugkerende werkzaamheden.',
+    summary:
+      'Tijdelijke capaciteit tijdens piekperiodes, achterstanden wegwerken of structurele ondersteuning.',
+    heading: 'Administratieve backoffice-ondersteuning',
+    intro: [
+      'Ziekte, vertrek van een medewerker, een nieuwe grote klant of een achterstand: de werklast in een administratiekantoor is zelden gelijkmatig.',
+      'Wij bieden flexibele backoffice-capaciteit. Tijdelijk tijdens piekperiodes, als project om een achterstand weg te werken, of structureel voor terugkerende werkzaamheden.',
+    ],
+    tasks: [
+      'Administratieve ondersteuning tijdens piekperiodes',
+      'Tijdelijke capaciteitsuitbreiding',
+      'Verwerken van achterstanden',
+      'Structurele ondersteuning bij terugkerende werkzaamheden',
+      'Ondersteuning bij implementatie van administratieve processen',
+    ],
+    benefits: [
+      { title: 'Flexibel inzetbaar', text: 'Capaciteit die meebeweegt met de werklast van uw kantoor.' },
+      { title: 'Snel op te starten', text: 'Na een korte onboarding in uw systemen en werkwijze kunnen wij aan de slag.' },
+      { title: 'Geen vaste personeelslasten', text: 'U betaalt voor de afgesproken ondersteuning, niet voor extra vaste formatie.' },
+    ],
+    faq: [
+      { question: 'Hoe snel kunnen jullie starten?', answer: 'Dat hangt af van de omvang en van de beschikbare capaciteit op dat moment. Na de kennismaking en de toegang tot uw systemen spreken wij een concrete startdatum af.' },
+    ],
   },
 ];
 

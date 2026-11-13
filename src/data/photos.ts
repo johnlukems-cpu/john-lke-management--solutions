@@ -13,39 +13,39 @@ import type { ImageMetadata } from 'astro';
  */
 export const photoSlots = {
   hero: {
-    alt: 'Nette kantoorwerkplek met laptop, financiële administratie en kantoorbenodigdheden',
+    alt: 'Werkplek met laptop en beeldscherm in een licht kantoor',
     brief: 'Een nette kantoorwerkplek met laptop en administratie (liggend, rustig, veel licht).',
   },
   intro: {
-    alt: 'Moderne, eenvoudige kantooromgeving van een administratiekantoor',
+    alt: 'Licht kantoor met werkplek en planten',
     brief: 'Een moderne, eenvoudige kantooromgeving.',
   },
   administratie: {
-    alt: 'Facturen, documenten en financiële rapportages op een bureau',
+    alt: 'Financiële documenten met een rekenmachine op een bureau',
     brief: 'Facturen, documenten en financiële rapportages.',
   },
   payroll: {
-    alt: 'Georganiseerde werkplek voor salarisadministratie met loonstroken en calculator',
+    alt: 'Klembord met formulier naast een laptop',
     brief: 'Een georganiseerde werkplek voor salarisadministratie.',
   },
   tax: {
-    alt: 'Calculator, notitieboek en belastingdocumenten op een bureau',
+    alt: 'Rekenmachine voor administratief werk',
     brief: 'Een calculator, notitieboek en kantoorbenodigdheden.',
   },
   jaarrekening: {
-    alt: 'Bureau met financiële jaaroverzichten en een balans',
+    alt: 'Grafiek op papier met liniaal en pennen',
     brief: 'Een bureau met financiële jaaroverzichten.',
   },
   advies: {
-    alt: 'Notitieboek met financiële aantekeningen en een begroting naast een laptop',
+    alt: 'Notitieboek met pen en bril',
     brief: 'Een notitieboek met aantekeningen, een begroting en een laptop op een vergadertafel.',
   },
   automation: {
-    alt: 'Laptop met geautomatiseerde administratie en gedigitaliseerde documenten',
+    alt: 'Financieel dashboard met grafieken op een scherm',
     brief: 'Een laptop met digitale administratie of een dashboard, naast een scanner of gedigitaliseerde documenten.',
   },
   werkwijze: {
-    alt: 'Laptop met een boekhoudkundig dashboard',
+    alt: 'Laptop met een financieel dashboard',
     brief: 'Een laptop met een boekhoudkundig dashboard.',
   },
 } as const;

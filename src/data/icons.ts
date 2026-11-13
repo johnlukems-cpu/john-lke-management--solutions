@@ -16,6 +16,8 @@ export const icons = {
     '<rect x="3" y="4" width="6" height="5" rx="1"/><rect x="15" y="15" width="6" height="5" rx="1"/><path d="M6 9v3.5a2 2 0 0 0 2 2h7"/><path d="m13 12.5 2 2-2 2"/><circle cx="18" cy="6.5" r="2.5"/><path d="M9 6.5h6.5"/>',
   globe:
     '<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.3 3.5 5.2 3.5 8.5s-1.2 6.2-3.5 8.5c-2.3-2.3-3.5-5.2-3.5-8.5S9.7 5.8 12 3.5Z"/>',
+  instagram:
+    '<rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><path d="M17 7v.01"/>',
   linkedin:
     '<rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M8 10.5V16M8 7.5v.01M11.5 16v-5.5M11.5 13c0-1.5 1-2.5 2.3-2.5 1.3 0 2.2.9 2.2 2.5V16"/>',
   arrowRight: '<path d="M5 12h14M13 6l6 6-6 6"/>',

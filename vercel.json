@@ -52,6 +52,36 @@
   ],
   "redirects": [
     {
+      "source": "/diensten/administratie",
+      "destination": "/diensten/financiele-administratie",
+      "permanent": true
+    },
+    {
+      "source": "/diensten/tax",
+      "destination": "/diensten/btw-administratie",
+      "permanent": true
+    },
+    {
+      "source": "/diensten/jaarrekening",
+      "destination": "/diensten/jaarafsluiting",
+      "permanent": true
+    },
+    {
+      "source": "/diensten/payroll",
+      "destination": "/diensten",
+      "permanent": true
+    },
+    {
+      "source": "/diensten/advies",
+      "destination": "/diensten",
+      "permanent": true
+    },
+    {
+      "source": "/diensten/ai-automation",
+      "destination": "/diensten",
+      "permanent": true
+    },
+    {
       "source": "/diensten/audit",
       "destination": "/diensten",
       "permanent": true

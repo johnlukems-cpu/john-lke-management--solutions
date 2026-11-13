@@ -17,7 +17,11 @@ const { service, index } = Astro.props;
       <span class="inline-flex size-11 items-center justify-center border border-line text-ink">
         <Icon name={service.icon} class="size-5" />
       </span>
-      <span aria-hidden="true" class="font-display text-sm text-gold-deep">0{index + 1}</span>
+      {service.availability === 'op-aanvraag' ? (
+        <span class="border border-gold px-2.5 py-1 text-xs font-medium text-gold-deep">Op aanvraag</span>
+      ) : (
+        <span aria-hidden="true" class="font-display text-sm text-gold-deep">0{index + 1}</span>
+      )}
     </div>
     <h3 class="mt-5 text-2xl">{service.name}</h3>
     <p class="mt-1 text-sm font-medium text-gold-deep">{service.subtitle}</p>

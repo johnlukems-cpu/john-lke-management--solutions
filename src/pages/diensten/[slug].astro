@@ -8,7 +8,7 @@ import SectionHeading from '@/components/SectionHeading.astro';
 import FaqList from '@/components/FaqList.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import { services, servicePath, type Service } from '@/data/services';
-import { whatsappUrl } from '@/config/site';
+import { contactHref } from '@/data/navigation';
 import { breadcrumbSchema, faqSchema, serviceSchema } from '@/lib/schema';
 
 export const getStaticPaths = (() =>
@@ -24,25 +24,22 @@ const crumbs = [
   { name: service.name, path: servicePath(service) },
 ];
 const others = services.filter((s) => s.slug !== service.slug);
-const contactHref = `/contact?onderwerp=kennismaking&dienst=${service.slug}#formulier`;
-/** Kleine letters in lopende tekst, behalve bij afkortingen zoals 'AI'. */
-const inText = (s: string) => (/[A-Z]{2}/.test(s) ? s : s.toLowerCase());
-const wa = whatsappUrl(`Goedendag, ik heb een vraag over ${inText(service.name)} (${inText(service.subtitle)}).`);
+const cta = contactHref(service.slug);
 ---
 
 <BaseLayout
   title={service.seoTitle}
+  rawTitle
   description={service.seoDescription}
   schema={[serviceSchema(origin, service), breadcrumbSchema(origin, crumbs), faqSchema(service.faq)]}
 >
-  <PageHero eyebrow={`${service.name} · ${service.subtitle}`} title={service.heading} intro={service.intro[0]} crumbs={crumbs}>
+  <PageHero eyebrow={`${service.availability === 'op-aanvraag' ? 'Op aanvraag' : 'Standaarddienst'} · ${service.subtitle}`} title={service.heading} intro={service.intro[0]} crumbs={crumbs}>
     <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-      <a href={contactHref} class="btn btn-gold">Plan een kennismaking <Icon name="arrowRight" class="size-4" /></a>
-      {wa && <a href={wa} target="_blank" rel="noopener noreferrer" class="btn btn-outline-light"><Icon name="whatsapp" class="size-5" />Stel uw vraag via WhatsApp</a>}
+      <a href={cta} class="btn btn-gold">Bespreek outsourcing <Icon name="arrowRight" class="size-4" /></a>
+      <a href={cta} class="btn btn-outline-light">Plan een kennismakingsgesprek</a>
     </div>
   </PageHero>
 
-  <!-- Introductie + werkzaamheden -->
   <section class="section bg-paper" aria-labelledby="werk-title">
     <div class="container-site grid gap-12 lg:grid-cols-2 lg:gap-20">
       <div>
@@ -52,15 +49,23 @@ const wa = whatsappUrl(`Goedendag, ik heb een vraag over ${inText(service.name)}
         </div>
       </div>
       <div>
-        <SectionHeading id="werk-title" eyebrow="Werkzaamheden" title={`Wat wij voor u verzorgen`} />
+        <SectionHeading id="werk-title" eyebrow="Werkzaamheden" title="Wat wij voor uw kantoor verzorgen" />
         <ul class="reveal mt-8 divide-y divide-line border-y border-line">
           {service.tasks.map((task) => (
-            <li class="flex items-start gap-4 py-4">
+            <li class="flex items-start gap-4 py-3.5">
               <span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-ink text-gold-light"><Icon name="check" class="size-3.5" stroke={2.5} /></span>
               <span class="text-lg text-ink">{task}</span>
             </li>
           ))}
         </ul>
+        {service.onRequest && (
+          <div class="reveal mt-6">
+            <p class="text-sm font-semibold text-ink">Op aanvraag</p>
+            <ul class="mt-2 space-y-2">
+              {service.onRequest.map((t) => <li class="flex items-start gap-3 text-muted"><Icon name="arrowRight" class="mt-1 size-4 shrink-0 text-gold-deep" />{t}</li>)}
+            </ul>
+          </div>
+        )}
         {service.scopeNote && (
           <p class="reveal mt-8 border-l-2 border-gold bg-mist p-5 text-[0.9375rem] leading-relaxed text-muted">{service.scopeNote}</p>
         )}
@@ -68,10 +73,9 @@ const wa = whatsappUrl(`Goedendag, ik heb een vraag over ${inText(service.name)}
     </div>
   </section>
 
-  <!-- Wat het u oplevert -->
   <section class="section bg-mist" aria-labelledby="voordelen-title">
     <div class="container-site">
-      <SectionHeading id="voordelen-title" eyebrow="Wat het u oplevert" title={`${service.name} in goede handen`} />
+      <SectionHeading id="voordelen-title" eyebrow="Wat het uw kantoor oplevert" title="Voordelen voor uw kantoor" />
       <ul class="mt-12 grid gap-6 md:grid-cols-3">
         {service.benefits.map((b, i) => (
           <li class="reveal border-t-2 border-ink bg-paper p-7">
@@ -84,30 +88,20 @@ const wa = whatsappUrl(`Goedendag, ik heb een vraag over ${inText(service.name)}
     </div>
   </section>
 
-  <!-- Voor wie + FAQ -->
-  <section class="section bg-paper" aria-labelledby="voorwie-title">
-    <div class="container-site grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+  <section class="section bg-paper" aria-labelledby="faq-title">
+    <div class="container-site grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
       <div>
-        <SectionHeading id="voorwie-title" eyebrow="Voor wie" title="Voor welke ondernemingen?" />
-        <ul class="reveal mt-8 space-y-4">
-          {service.audience.map((a) => (
-            <li class="flex items-start gap-3 text-ink"><Icon name="arrowRight" class="mt-1 size-4 shrink-0 text-gold-deep" />{a}</li>
-          ))}
-        </ul>
-        <p class="reveal mt-8 text-muted">Tarieven in SRD, afgestemd op de omvang van uw administratie. U ontvangt na de kennismaking een helder voorstel.</p>
+        <SectionHeading id="faq-title" eyebrow="Vragen" title={`Vragen over ${service.name.toLowerCase()}`} />
+        <a href={cta} class="link-arrow reveal mt-8">Bespreek uw outsourcingmogelijkheden <Icon name="arrowRight" class="size-4" /></a>
       </div>
-      <div>
-        <h2 class="reveal text-[1.75rem] sm:text-[2rem]">Vragen over {inText(service.name)}</h2>
-        <div class="mt-6"><FaqList items={service.faq} /></div>
-      </div>
+      <FaqList items={service.faq} />
     </div>
   </section>
 
-  <!-- Andere diensten -->
   <section class="section bg-mist" aria-labelledby="andere-title">
     <div class="container-site">
-      <SectionHeading id="andere-title" eyebrow="Ook interessant" title="Onze andere diensten" />
-      <ul class="mt-10 grid gap-6 md:grid-cols-3">
+      <SectionHeading id="andere-title" eyebrow="Diensten" title="Onze andere diensten" />
+      <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {others.map((s) => (
           <li class="reveal">
             <a href={servicePath(s)} class="group flex h-full flex-col border border-line bg-paper p-7 transition-colors hover:border-ink">
@@ -115,7 +109,7 @@ const wa = whatsappUrl(`Goedendag, ik heb een vraag over ${inText(service.name)}
               <h3 class="mt-5 text-xl">{s.name}</h3>
               <p class="mt-1 text-sm font-medium text-gold-deep">{s.subtitle}</p>
               <p class="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-muted">{s.summary}</p>
-              <span class="link-arrow mt-5 self-start">Bekijk {s.name} <Icon name="arrowRight" class="size-4" /></span>
+              <span class="link-arrow mt-5 self-start">Bekijk dienst <Icon name="arrowRight" class="size-4" /></span>
             </a>
           </li>
         ))}
@@ -123,5 +117,11 @@ const wa = whatsappUrl(`Goedendag, ik heb een vraag over ${inText(service.name)}
     </div>
   </section>
 
-  <CtaBand title={service.ctaTitle ?? `Uw ${inText(service.name)} uit handen geven?`} />
+  <CtaBand
+    eyebrow="Financial Outsourcing"
+    title="Meer capaciteit voor uw kantoor nodig?"
+    text="Bespreek met ons hoe wij uw kantoor kunnen ondersteunen bij financiële administratieve werkzaamheden."
+    primary={{ label: 'Plan een kennismakingsgesprek', href: cta }}
+    secondary={{ label: 'Vraag outsourcing aan', href: cta }}
+  />
 </BaseLayout>

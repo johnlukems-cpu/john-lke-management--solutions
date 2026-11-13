@@ -18,13 +18,18 @@ export const site = {
   /** Officiële bedrijfsnaam — schrijf dit altijd exact zo */
   name: 'John-Luke Finance & Advies',
   shortName: 'John-Luke',
-  tagline: 'Uw financiële administratie. Onze zorg. Uw ruimte om te groeien.',
+  tagline: 'The smarter way forward.',
+  /** Kernpositionering */
+  positioning: 'Uw betrouwbare partner voor Financial Outsourcing.',
   description:
-    'John-Luke Finance & Advies ondersteunt kleine en middelgrote ondernemingen in Suriname met professionele administratie, salarisverwerking, belastingondersteuning, jaarrekeningen, advies en AI & automation.',
-  locale: 'nl_SR',
+    'John-Luke Finance & Advies helpt Nederlandse administratie- en accountantskantoren hun capaciteit te vergroten door financiële administratieve werkzaamheden professioneel en efficiënt vanuit Suriname te laten uitvoeren.',
+  /** Primaire doelmarkt is Nederland; de onderneming is gevestigd in Paramaribo, Suriname */
+  locale: 'nl_NL',
   language: 'nl',
+  city: 'Paramaribo',
   country: 'Suriname',
-  currency: 'SRD',
+  /** Praktijkervaring met financiële outsourcing voor Nederlandse klanten (door de eigenaar opgegeven) */
+  outsourcingExperience: '2,5 jaar',
 
   /** Oprichting en eigenaar — door de eigenaar aangeleverd */
   founded: '2025-06',
@@ -37,7 +42,7 @@ export const site = {
   },
 
   contact: {
-    /** Zakelijk e-mailadres, bijv. 'info@uwdomein.sr'. null = niet tonen. */
+    /** Zakelijk e-mailadres, bijv. 'info@uwdomein.com'. null = niet tonen. */
     email: null as string | null,
     /** Telefoonnummer zoals bezoekers het lezen, bijv. '+597 123 4567'. null = niet tonen. */
     phone: null as string | null,
@@ -82,3 +87,10 @@ export function phoneHref(): string | null {
 export const hasDirectContact = Boolean(
   site.contact.email || site.contact.phone || site.contact.whatsapp,
 );
+
+/** Ingevulde social-media-profielen, in vaste volgorde. */
+export const socialLinks = [
+  { label: 'LinkedIn', href: site.social.linkedin },
+  { label: 'Instagram', href: site.social.instagram },
+  { label: 'Facebook', href: site.social.facebook },
+].filter((l): l is { label: string; href: string } => Boolean(l.href));
