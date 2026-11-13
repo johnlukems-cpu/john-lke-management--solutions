@@ -12,6 +12,10 @@ import { audiences, generalFaq, reasons, steps } from '@/data/content';
 import { kennismakingHref } from '@/data/navigation';
 import { faqSchema } from '@/lib/schema';
 import { site } from '@/config/site';
+import NewsCard from '@/components/NewsCard.astro';
+import { getNews } from '@/lib/news';
+
+const latestNews = (await getNews()).slice(0, 1);
 ---
 
 <BaseLayout
@@ -181,10 +185,10 @@ import { site } from '@/config/site';
       />
       <div class="mt-14 grid gap-6 lg:grid-cols-2">
         {Object.values(audiences).map((group) => (
-          <div class="reveal border border-line bg-paper p-7 lg:p-10">
+          <div class="reveal min-w-0 border border-line bg-paper p-5 sm:p-7 lg:p-10">
             <div class="flex items-center gap-4">
               <span class="inline-flex size-12 items-center justify-center bg-ink text-gold-light"><Icon name={group.icon} class="size-6" /></span>
-              <h3 class="text-2xl">{group.title}</h3>
+              <h3 class="min-w-0 text-xl sm:text-2xl">{group.title}</h3>
             </div>
             <ul class="mt-7 divide-y divide-line border-t border-line">
               {group.items.map((item) => (
@@ -199,8 +203,23 @@ import { site } from '@/config/site';
     </div>
   </section>
 
+  <!-- NIEUWS -->
+  {latestNews.length > 0 && (
+    <section id="nieuws" class="section bg-paper" aria-labelledby="nieuws-title">
+      <div class="container-site">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHeading id="nieuws-title" eyebrow="Nieuws" title="Actueel bij John-Luke" />
+          <a href="/nieuws" class="link-arrow reveal shrink-0 self-start lg:self-end">Alle nieuwsberichten <Icon name="arrowRight" class="size-4" /></a>
+        </div>
+        <ul class="mt-12 grid gap-8">
+          {latestNews.map((entry) => <li><NewsCard entry={entry} /></li>)}
+        </ul>
+      </div>
+    </section>
+  )}
+
   <!-- 7. FAQ -->
-  <section id="faq" class="section bg-paper" aria-labelledby="faq-title">
+  <section id="faq" class="section bg-mist" aria-labelledby="faq-title">
     <div class="container-site grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
       <div>
         <SectionHeading id="faq-title" eyebrow="Vragen" title="Veelgestelde vragen" intro="Staat uw vraag er niet tussen? Neem gerust contact met ons op." />
@@ -211,5 +230,5 @@ import { site } from '@/config/site';
   </section>
 
   <!-- 8. CONTACT -->
-  <ContactSection title={`Kennismaken met ${site.shortName}?`} />
+  <ContactSection tone="paper" title={`Kennismaken met ${site.shortName}?`} />
 </BaseLayout>

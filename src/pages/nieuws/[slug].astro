@@ -1,0 +1,139 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getImage, Image } from 'astro:assets';
+import { render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import ShareButtons from '@/components/ShareButtons.astro';
+import NewsCard from '@/components/NewsCard.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import Icon from '@/components/Icon.astro';
+import { site } from '@/config/site';
+import { breadcrumbSchema } from '@/lib/schema';
+import { formatDate, getNews, isoDate, newsPath, type NewsEntry } from '@/lib/news';
+import logoZwart from '@/assets/brand/logo-zwart.png';
+
+export const getStaticPaths = (async () => {
+  const news = await getNews();
+  return news.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  entry: NewsEntry;
+}
+const { entry } = Astro.props;
+const { data } = entry;
+const { Content } = await render(entry);
+
+const origin = (Astro.site?.origin ?? Astro.url.origin).replace(/\/$/, '');
+const url = `${origin}${newsPath(entry)}`;
+const crumbs = [
+  { name: 'Nieuws', path: '/nieuws' },
+  { name: data.title, path: newsPath(entry) },
+];
+// Deelafbeelding: de volledige flyer als JPEG (breed ondersteund door sociale media)
+const og = await getImage({ src: data.image, width: 1200, format: 'jpg', quality: 82 });
+const logo = await getImage({ src: logoZwart, width: 600, format: 'png' });
+const others = (await getNews()).filter((n) => n.id !== entry.id).slice(0, 2);
+
+const article = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: data.title,
+  description: data.description,
+  datePublished: isoDate(data.date),
+  dateModified: isoDate(data.date),
+  inLanguage: 'nl',
+  articleSection: data.category,
+  keywords: data.keywords.join(', '),
+  image: [`${origin}${og.src}`],
+  mainEntityOfPage: url,
+  author: { '@type': 'Organization', name: site.name, url: `${origin}/` },
+  publisher: { '@type': 'Organization', name: site.name, logo: { '@type': 'ImageObject', url: `${origin}${logo.src}` } },
+};
+---
+
+<BaseLayout
+  title={data.seoTitle ?? data.title}
+  rawTitle={Boolean(data.seoTitle)}
+  description={data.description}
+  ogType="article"
+  publishedTime={isoDate(data.date)}
+  ogImage={{ url: `${origin}${og.src}`, width: og.attributes.width as number, height: og.attributes.height as number, alt: data.imageAlt }}
+  schema={[article, breadcrumbSchema(origin, crumbs)]}
+>
+  <section class="hatch-dark on-dark bg-ink text-on-dark">
+    <div class="container-site py-14 md:py-20">
+      <Breadcrumbs crumbs={crumbs} />
+      <div class="max-w-3xl">
+        <p class="eyebrow mb-5">{data.category}</p>
+        <h1 class="text-[2rem] leading-[1.12] !text-on-dark sm:text-[2.75rem] lg:text-[3.25rem]">{data.title}</h1>
+        <p class="mt-6 text-on-dark-muted">
+          Gepubliceerd op <time datetime={isoDate(data.date)} class="text-on-dark">{formatDate(data.date)}</time> · {site.name}
+        </p>
+      </div>
+    </div>
+    <div aria-hidden="true" class="h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-60"></div>
+  </section>
+
+  <article class="section bg-paper">
+    <div class="container-site grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-16">
+      {/* Flyer: originele verhouding, volledig zichtbaar, scherp op retina */}
+      <figure class="lg:sticky lg:top-32">
+        <Image
+          src={data.image}
+          alt={data.imageAlt}
+          widths={[400, 600, 800, 1100, 1199]}
+          sizes="(min-width: 1260px) 560px, (min-width: 1024px) calc((100vw - 9rem) / 2), calc(100vw - 2.5rem)"
+          format="webp"
+          quality={85}
+          loading="eager"
+          fetchpriority="high"
+          class="h-auto w-full border border-line shadow-[0_30px_60px_-40px_rgba(0,0,0,.35)]"
+        />
+      </figure>
+
+      <div>
+        <div class="prose-news max-w-[36em] text-lg leading-relaxed text-muted">
+          <Content />
+        </div>
+        <p class="mt-10 border-l-2 border-gold pl-5">
+          <span class="block font-display text-xl text-ink">{site.name}</span>
+          <span class="block font-display italic text-gold-deep">The smarter way forward.</span>
+        </p>
+        <div class="mt-10 border-t border-line pt-8">
+          <ShareButtons url={url} title={data.title} />
+        </div>
+        <a href="/nieuws" class="link-arrow mt-10">Alle nieuwsberichten <Icon name="arrowRight" class="size-4" /></a>
+      </div>
+    </div>
+  </article>
+
+  {others.length > 0 && (
+    <section class="section bg-mist" aria-labelledby="meer-nieuws">
+      <div class="container-site">
+        <h2 id="meer-nieuws" class="text-[2rem]">Meer nieuws</h2>
+        <ul class="mt-10 grid gap-8">
+          {others.map((n) => <li><NewsCard entry={n} /></li>)}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .prose-news :global(p) {
+    margin-bottom: 1.15em;
+  }
+  .prose-news :global(strong) {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+  .prose-news :global(a) {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>

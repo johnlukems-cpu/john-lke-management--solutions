@@ -1,0 +1,43 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import NewsCard from '@/components/NewsCard.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { getNews, newsPath } from '@/lib/news';
+import { breadcrumbSchema } from '@/lib/schema';
+
+const origin = (Astro.site?.origin ?? Astro.url.origin).replace(/\/$/, '');
+const crumbs = [{ name: 'Nieuws', path: '/nieuws' }];
+const news = await getNews();
+---
+
+<BaseLayout
+  title="Nieuws en actualiteiten"
+  description="Nieuws en actualiteiten van John-Luke Finance & Advies over financiële administratie, boekhouding en ondernemen."
+  schema={[
+    breadcrumbSchema(origin, crumbs),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      itemListElement: news.map((n, i) => ({ '@type': 'ListItem', position: i + 1, url: `${origin}${newsPath(n)}`, name: n.data.title })),
+    },
+  ]}
+>
+  <PageHero eyebrow="Nieuws" title="Nieuws en actualiteiten" intro="Berichten van John-Luke Finance & Advies over financiële administratie, boekhouding en ondernemen." crumbs={crumbs} />
+
+  <section class="section bg-paper" aria-label="Nieuwsberichten">
+    <div class="container-site">
+      {news.length ? (
+        <ul class="grid gap-8">
+          {news.map((entry) => (
+            <li><NewsCard entry={entry} headingLevel="h2" /></li>
+          ))}
+        </ul>
+      ) : (
+        <p class="text-lg text-muted">Er zijn nog geen nieuwsberichten.</p>
+      )}
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

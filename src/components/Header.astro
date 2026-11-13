@@ -3,7 +3,7 @@ import Logo from './Logo.astro';
 import Icon from './Icon.astro';
 import { kennismakingHref, mainNav } from '@/data/navigation';
 
-const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+const current = Astro.url.pathname.replace(/\.html$/, '').replace(/(^|\/)index$/, '').replace(/\/$/, '') || '/';
 const isActive = (href: string) =>
   href !== '/' && !href.includes('#') && (current === href || current.startsWith(`${href}/`));
 ---

@@ -1,0 +1,58 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  url: string;
+  title: string;
+}
+const { url, title } = Astro.props;
+const enc = encodeURIComponent;
+const links = [
+  { label: 'WhatsApp', icon: 'whatsapp' as const, href: `https://wa.me/?text=${enc(`${title} ${url}`)}` },
+  { label: 'LinkedIn', icon: 'linkedin' as const, href: `https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}` },
+  { label: 'Facebook', icon: 'globe' as const, href: `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}` },
+  { label: 'E-mail', icon: 'mail' as const, href: `mailto:?subject=${enc(title)}&body=${enc(url)}` },
+];
+---
+
+<div class="share" data-url={url} data-title={title}>
+  <p class="text-sm font-semibold text-ink">Deel dit bericht</p>
+  <ul class="mt-3 flex flex-wrap gap-2">
+    {
+      links.map((l) => (
+        <li>
+          <a
+            href={l.href}
+            target={l.href.startsWith('mailto:') ? undefined : '_blank'}
+            rel="noopener noreferrer"
+            class="inline-flex h-11 items-center gap-2 border border-line px-4 text-sm font-medium text-ink transition-colors hover:border-ink"
+          >
+            <Icon name={l.icon} class="size-4" />{l.label}
+          </a>
+        </li>
+      ))
+    }
+    <li>
+      <button type="button" data-copy class="inline-flex h-11 items-center gap-2 border border-line px-4 text-sm font-medium text-ink transition-colors hover:border-ink">
+        <Icon name="layers" class="size-4" /><span data-copy-label>Kopieer link</span>
+      </button>
+    </li>
+  </ul>
+</div>
+
+<script>
+  for (const box of document.querySelectorAll<HTMLElement>('.share')) {
+    const button = box.querySelector<HTMLButtonElement>('[data-copy]');
+    const label = box.querySelector<HTMLElement>('[data-copy-label]');
+    button?.addEventListener('click', async () => {
+      const url = box.dataset.url ?? location.href;
+      try {
+        await navigator.clipboard.writeText(url);
+        if (label) label.textContent = 'Link gekopieerd';
+      } catch {
+        if (label) label.textContent = 'Kopiëren niet gelukt';
+      }
+      setTimeout(() => label && (label.textContent = 'Kopieer link'), 2500);
+    });
+  }
+</script>

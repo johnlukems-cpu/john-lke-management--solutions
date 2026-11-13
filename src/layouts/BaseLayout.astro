@@ -17,14 +17,21 @@ interface Props {
   noindex?: boolean;
   /** Titel zonder bedrijfsnaam-suffix gebruiken */
   rawTitle?: boolean;
+  /** Afwijkende deelafbeelding (absolute URL), bijv. bij nieuwsberichten */
+  ogImage?: { url: string; width: number; height: number; alt: string };
+  /** 'article' voor nieuwsberichten */
+  ogType?: 'website' | 'article';
+  /** Publicatiedatum (ISO) bij ogType 'article' */
+  publishedTime?: string;
 }
 
-const { title, description, schema = [], noindex = false, rawTitle = false } = Astro.props;
+const { title, description, schema = [], noindex = false, rawTitle = false, ogType = 'website', publishedTime } = Astro.props;
 const origin = (Astro.site?.origin ?? Astro.url.origin).replace(/\/$/, '');
-const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+// Met build.format 'file' kan het pad op .html of /index eindigen; canonical is altijd het schone pad.
+const path = Astro.url.pathname.replace(/\.html$/, '').replace(/(^|\/)index$/, '').replace(/\/$/, '') || '/';
 const canonical = `${origin}${path === '/' ? '/' : path}`;
 const fullTitle = rawTitle ? title : `${title} | ${site.name}`;
-const ogImage = `${origin}/og-image.png`;
+const ogImage = Astro.props.ogImage ?? { url: `${origin}/og-image.png`, width: 1200, height: 630, alt: `Logo ${site.name}` };
 const logo = await getImage({ src: logoZwart, width: 600, format: 'png' });
 const logoUrl = `${origin}${logo.src}`;
 const jsonLd = [organizationSchema(origin, logoUrl), websiteSchema(origin), ...schema];
@@ -43,16 +50,17 @@ const jsonLd = [organizationSchema(origin, logoUrl), websiteSchema(origin), ...s
     <meta name="geo.region" content="SR" />
     <meta name="geo.placename" content="Suriname" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
     <meta property="og:locale" content={site.locale} />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={`Logo ${site.name}`} />
+    <meta property="og:image" content={ogImage.url} />
+    <meta property="og:image:width" content={String(ogImage.width)} />
+    <meta property="og:image:height" content={String(ogImage.height)} />
+    <meta property="og:image:alt" content={ogImage.alt} />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" href="/favicon.ico" sizes="48x48" />

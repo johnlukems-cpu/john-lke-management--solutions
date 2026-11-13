@@ -89,30 +89,42 @@
 }
 
 @layer components {
-  .container-site {
-    width: 100%;
-    max-width: 1240px;
-    margin-inline: auto;
-    padding-inline: 1rem;
+  /* Contentcontainer — één plek voor de breedte en zijmarges van de hele site.
+     --gutter: ruimte tussen inhoud en schermrand (20 → 28 → 40 → 56 px).
+     --content-max: maximale breedte van de inhoud zelf (exclusief marges). */
+  :root {
+    --gutter: 1.25rem;
+    --content-max: 1180px;
+    --section-space: 4.5rem;
   }
   @media (min-width: 640px) {
-    .container-site {
-      padding-inline: 1.5rem;
+    :root {
+      --gutter: 1.75rem;
+      --section-space: 5.25rem;
     }
   }
   @media (min-width: 1024px) {
-    .container-site {
-      padding-inline: 2rem;
+    :root {
+      --gutter: 2.5rem;
+      --section-space: 6.5rem;
     }
+  }
+  @media (min-width: 1440px) {
+    :root {
+      --gutter: 3.5rem;
+      --section-space: 7.5rem;
+    }
+  }
+  .container-site {
+    width: 100%;
+    max-width: calc(var(--content-max) + 2 * var(--gutter));
+    margin-inline: auto;
+    padding-inline: max(var(--gutter), env(safe-area-inset-left), env(safe-area-inset-right));
   }
 
+  /* Verticale ruimte tussen secties, overal gelijk */
   .section {
-    padding-block: 4rem;
-  }
-  @media (min-width: 1024px) {
-    .section {
-      padding-block: 6rem;
-    }
+    padding-block: var(--section-space);
   }
 
   /* Label boven koppen — echoot "— FINANCE & ADVIES —" uit het logo */
