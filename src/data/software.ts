@@ -31,11 +31,11 @@ export const software: Software[] = [
     helps: 'Geschikt voor kantoren met veel kleine administraties: wij verwerken en controleren, uw kantoor beoordeelt.',
   },
   {
-    name: 'Nmbrs',
-    type: 'Salarisadministratie',
-    usedFor: 'Online salarissoftware voor loonverwerking en HR-administratie.',
-    tasks: ['Controleren van loonjournaalposten', 'Aansluiten van salarisgegevens op het grootboek', 'Signaleren van verschillen tussen salaris- en financiële administratie'],
-    helps: 'Helpt de salarisadministratie en de financiële administratie op elkaar te laten aansluiten.',
+    name: 'Nmbrs Accounting',
+    type: 'Online boekhouding',
+    usedFor: 'Online boekhoudoplossing van Nmbrs voor de financiële administratie, naast de salaris- en HR-software van Nmbrs.',
+    tasks: ['Verwerken van facturen en bankmutaties', 'Afletteren en aansluitingen', 'Aansluiten van salarisgegevens op het grootboek', 'Btw-controles en periodieke afsluitingen'],
+    helps: 'Voor kantoren die met Nmbrs werken: financiële en salarisadministratie sluiten op elkaar aan.',
   },
   {
     name: 'Exact Online',
@@ -45,11 +45,11 @@ export const software: Software[] = [
     helps: 'Kantoren die met Exact Online werken, kunnen verwerkingswerk direct in de bestaande administraties laten uitvoeren.',
   },
   {
-    name: 'Yuki',
-    type: 'Online boekhouding met automatische verwerking',
-    usedFor: 'Online boekhoudplatform waarin documenten en bankmutaties grotendeels automatisch worden verwerkt.',
-    tasks: ['Controleren en corrigeren van automatisch verwerkte boekingen', 'Afhandelen van uitzonderingen en twijfelgevallen', 'Btw-controles', 'Periodieke controles'],
-    helps: 'Bij automatische verwerking blijft controle nodig. Wij nemen die controle en de uitzonderingen voor uw kantoor voor onze rekening.',
+    name: 'Online Boekhouden',
+    type: 'Online boekhouding',
+    usedFor: 'Nederlands online boekhoudpakket voor ondernemers en administratiekantoren.',
+    tasks: ['Verwerken van inkoop- en verkoopfacturen', 'Bankverwerking en afletteren', 'Btw-controles en voorbereiding', 'Periodieke controles'],
+    helps: 'Kantoren met klanten in Online Boekhouden kunnen de verwerking en controle direct in die administraties laten uitvoeren.',
   },
   {
     name: 'Zenvoices',
@@ -72,4 +72,25 @@ export const software: Software[] = [
     tasks: ['Verwerken van facturen en bankmutaties', 'Afletteren en aansluitingen', 'Periodieke rapportages'],
     helps: 'Ook voor klanten die buiten de gangbare Nederlandse pakketten werken, kunnen wij de verwerking verzorgen.',
   },
+  {
+    name: 'QuickBooks',
+    type: 'Online boekhouding',
+    usedFor: 'Internationaal veelgebruikt online boekhoudpakket, ook in Nederland beschikbaar.',
+    tasks: ['Verwerken van facturen en bankmutaties', 'Afletteren en aansluitingen', 'Btw-controles', 'Periodieke rapportages'],
+    helps: 'Klanten van uw kantoor die met QuickBooks werken, kunnen wij op dezelfde gestructureerde manier ondersteunen.',
+  },
 ];
+
+/** Automatisering en AI — praktische kennis, geen partnerschap met de leveranciers. */
+export const automation = {
+  intro:
+    'Naast de verwerking helpen wij kantoren met het automatiseren van terugkerende administratieve processen. Wij hebben praktische kennis van Claude AI en zetten AI-hulpmiddelen alleen in waar ze aantoonbaar tijd besparen.',
+  items: [
+    'Automatiseren van terugkerende administratieve taken en workflows',
+    'Slimmer inrichten van factuur- en documentverwerking',
+    'Inzet van Claude AI voor bijvoorbeeld controlelijsten, samenvattingen en werkinstructies',
+    'Advies over waar automatisering in uw kantoor het meeste oplevert',
+  ],
+  safeguards:
+    'Altijd met menselijke controle op de uitkomst, alleen met toestemming van uw kantoor en zonder klantgegevens te delen zonder duidelijke afspraken over gegevensverwerking.',
+};

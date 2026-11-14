@@ -5,13 +5,13 @@ import type { FaqItem } from '@/data/services';
 export const reasons: { icon: IconName; title: string; text: string }[] = [
   { icon: 'briefcase', title: 'Praktijkervaring met Nederlandse administraties', text: 'Meer dan 3 jaar ervaring met Nederlandse administraties en btw, en meer dan 10 jaar ervaring in administratie.' },
   { icon: 'layers', title: 'Flexibele capaciteit', text: 'Ondersteuning die meebeweegt met uw werklast: structureel, tijdens piekperiodes of als project.' },
-  { icon: 'handshake', title: 'Persoonlijke samenwerking', text: 'Een vast aanspreekpunt dat uw kantoor, uw klanten en uw werkwijze kent.' },
-  { icon: 'ledger', title: 'Kennis van uw software', text: 'Ervaring met onder meer AFAS, Exact Online, Yuki, Nmbrs, Zenvoices, Basecone en Zoho Books.' },
+  { icon: 'handshake', title: 'Persoonlijke, langdurige samenwerking', text: 'Een vast aanspreekpunt dat uw kantoor, uw klanten en uw werkwijze kent. Wij bouwen op samenwerkingen voor de lange termijn.' },
+  { icon: 'ledger', title: 'Kennis van uw software', text: 'Ervaring met onder meer AFAS, Exact Online, Online Boekhouden, Nmbrs Accounting, Zenvoices, Basecone, Zoho Books en QuickBooks.' },
+  { icon: 'automation', title: 'Automatisering en AI', text: 'Wij helpen terugkerende administratieve processen te automatiseren en hebben praktische kennis van Claude AI — altijd met menselijke controle.' },
   { icon: 'check', title: 'Gestructureerde werkprocessen', text: 'Vaste checklists per werkzaamheid, zodat de kwaliteit voorspelbaar is.' },
   { icon: 'shield', title: 'Kwaliteitscontroles', text: 'Controle op boekingen, btw-coderingen, aansluitingen en dubbele facturen, met vastgelegde correcties.' },
   { icon: 'chat', title: 'Vertrouwelijk', text: 'Zorgvuldige omgang met financiële gegevens, met afspraken over toegang, beveiliging en gegevensverwerking.' },
   { icon: 'globe', title: 'Ondersteuning vanuit Suriname', text: 'Nederlandstalig, met een werkdag die overlapt met de Nederlandse middag.' },
-  { icon: 'sprout', title: 'Gebouwd op langdurige samenwerking', text: 'Wij investeren in het leren kennen van uw kantoor en klanten, en groeien stap voor stap met u mee.' },
 ];
 
 /** Werkwijze van kennismaking tot vaste samenwerking. */

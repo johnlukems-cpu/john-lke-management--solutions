@@ -238,6 +238,7 @@ export const services: Service[] = [
       'Verwerken van achterstanden',
       'Structurele ondersteuning bij terugkerende werkzaamheden',
       'Ondersteuning bij implementatie van administratieve processen',
+      'Automatisering van terugkerende administratieve processen, onder meer met Claude AI',
     ],
     benefits: [
       { title: 'Flexibel inzetbaar', text: 'Capaciteit die meebeweegt met de werklast van uw kantoor.' },

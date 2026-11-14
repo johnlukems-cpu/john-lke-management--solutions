@@ -131,7 +131,7 @@ const pains = [
         />
         <a href="/software" class="link-arrow reveal shrink-0 self-start lg:self-end">Meer over onze softwarekennis <Icon name="arrowRight" class="size-4" /></a>
       </div>
-      <ul class="reveal mt-12 grid grid-cols-2 gap-px border border-line bg-line sm:grid-cols-4">
+      <ul class="reveal mt-12 grid grid-cols-2 gap-px border border-line bg-line sm:grid-cols-3">
         {software.map((s) => (
           <li class="flex min-h-24 flex-col items-center justify-center bg-paper px-4 py-6 text-center">
             <span class="font-display text-xl text-ink">{s.name}</span>
@@ -139,6 +139,16 @@ const pains = [
           </li>
         ))}
       </ul>
+      <a href="/software#automatisering" class="reveal group mt-6 flex flex-col gap-4 border border-line bg-paper p-6 transition-colors hover:border-ink sm:flex-row sm:items-center sm:justify-between">
+        <span class="flex items-start gap-4">
+          <span class="inline-flex size-11 shrink-0 items-center justify-center bg-ink text-gold-light"><Icon name="automation" class="size-5" /></span>
+          <span>
+            <span class="block font-semibold text-ink">Ook automatisering en AI</span>
+            <span class="mt-1 block text-muted">Wij helpen terugkerende administratieve processen te automatiseren en hebben praktische kennis van Claude AI.</span>
+          </span>
+        </span>
+        <span class="link-arrow shrink-0 self-start sm:self-center">Meer over automatisering <Icon name="arrowRight" class="size-4" /></span>
+      </a>
     </div>
   </section>
 

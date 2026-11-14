@@ -4,7 +4,7 @@ import PageHero from '@/components/PageHero.astro';
 import Icon from '@/components/Icon.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
 import CtaBand from '@/components/CtaBand.astro';
-import { software } from '@/data/software';
+import { automation, software } from '@/data/software';
 import { contactHref } from '@/data/navigation';
 import { breadcrumbSchema } from '@/lib/schema';
 
@@ -14,8 +14,8 @@ const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 ---
 
 <BaseLayout
-  title="Softwarekennis — AFAS, Exact Online, Yuki, Nmbrs en meer"
-  description="Praktijkervaring met AFAS Profit, AFAS SB, Nmbrs, Exact Online, Yuki, Zenvoices, Basecone en Zoho Books. Outsourcing in de software van uw administratie- of accountantskantoor."
+  title="Softwarekennis — AFAS, Exact Online, Nmbrs Accounting, QuickBooks en meer"
+  description="Praktijkervaring met AFAS Profit, AFAS SB, Nmbrs Accounting, Exact Online, Online Boekhouden, Zenvoices, Basecone, Zoho Books en QuickBooks, plus automatisering met Claude AI. Outsourcing in de software van uw administratie- of accountantskantoor."
   schema={[breadcrumbSchema(origin, crumbs)]}
 >
   <PageHero
@@ -51,10 +51,27 @@ const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-');
         ))}
       </ul>
       <p class="reveal mt-10 max-w-3xl text-sm leading-relaxed text-muted">
-        Wij beschrijven onze praktijkervaring met deze pakketten. Wij zijn geen officiële partner of gecertificeerde
-        reseller van de genoemde leveranciers. Productnamen zijn merken van hun respectieve eigenaren. Werkt uw kantoor met
+        Wij beschrijven onze praktijkervaring met deze pakketten en met Claude AI (een product van Anthropic). Wij zijn
+        geen officiële partner of gecertificeerde reseller van de genoemde leveranciers. Productnamen zijn merken van hun respectieve eigenaren. Werkt uw kantoor met
         een ander pakket? Bespreek het gerust met ons.
       </p>
+    </div>
+  </section>
+
+  <section id="automatisering" class="section hatch-dark on-dark scroll-mt-24 bg-ink text-on-dark" aria-labelledby="auto-title">
+    <div class="container-site grid gap-12 lg:grid-cols-2 lg:gap-20">
+      <div>
+        <SectionHeading id="auto-title" eyebrow="Automatisering en AI" title="Slimmer werken met automatisering en Claude AI" intro={automation.intro} onDark />
+        <p class="reveal mt-6 border-l-2 border-gold pl-5 leading-relaxed text-on-dark-muted">{automation.safeguards}</p>
+      </div>
+      <ul class="reveal space-y-4 self-center">
+        {automation.items.map((t) => (
+          <li class="flex items-start gap-4 border-b border-white/10 pb-4 last:border-0">
+            <span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-gold text-ink"><Icon name="check" class="size-3.5" stroke={2.5} /></span>
+            <span class="text-lg text-on-dark">{t}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 

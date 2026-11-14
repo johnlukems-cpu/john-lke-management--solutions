@@ -48,17 +48,19 @@ export const OUTSOURCING_TASKS = {
   jaarafsluiting: 'Jaarafsluiting',
   achterstanden: 'Administratieve achterstanden',
   'backoffice-ondersteuning': 'Backoffice-ondersteuning / piekcapaciteit',
+  automatisering: 'Automatisering van administratieve processen (o.a. Claude AI)',
 }
 
 export const SOFTWARE = {
-  nmbrs: 'Nmbrs',
+  nmbrs: 'Nmbrs Accounting',
   'afas-profit': 'AFAS Profit',
   'afas-sb': 'AFAS SB',
   'exact-online': 'Exact Online',
-  yuki: 'Yuki',
+  'online-boekhouden': 'Online Boekhouden',
   zenvoices: 'Zenvoices',
   basecone: 'Basecone',
   'zoho-books': 'Zoho Books',
+  quickbooks: 'QuickBooks',
   anders: 'Anders',
 };
 
