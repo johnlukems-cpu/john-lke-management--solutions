@@ -28,8 +28,6 @@ export const site = {
   language: 'nl',
   city: 'Paramaribo',
   country: 'Suriname',
-  /** Starttarief (door de eigenaar vastgesteld). Getoond op dienstkaarten en -pagina's. */
-  pricing: { fromHourly: 12, label: 'Vanaf €12 per uur' },
   /** Ervaring met Nederlandse administraties en btw (door de eigenaar opgegeven) */
   outsourcingExperience: 'meer dan 3 jaar',
 

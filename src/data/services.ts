@@ -16,6 +16,8 @@ export interface Service {
   photo: PhotoSlot;
   /** 'standaard' = vast onderdeel van het aanbod; 'op-aanvraag' = projectmatig of seizoensgebonden */
   availability: 'standaard' | 'op-aanvraag';
+  /** Starttarief per uur in euro's; leeg = tarief op aanvraag */
+  priceFromHourly?: number;
   seoTitle: string;
   seoDescription: string;
   /** Korte omschrijving op kaarten */
@@ -41,6 +43,7 @@ export const services: Service[] = [
     icon: 'ledger',
     photo: 'administratie',
     availability: 'standaard',
+    priceFromHourly: 12,
     seoTitle: 'Financiële administratie uitbesteden | Outsourcing voor administratiekantoren',
     seoDescription:
       'Financiële administratie uitbesteden: wij verwerken inkoop- en verkoopfacturen, bankmutaties en grootboekboekingen voor Nederlandse administratie- en accountantskantoren.',
@@ -253,3 +256,6 @@ export const services: Service[] = [
 
 export const serviceBySlug = (slug: string) => services.find((s) => s.slug === slug);
 export const servicePath = (s: Service) => `/diensten/${s.slug}`;
+
+/** Tariefweergave: 'Vanaf €12 per uur' of 'Tarief op aanvraag'. */
+export const priceLabel = (s: Service) => (s.priceFromHourly ? `Vanaf €${s.priceFromHourly} per uur` : 'Tarief op aanvraag');
