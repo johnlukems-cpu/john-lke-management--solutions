@@ -1,4 +1,4 @@
-# Fotografie — John-Luke Finance & Advies
+# Fotografie — John-Luke Finance Outsourcing
 
 Plaats foto's in deze map met **exact** de bestandsnaam hieronder (extensie `.jpg`, `.jpeg`,
 `.png` of `.webp`). Ze verschijnen automatisch op de website en worden bij de build

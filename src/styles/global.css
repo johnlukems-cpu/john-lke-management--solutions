@@ -3,7 +3,7 @@
 @import '@fontsource-variable/fraunces';
 
 /* =============================================================================
-   HUISSTIJL — John-Luke Finance & Advies
+   HUISSTIJL — John-Luke Finance Outsourcing
    Afgeleid van het logo: zwart/antraciet lijnwerk op wit, met een subtiel goud
    accent voor knoppen, lijnen en details. Pas kleuren uitsluitend hier aan.
    ============================================================================ */
@@ -127,7 +127,7 @@
     padding-block: var(--section-space);
   }
 
-  /* Label boven koppen — echoot "— FINANCE & ADVIES —" uit het logo */
+  /* Label boven koppen — echoot "— FINANCE OUTSOURCING —" uit het logo */
   .eyebrow {
     display: inline-flex;
     align-items: center;

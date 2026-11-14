@@ -1,5 +1,5 @@
 /**
- * Centrale bedrijfsgegevens van John-Luke Finance & Advies.
+ * Centrale bedrijfsgegevens van John-Luke Finance Outsourcing.
  *
  * LET OP — niets in dit bestand mag worden verzonnen.
  * Velden met `null` zijn nog niet bevestigd en worden NIET op de website getoond.
@@ -16,20 +16,22 @@ export interface Address {
 
 export const site = {
   /** Officiële bedrijfsnaam — schrijf dit altijd exact zo */
-  name: 'John-Luke Finance & Advies',
+  name: 'John-Luke Finance Outsourcing',
   shortName: 'John-Luke',
   tagline: 'The smarter way forward.',
   /** Kernpositionering */
   positioning: 'Uw betrouwbare partner voor Financial Outsourcing.',
   description:
-    'John-Luke Finance & Advies helpt Nederlandse administratie- en accountantskantoren hun capaciteit te vergroten door financiële administratieve werkzaamheden professioneel en efficiënt vanuit Suriname te laten uitvoeren.',
+    'John-Luke Finance Outsourcing helpt Nederlandse administratie- en accountantskantoren hun capaciteit te vergroten door financiële administratieve werkzaamheden professioneel en efficiënt vanuit Suriname te laten uitvoeren.',
   /** Primaire doelmarkt is Nederland; de onderneming is gevestigd in Paramaribo, Suriname */
   locale: 'nl_NL',
   language: 'nl',
   city: 'Paramaribo',
   country: 'Suriname',
-  /** Praktijkervaring met financiële outsourcing voor Nederlandse klanten (door de eigenaar opgegeven) */
-  outsourcingExperience: '2,5 jaar',
+  /** Starttarief (door de eigenaar vastgesteld). Getoond op dienstkaarten en -pagina's. */
+  pricing: { fromHourly: 12, label: 'Vanaf €12 per uur' },
+  /** Ervaring met Nederlandse administraties en btw (door de eigenaar opgegeven) */
+  outsourcingExperience: 'meer dan 3 jaar',
 
   /** Oprichting en eigenaar — door de eigenaar aangeleverd */
   founded: '2025-06',
@@ -37,7 +39,7 @@ export const site = {
     name: 'Jagernath John',
     role: 'Eigenaar en Finance Controller',
     education: 'Master of Accounting',
-    experience: 'Meer dan 10 jaar ervaring in financiële administratie',
+    experience: 'Meer dan 10 jaar ervaring in administratie',
     quote: 'Sterke financiële controle is de ruggengraat van goed bestuur.',
   },
 
@@ -68,7 +70,7 @@ export const site = {
 
 /** Standaardbericht dat in WhatsApp wordt voorgevuld. */
 export const whatsappMessage =
-  'Goedendag, ik heb een vraag over de dienstverlening van John-Luke Finance & Advies.';
+  'Goedendag, ik heb een vraag over de dienstverlening van John-Luke Finance Outsourcing.';
 
 /** Volledige wa.me-link, of null als er (nog) geen WhatsApp-nummer is. */
 export function whatsappUrl(message: string = whatsappMessage): string | null {

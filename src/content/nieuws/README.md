@@ -8,7 +8,7 @@
 ```markdown
 ---
 title: Titel van het bericht
-seoTitle: Titel voor Google | John-Luke Finance & Advies   # optioneel
+seoTitle: Titel voor Google | John-Luke Finance Outsourcing   # optioneel
 description: Korte omschrijving voor Google (±150 tekens).
 intro: Eén of twee zinnen voor de nieuwskaart.
 date: 2026-12-01

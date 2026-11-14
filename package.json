@@ -1,8 +1,8 @@
 {
-  "name": "john-luke-finance-advies",
+  "name": "john-luke-finance-outsourcing",
   "private": true,
   "version": "1.0.0",
-  "description": "Website van John-Luke Finance & Advies — administratie, payroll, tax en jaarrekening voor ondernemers in Suriname.",
+  "description": "Website van John-Luke Finance Outsourcing — administratie, payroll, tax en jaarrekening voor ondernemers in Suriname.",
   "type": "module",
   "scripts": {
     "dev": "astro dev",

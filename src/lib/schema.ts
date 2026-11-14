@@ -65,6 +65,10 @@ export function serviceSchema(origin: string, s: Service) {
     url: `${origin}/diensten/${s.slug}`,
     areaServed: { '@type': 'Country', name: 'Nederland' },
     provider: { '@id': `${origin}/#organisatie` },
+    offers: {
+      '@type': 'Offer',
+      priceSpecification: { '@type': 'UnitPriceSpecification', minPrice: site.pricing.fromHourly, priceCurrency: 'EUR', unitCode: 'HUR' },
+    },
   };
 }
 

@@ -1,6 +1,6 @@
-# John-Luke Finance & Advies — website
+# John-Luke Finance Outsourcing — website
 
-Bedrijfswebsite van **John-Luke Finance & Advies**: administratie, payroll, tax en
+Bedrijfswebsite van **John-Luke Finance Outsourcing**: administratie, payroll, tax en
 jaarrekening voor kleine en middelgrote ondernemingen in Suriname.
 
 > Uw financiële administratie. Onze zorg. Uw ruimte om te groeien.
@@ -66,7 +66,7 @@ Zolang een foto ontbreekt, toont de site een neutraal vlak in de huisstijl.
 
 ## Logo
 
-`src/assets/brand/logo-origineel.webp` is het aangeleverde, officiële logo (handdruk, John-Luke, — FINANCE & ADVIES —). Daarvan zijn
+`src/assets/brand/logo-origineel.webp` is het aangeleverde, officiële logo (handdruk, John-Luke, — FINANCE OUTSOURCING —). Daarvan zijn
 zonder vormwijziging twee transparante varianten afgeleid:
 
 - `logo-zwart.png` — voor lichte achtergronden (header, hero, over ons)

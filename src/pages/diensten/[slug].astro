@@ -10,6 +10,7 @@ import CtaBand from '@/components/CtaBand.astro';
 import { services, servicePath, type Service } from '@/data/services';
 import { contactHref } from '@/data/navigation';
 import { breadcrumbSchema, faqSchema, serviceSchema } from '@/lib/schema';
+import { site } from '@/config/site';
 
 export const getStaticPaths = (() =>
   services.map((service) => ({ params: { slug: service.slug }, props: { service } }))) satisfies GetStaticPaths;
@@ -34,7 +35,8 @@ const cta = contactHref(service.slug);
   schema={[serviceSchema(origin, service), breadcrumbSchema(origin, crumbs), faqSchema(service.faq)]}
 >
   <PageHero eyebrow={`${service.availability === 'op-aanvraag' ? 'Op aanvraag' : 'Standaarddienst'} · ${service.subtitle}`} title={service.heading} intro={service.intro[0]} crumbs={crumbs}>
-    <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+    <p class="mt-6 text-lg text-on-dark"><span class="font-semibold text-gold-light">{site.pricing.label}</span> · gericht op langdurige samenwerking</p>
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
       <a href={cta} class="btn btn-gold">Bespreek outsourcing <Icon name="arrowRight" class="size-4" /></a>
       <a href={cta} class="btn btn-outline-light">Plan een kennismakingsgesprek</a>
     </div>
@@ -66,6 +68,14 @@ const cta = contactHref(service.slug);
             </ul>
           </div>
         )}
+        <div class="reveal mt-8 border border-line bg-paper p-6">
+          <p class="text-sm font-semibold tracking-wide text-ink uppercase">Tarief</p>
+          <p class="mt-2 font-display text-3xl text-ink">{site.pricing.label}</p>
+          <p class="mt-3 text-[0.9375rem] leading-relaxed text-muted">
+            Het definitieve tarief hangt af van het volume, de werkzaamheden en de looptijd. Wij bouwen op langdurige
+            samenwerking: bij een vaste samenwerking maken wij heldere afspraken over capaciteit en tarief.
+          </p>
+        </div>
         {service.scopeNote && (
           <p class="reveal mt-8 border-l-2 border-gold bg-mist p-5 text-[0.9375rem] leading-relaxed text-muted">{service.scopeNote}</p>
         )}

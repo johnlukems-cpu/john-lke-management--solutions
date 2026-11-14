@@ -7,6 +7,7 @@ import CtaBand from '@/components/CtaBand.astro';
 import { services, servicePath } from '@/data/services';
 import { contactHref } from '@/data/navigation';
 import { breadcrumbSchema } from '@/lib/schema';
+import { site } from '@/config/site';
 
 const origin = (Astro.site?.origin ?? Astro.url.origin).replace(/\/$/, '');
 const crumbs = [{ name: 'Diensten', path: '/diensten' }];
@@ -27,7 +28,7 @@ const crumbs = [{ name: 'Diensten', path: '/diensten' }];
   <PageHero
     eyebrow="Diensten"
     title="Financial Outsourcing voor uw kantoor"
-    intro="Vier vaste diensten voor terugkerend verwerkings- en controlewerk, aangevuld met jaarafsluiting en backoffice-ondersteuning op aanvraag. Altijd in uw software en volgens uw werkwijze."
+    intro="Vier vaste diensten voor terugkerend verwerkings- en controlewerk, aangevuld met jaarafsluiting en backoffice-ondersteuning op aanvraag. Altijd in uw software en volgens uw werkwijze — vanaf €12 per uur, gericht op langdurige samenwerking."
     crumbs={crumbs}
   >
     <div class="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -44,6 +45,7 @@ const crumbs = [{ name: 'Diensten', path: '/diensten' }];
             <p class="eyebrow mb-5">{s.availability === 'op-aanvraag' ? 'Op aanvraag' : 'Standaarddienst'} · {s.subtitle}</p>
             <h2 id={`dienst-${s.slug}`} class="text-[1.625rem] leading-[1.15] min-[400px]:text-[2rem] sm:text-[2.5rem]">{s.name}</h2>
             <p class="mt-5 text-lg leading-relaxed text-muted">{s.summary}</p>
+            <p class="mt-4 font-semibold text-ink">{site.pricing.label}</p>
             <ul class="mt-7 grid gap-3 sm:grid-cols-2">
               {s.tasks.map((t) => (
                 <li class="flex items-start gap-3 text-[0.9375rem] text-ink"><Icon name="check" class="mt-0.5 size-4 shrink-0 text-gold-deep" stroke={2.2} />{t}</li>

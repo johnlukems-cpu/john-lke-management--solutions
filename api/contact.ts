@@ -7,7 +7,7 @@
  *
  * Benodigde environment variables (Vercel → Settings → Environment Variables):
  *   RESEND_API_KEY  API-key van Resend
- *   CONTACT_TO      ontvanger, het zakelijke e-mailadres van John-Luke Finance & Advies
+ *   CONTACT_TO      ontvanger, het zakelijke e-mailadres van John-Luke Finance Outsourcing
  *   RESEND_FROM     afzender op een bij Resend geverifieerd domein
  *
  * Accepteert JSON (fetch vanuit de pagina) en gewone formulierdata (zonder JavaScript).
