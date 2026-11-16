@@ -253,7 +253,8 @@ export async function POST(request: Request): Promise<Response> {
     });
     if (!res.ok) {
       console.error('Resend-fout', res.status, await res.text());
-      return reply(502, { ok: false, error: 'send_failed' });
+      // Alleen de statuscode van Resend teruggeven (geen details), voor diagnose
+      return reply(502, { ok: false, error: `send_failed_${res.status}` });
     }
   } catch (err) {
     console.error('Resend onbereikbaar', err);

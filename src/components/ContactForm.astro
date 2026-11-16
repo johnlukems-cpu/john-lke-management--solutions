@@ -324,8 +324,9 @@ const heading = title ?? (fixed ? 'Vraag outsourcing aan' : 'Waarvoor neemt u co
     form.querySelectorAll('input[name="categorie"]').forEach((r) => r.addEventListener('change', applyCategory));
     applyCategory();
 
-    function show(kind: keyof typeof MESSAGES) {
-      status.textContent = MESSAGES[kind];
+    function show(kind: keyof typeof MESSAGES, code?: string) {
+      // Foutcode erachter, zodat een mislukte verzending te herleiden is
+      status.textContent = code ? `${MESSAGES[kind]} (foutcode: ${code})` : MESSAGES[kind];
       status.classList.remove('hidden', 'border-success', 'border-error');
       status.classList.add(kind === 'success' ? 'border-success' : 'border-error', 'bg-mist');
     }
@@ -367,7 +368,7 @@ const heading = title ?? (fixed ? 'Vraag outsourcing aan' : 'Waarvoor neemt u co
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
           body: JSON.stringify(payload),
         });
-        const result = (await res.json().catch(() => ({}))) as { ok?: boolean };
+        const result = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
         // Alleen een succesmelding als de server de verzending echt bevestigt
         if (res.ok && result.ok) {
           form.reset();
@@ -375,10 +376,10 @@ const heading = title ?? (fixed ? 'Vraag outsourcing aan' : 'Waarvoor neemt u co
           started.value = String(Date.now());
           show('success');
         } else {
-          show(res.status === 422 ? 'invalid' : 'failed');
+          show(res.status === 422 ? 'invalid' : 'failed', res.status === 422 ? undefined : `${res.status}${result.error ? ' ' + result.error : ''}`);
         }
       } catch {
-        show('failed');
+        show('failed', 'netwerk');
       } finally {
         button.disabled = false;
         label.textContent = labelText;
