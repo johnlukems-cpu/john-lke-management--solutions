@@ -227,7 +227,8 @@ export async function POST(request: Request): Promise<Response> {
   if (rateLimited(ip)) return reply(429, { ok: false, error: 'rate_limited' });
 
   const result = validate(raw);
-  if (!result.ok) return reply(422, { ok: false, error: 'invalid', fields: result.fields });
+  // 'in'-controle werkt ook als Vercel zonder strict-modus typecheckt
+  if ('fields' in result) return reply(422, { ok: false, error: 'invalid', fields: result.fields });
   const data = result.data;
 
   // Spam: honeypot ingevuld of formulier onwaarschijnlijk snel ingevuld → stil negeren
