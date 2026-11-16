@@ -81,7 +81,7 @@ const cards: Card[] = [
           {contact.address && (
             <li class="flex items-start gap-5 p-5">
               <Icon name="pin" class="mt-0.5 size-5 shrink-0 text-gold-deep" />
-              <address class="not-italic text-muted">{contact.address.street}<br />{contact.address.city}{contact.address.district && `, ${contact.address.district}`}, {site.country}{contact.kkf && <><br />KvK-nummer {contact.kkf}</>}</address>
+              <address class="not-italic text-muted">{contact.address.street}<br />{contact.address.city}{contact.address.district && `, ${contact.address.district}`}, {site.country}{contact.kkf && <><br />KKF-nummer {contact.kkf}</>}</address>
             </li>
           )}
           {contact.openingHours && (
