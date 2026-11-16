@@ -43,9 +43,9 @@ export const site = {
 
   contact: {
     /** Zakelijk e-mailadres, bijv. 'info@uwdomein.com'. null = niet tonen. */
-    email: null as string | null,
+    email: 'info@johnlukefinance.nl' as string | null,
     /** Telefoonnummer zoals bezoekers het lezen, bijv. '+597 123 4567'. null = niet tonen. */
-    phone: null as string | null,
+    phone: '+31 6 43060319' as string | null,
     /**
      * WhatsApp-nummer in internationaal formaat zonder plus, spaties of streepjes
      * (zo verwacht wa.me het), bijv. '5971234567'. null = geen WhatsApp-knop.
