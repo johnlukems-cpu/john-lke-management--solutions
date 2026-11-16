@@ -20,7 +20,7 @@ export const site = {
   shortName: 'John-Luke',
   tagline: 'The smarter way forward.',
   /** Kernpositionering */
-  positioning: 'Uw betrouwbare partner voor Financial Outsourcing.',
+  positioning: 'Uw betrouwbare partner voor financiële outsourcing.',
   description:
     'John-Luke Finance Outsourcing helpt Nederlandse administratie- en accountantskantoren hun capaciteit te vergroten door financiële administratieve werkzaamheden professioneel en efficiënt vanuit Suriname te laten uitvoeren.',
   /** Primaire doelmarkt is Nederland; de onderneming is gevestigd in Zanderij (district Para), Suriname */

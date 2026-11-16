@@ -8,7 +8,7 @@
 /** Waarvoor neemt de bezoeker contact op? */
 export const CATEGORIES = {
   suriname: 'Financiële diensten Suriname',
-  outsourcing: 'Financial Outsourcing Nederland',
+  outsourcing: 'Financiële outsourcing Nederland',
   ai: 'AI & Automation',
   algemeen: 'Algemene vraag',
 };
