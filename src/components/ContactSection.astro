@@ -81,7 +81,7 @@ const cards: Card[] = [
           {contact.address && (
             <li class="flex items-start gap-5 p-5">
               <Icon name="pin" class="mt-0.5 size-5 shrink-0 text-gold-deep" />
-              <address class="not-italic text-muted">{contact.address.street}<br />{contact.address.city}, {site.country}</address>
+              <address class="not-italic text-muted">{contact.address.street}<br />{contact.address.city}{contact.address.district && `, ${contact.address.district}`}, {site.country}{contact.kkf && <><br />KvK-nummer {contact.kkf}</>}</address>
             </li>
           )}
           {contact.openingHours && (
@@ -89,8 +89,8 @@ const cards: Card[] = [
           )}
           <li class="border-l-2 border-gold bg-paper p-5 text-muted">
             {hasDirectContact
-              ? `Gevestigd in ${site.city}, Suriname. Wij ondersteunen Nederlandse administratie- en accountantskantoren op afstand.`
-              : `Vul het formulier in en wij nemen binnen één werkdag contact met u op. Gevestigd in ${site.city}, Suriname; wij ondersteunen Nederlandse kantoren op afstand.`}
+              ? `Gevestigd in ${site.city} (${site.district}), Suriname. Wij ondersteunen Nederlandse administratie- en accountantskantoren op afstand.`
+              : `Vul het formulier in en wij nemen binnen één werkdag contact met u op. Gevestigd in ${site.city} (${site.district}), Suriname; wij ondersteunen Nederlandse kantoren op afstand.`}
           </li>
         </ul>
       </div>

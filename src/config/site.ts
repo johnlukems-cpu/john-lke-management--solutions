@@ -23,10 +23,11 @@ export const site = {
   positioning: 'Uw betrouwbare partner voor Financial Outsourcing.',
   description:
     'John-Luke Finance Outsourcing helpt Nederlandse administratie- en accountantskantoren hun capaciteit te vergroten door financiële administratieve werkzaamheden professioneel en efficiënt vanuit Suriname te laten uitvoeren.',
-  /** Primaire doelmarkt is Nederland; de onderneming is gevestigd in Paramaribo, Suriname */
+  /** Primaire doelmarkt is Nederland; de onderneming is gevestigd in Zanderij (district Para), Suriname */
   locale: 'nl_NL',
   language: 'nl',
-  city: 'Paramaribo',
+  city: 'Zanderij',
+  district: 'Para',
   country: 'Suriname',
   /** Ervaring met Nederlandse administraties en btw (door de eigenaar opgegeven) */
   outsourcingExperience: 'meer dan 3 jaar',
@@ -52,11 +53,11 @@ export const site = {
      */
     whatsapp: null as string | null,
     /** Vestigingsadres. null = niet tonen. */
-    address: null as Address | null,
+    address: { street: 'Moeristraat 44', city: 'Zanderij', district: 'Para' } as Address | null,
     /** Bereikbaarheid, bijv. 'Ma–vr 08:00–16:30'. null = niet tonen. */
     openingHours: null as string | null,
-    /** KKF-inschrijvingsnummer. null = niet tonen. */
-    kkf: null as string | null,
+    /** Inschrijvingsnummer Kamer van Koophandel (door de eigenaar opgegeven). null = niet tonen. */
+    kkf: '91731' as string | null,
   },
 
   social: {

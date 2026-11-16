@@ -24,7 +24,7 @@ import { site } from '@/config/site';
         </div>
         <div>
           <h2>Gevestigd buiten de EU</h2>
-          <p>{site.name} is gevestigd in Paramaribo, Suriname, buiten de Europese Economische Ruimte. Bij de verwerking van persoonsgegevens van Nederlandse relaties houden wij rekening met de Algemene verordening gegevensbescherming (AVG). Voor de verwerking van administraties in opdracht van kantoren leggen wij vooraf afspraken vast in een verwerkersovereenkomst, inclusief passende waarborgen voor de doorgifte van persoonsgegevens buiten de EER, zoals de modelcontractbepalingen (standard contractual clauses) van de Europese Commissie.</p>
+          <p>{site.name} is gevestigd aan de {site.contact.address?.street}, {site.city} ({site.district}), Suriname{site.contact.kkf && ` (KvK-nummer ${site.contact.kkf})`}, buiten de Europese Economische Ruimte. Bij de verwerking van persoonsgegevens van Nederlandse relaties houden wij rekening met de Algemene verordening gegevensbescherming (AVG). Voor de verwerking van administraties in opdracht van kantoren leggen wij vooraf afspraken vast in een verwerkersovereenkomst, inclusief passende waarborgen voor de doorgifte van persoonsgegevens buiten de EER, zoals de modelcontractbepalingen (standard contractual clauses) van de Europese Commissie.</p>
         </div>
         <div>
           <h2>Bewaartermijn</h2>
