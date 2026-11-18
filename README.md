@@ -1,26 +1,29 @@
 # John-Luke Finance Outsourcing — website
 
-Bedrijfswebsite van **John-Luke Finance Outsourcing**: administratie, payroll, tax en
-jaarrekening voor kleine en middelgrote ondernemingen in Suriname.
+Bedrijfswebsite van **John-Luke Finance Outsourcing**: financiële administratie-outsourcing voor
+administratie-, boekhoud- en accountantskantoren in **Nederland en België**, vanuit Suriname.
 
-> Uw financiële administratie. Onze zorg. Uw ruimte om te groeien.
+> The smarter way forward.
 
 ## Pagina's
 
-| Pagina              | Pad                         | Belangrijkste zoekterm                       |
-| ------------------- | --------------------------- | -------------------------------------------- |
-| Home                | `/`                         | Administratiekantoor Suriname                |
-| Diensten            | `/diensten`                 | Administratieve dienstverlening Suriname     |
-| Administratie       | `/diensten/administratie`   | Boekhouding / administratie Suriname         |
-| Payroll             | `/diensten/payroll`         | Payroll / salarisadministratie Suriname      |
-| Tax                 | `/diensten/tax`             | Belastingaangifte Suriname                   |
-| Jaarrekening        | `/diensten/jaarrekening`    | Jaarrekening Suriname                        |
-| Advies              | `/diensten/advies`          | Financieel / administratief advies Suriname  |
-| AI & Automation     | `/diensten/ai-automation`   | Automatisering administratie Suriname        |
-| Over ons            | `/over-ons`                 |                                              |
-| Veelgestelde vragen | `/veelgestelde-vragen`      |                                              |
-| Contact             | `/contact`                  | (formulier, WhatsApp, e-mail, telefoon)      |
-| Privacyverklaring   | `/privacy`                  |                                              |
+| Pagina                 | Pad                                   | Belangrijkste zoekthema                         |
+| ---------------------- | ------------------------------------- | ----------------------------------------------- |
+| Home                   | `/`                                   | Financiële administratie uitbesteden            |
+| Diensten (overzicht)   | `/diensten`                           | Administratie uitbesteden, diensten             |
+| 6 dienstpagina's       | `/diensten/<slug>`                    | Per dienst (zie `src/data/services.ts`)         |
+| Software (overzicht)   | `/software`                           | Softwarekennis                                  |
+| 4 softwarepagina's     | `/software/<slug>`                    | Nmbrs Accounting (Yuki), AFAS Profit, AFAS SB, Exact Online |
+| Nederland              | `/nederland`                          | Financiële administratie uitbesteden Nederland  |
+| België                 | `/belgie`                             | Boekhoudkundige ondersteuning België            |
+| Over ons               | `/over-ons`                           |                                                 |
+| Gegevensbescherming    | `/gegevensbescherming`                | Veilig uitbesteden, AVG                         |
+| Nieuws                 | `/nieuws`, `/nieuws/<slug>`           | Kennisartikelen (zie `docs/seo-en-content.md`)  |
+| Veelgestelde vragen    | `/veelgestelde-vragen`                |                                                 |
+| Contact                | `/contact`                            | Kennismakingsgesprek (leadformulier)            |
+| Privacyverklaring      | `/privacy` (incl. `#cookies`)         |                                                 |
+
+Oude dienstadressen worden in `vercel.json` permanent doorgestuurd naar de nieuwe pagina's.
 
 ## Techniek
 
@@ -44,6 +47,8 @@ npm run preview   # gebouwde site bekijken
 | ------------------------------------------------------- | -------------------------------------- |
 | **E-mail, telefoon, WhatsApp, adres, KKF, social media** | `src/config/site.ts`                   |
 | De zes diensten (teksten, werkzaamheden, FAQ, SEO)     | `src/data/services.ts`                 |
+| Software (4 kernpakketten met eigen pagina + overige)  | `src/data/software.ts`                 |
+| Keuzelijsten van het formulier                          | `shared/form-options.js`               |
 | Waarom wij, werkwijze, doelgroepen, algemene FAQ        | `src/data/content.ts`                  |
 | Navigatie                                               | `src/data/navigation.ts`               |
 | **Foto's**                                              | `src/assets/photos/` (zie README daar) |
@@ -78,7 +83,13 @@ logo gemaakt.
 ## Contactformulier en e-mail
 
 Bezoeker → `POST /api/contact` → Resend → e-mail naar `CONTACT_TO` (antwoorden gaat direct
-naar de bezoeker). Werkt ook zonder JavaScript. Beveiliging: zelfde-origin-controle,
+naar de bezoeker). Werkt ook zonder JavaScript.
+
+Elke aanvraag krijgt een **lead-ID** (`JL-JJMMDD-XXXX`), status *Nieuw* en een **opvolgdatum**
+(volgende werkdag). De interne melding bevat alle leadgegevens plus een agenda-item (`.ics`) als
+opvolgherinnering. De aanvrager ontvangt een ontvangstbevestiging (zonder telefoon of bericht).
+Een succesmelding verschijnt alleen als Resend de interne melding heeft aangenomen; een mislukte
+bevestiging blokkeert de aanvraag niet. Leads worden (nog) niet in een database of CRM opgeslagen. Beveiliging: zelfde-origin-controle,
 maximale grootte, validatie, honeypot, minimale invultijd, rate-limit per IP en opschonen
 van headerwaarden.
 
@@ -89,7 +100,8 @@ Stel in Vercel (*Settings → Environment Variables*) in:
 | `RESEND_API_KEY` | API-key van [Resend](https://resend.com)                          |
 | `CONTACT_TO`     | Het zakelijke e-mailadres dat de aanvragen ontvangt               |
 | `RESEND_FROM`    | Afzender op een bij Resend geverifieerd domein                    |
-| `SITE_URL`       | Optioneel: het definitieve domein, bijv. `https://www.uwdomein.sr` |
+| `SITE_URL`       | Het definitieve domein: `https://www.johnlukefinance.nl`          |
+| `CONFIRMATION_EMAIL` | Optioneel: `off` zet de ontvangstbevestiging aan de aanvrager uit |
 
 Zonder deze variabelen geeft het formulier een nette foutmelding (HTTP 503) en wordt er niets
 verstuurd.

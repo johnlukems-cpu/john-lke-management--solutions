@@ -15,20 +15,22 @@ import ownerPhoto from '@/assets/team/jagernath-john.webp';
 const origin = (Astro.site?.origin ?? Astro.url.origin).replace(/\/$/, '');
 const crumbs = [{ name: 'Over ons', path: '/over-ons' }];
 const values = [
-  { title: 'Persoonlijke samenwerking', text: 'Een vast aanspreekpunt en korte lijnen met uw kantoor.' },
   { title: 'Betrouwbaarheid', text: 'Afspraken over werkzaamheden, planning en verantwoordelijkheden worden vooraf vastgelegd en nagekomen.' },
-  { title: 'Nauwkeurigheid', text: 'Vaste checklists en kwaliteitscontroles bij iedere werkzaamheid.' },
-  { title: 'Flexibiliteit', text: 'Capaciteit die meebeweegt met de werklast van uw kantoor.' },
-  { title: 'Langdurige samenwerking', text: 'Wij bouwen relaties voor de lange termijn, met vaste aanspreekpunten en kennis van uw kantoor.' },
+  { title: 'Nauwkeurigheid', text: 'Vaste checklists en een tweede controle bij iedere werkzaamheid.' },
+  { title: 'Heldere communicatie', text: 'Een vast aanspreekpunt, korte lijnen en een vaste terugkoppeling per week.' },
+  { title: 'Professionele samenwerking', text: 'Wij werken binnen uw werkwijze en respecteren de verdeling van verantwoordelijkheden.' },
+  { title: 'Vertrouwelijkheid', text: 'Zorgvuldige omgang met financiële gegevens, met afspraken over toegang en gegevensverwerking.' },
+  { title: 'Langdurige relaties', text: 'Wij bouwen samenwerkingen voor de lange termijn, met kennis van uw kantoor en uw administraties.' },
 ];
 ---
 
 <BaseLayout
-  title="Over ons — Partner in financiële outsourcing vanuit Suriname"
-  description="John-Luke Finance Outsourcing is een gespecialiseerde partner in financiële outsourcing vanuit Suriname, voor Nederlandse administratie- en accountantskantoren."
+  title="Over ons | John-Luke Finance Outsourcing"
+  rawTitle
+  description="John-Luke Finance Outsourcing: gespecialiseerde partner in financiële administratie-outsourcing vanuit Suriname, voor kantoren in Nederland en België."
   schema={[breadcrumbSchema(origin, crumbs)]}
 >
-  <PageHero eyebrow="Over ons" title="Uw betrouwbare partner voor financiële outsourcing." intro={site.tagline} crumbs={crumbs} />
+  <PageHero eyebrow="Over ons" title="Uw partner achter de financiële verwerking." intro="Wij leveren administratie- en accountantskantoren in Nederland en België betrouwbare capaciteit voor de financiële administratie — vanuit Suriname, in de software die zij al gebruiken." crumbs={crumbs} />
 
   <section class="section bg-paper" aria-labelledby="wie-title">
     <div class="container-site grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
@@ -36,16 +38,18 @@ const values = [
         <SectionHeading id="wie-title" eyebrow="Wie wij zijn" title="Een gespecialiseerde partner in financiële outsourcing" />
         <div class="reveal mt-6 space-y-4 text-lg leading-relaxed text-muted">
           <p>
-            John-Luke Finance Outsourcing is een gespecialiseerde partner in financiële outsourcing vanuit Suriname voor
-            Nederlandse administratie- en accountantskantoren.
+            John-Luke Finance Outsourcing levert financiële administratie-outsourcing aan administratie-, boekhoud- en
+            accountantskantoren in Nederland en België. Vanuit Suriname bieden wij flexibele ondersteuning op afstand, in
+            gangbare boekhoudpakketten zoals Nmbrs Accounting (voorheen Yuki), AFAS Profit, AFAS SB en Exact Online.
           </p>
           <p>
-            Wij ondersteunen onze zakelijke partners bij financiële administratieve werkzaamheden en helpen hen hun
-            capaciteit efficiënter in te zetten.
+            Wij zijn een jong en bewust kleinschalig bedrijf: de eigenaar is persoonlijk betrokken bij elke samenwerking.
+            Groei van ons team volgt op groei van het werk, zodat kwaliteit en continuïteit voorop blijven staan.
           </p>
           <p>
-            Met meer dan 10 jaar ervaring in administratie, waarvan meer dan 3 jaar met Nederlandse administraties en btw, combineren wij kennis van Nederlandse
-            administratieve processen met moderne boekhoudsoftware en een gestructureerde werkwijze.
+            De eigenaar heeft meer dan 10 jaar ervaring in administratie, waarvan meer dan 3 jaar met Nederlandse
+            administraties en btw. Die praktijkkennis combineren wij met moderne boekhoudsoftware en een gestructureerde
+            werkwijze.
           </p>
         </div>
       </div>
@@ -59,8 +63,8 @@ const values = [
         <p class="eyebrow mb-5">Missie</p>
         <h2 id="missie-title" class="text-[1.75rem] leading-snug !text-on-dark sm:text-[2rem]">Waar wij voor staan</h2>
         <p class="mt-5 text-lg leading-relaxed text-on-dark-muted">
-          Wij ondersteunen Nederlandse administratie- en accountantskantoren met betrouwbare, flexibele en kwalitatieve
-          administratieve outsourcing, zodat zij hun capaciteit kunnen vergroten en hun tijd kunnen besteden aan advies,
+          Wij ondersteunen administratie- en accountantskantoren in Nederland en België met betrouwbare, flexibele en
+          kwalitatieve administratieve outsourcing, zodat zij hun capaciteit kunnen vergroten en hun tijd kunnen besteden aan advies,
           beoordeling en hun klanten.
         </p>
       </div>
@@ -69,7 +73,7 @@ const values = [
         <h2 class="text-[1.75rem] leading-snug !text-on-dark sm:text-[2rem]">Waar wij naartoe werken</h2>
         <p class="mt-5 text-lg leading-relaxed text-on-dark-muted">
           Wij bouwen vanuit Suriname een professioneel outsourcingbedrijf op dat langdurige samenwerkingen aangaat met
-          Nederlandse kantoren: met een vakkundig team, gestructureerde werkprocessen en kwaliteit die kantoren
+          kantoren in Nederland en België: met een vakkundig team, gestructureerde werkprocessen en kwaliteit die kantoren
           blijvend kunnen vertrouwen.
         </p>
       </div>
@@ -116,7 +120,7 @@ const values = [
   <section class="section bg-paper" aria-labelledby="waarden-title">
     <div class="container-site">
       <SectionHeading id="waarden-title" eyebrow="Onze kernwaarden" title="Hoe wij samenwerken" />
-      <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+      <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {values.map((v, i) => (
           <li class="reveal border-t-2 border-ink pt-6">
             <span class="font-display text-sm text-gold-deep">0{i + 1}</span>
@@ -145,7 +149,7 @@ const values = [
 
   <CtaBand
     eyebrow="Kennismaken"
-    title="Bespreek uw outsourcingmogelijkheden."
+    title="Bespreek uw capaciteitsbehoefte."
     text="Vertel ons over uw kantoor. Wij denken graag mee over de werkzaamheden die u kunt uitbesteden."
     primary={{ label: 'Plan een kennismakingsgesprek', href: contactHref() }}
   />

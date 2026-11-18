@@ -13,8 +13,9 @@ const crumbs = [{ name: 'Diensten', path: '/diensten' }];
 ---
 
 <BaseLayout
-  title="Diensten — financiële administratie uitbesteden"
-  description="Financiële outsourcing voor administratie- en accountantskantoren: financiële administratie, btw-administratie, debiteuren en crediteuren, maand- en jaarafsluitingen en backoffice-ondersteuning."
+  title="Diensten: financiële administratie uitbesteden | John-Luke"
+  rawTitle
+  description="Verwerking, crediteuren en debiteuren, controles en aansluitingen, afsluitingen, achterstanden en tijdelijke capaciteit voor kantoren in Nederland en België."
   schema={[
     breadcrumbSchema(origin, crumbs),
     {
@@ -26,8 +27,8 @@ const crumbs = [{ name: 'Diensten', path: '/diensten' }];
 >
   <PageHero
     eyebrow="Diensten"
-    title="Financiële outsourcing voor uw kantoor"
-    intro="Vier vaste diensten voor terugkerend verwerkings- en controlewerk, aangevuld met jaarafsluiting en backoffice-ondersteuning op aanvraag. Altijd in uw software en volgens uw werkwijze — gericht op langdurige samenwerking. Financiële administratie vanaf €12 per uur."
+    title="Diensten voor administratie- en accountantskantoren"
+    intro="Zes diensten voor kantoren in Nederland en België: van dagelijkse verwerking en controles tot afsluitingen, achterstanden en tijdelijke capaciteit. Altijd in uw software en volgens uw werkwijze — gericht op langdurige samenwerking. Verwerking financiële administratie vanaf €12 per uur."
     crumbs={crumbs}
   >
     <div class="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -52,11 +53,21 @@ const crumbs = [{ name: 'Diensten', path: '/diensten' }];
             </ul>
             <div class="mt-9 flex flex-col gap-3 sm:flex-row">
               <a href={servicePath(s)} class="btn btn-primary">Meer over {s.name.toLowerCase()} <Icon name="arrowRight" class="size-4" /></a>
-              <a href={contactHref(s.slug)} class="btn btn-outline">Vraag outsourcing aan</a>
+              <a href={contactHref(s.slug)} class="btn btn-outline">Bespreek deze dienst</a>
             </div>
           </div>
         </article>
       ))}
+    </div>
+  </section>
+
+  <section class="section-tight bg-mist" aria-labelledby="afbakening-title">
+    <div class="container-site grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+      <h2 id="afbakening-title" class="reveal text-2xl">Wat wij wel en niet doen</h2>
+      <div class="reveal space-y-4 leading-relaxed text-muted">
+        <p>Wij verzorgen de administratieve verwerking en voorbereiding: wij boeken, controleren, sluiten aan en signaleren. Uw kantoor beoordeelt, accordeert en dient in.</p>
+        <p>Wij geven geen fiscaal advies, dienen geen aangiften in, ondertekenen geen jaarstukken en voeren geen wettelijke controle (audit) uit. Die verdeling leggen wij vooraf schriftelijk vast.</p>
+      </div>
     </div>
   </section>
 

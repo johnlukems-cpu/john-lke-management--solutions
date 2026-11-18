@@ -9,6 +9,7 @@ import FaqList from '@/components/FaqList.astro';
 import CtaBand from '@/components/CtaBand.astro';
 import { priceLabel, services, servicePath, type Service } from '@/data/services';
 import { contactHref } from '@/data/navigation';
+import { coreSoftware, softwarePath } from '@/data/software';
 import { breadcrumbSchema, faqSchema, serviceSchema } from '@/lib/schema';
 
 export const getStaticPaths = (() =>
@@ -36,8 +37,8 @@ const cta = contactHref(service.slug);
   <PageHero eyebrow={`${service.availability === 'op-aanvraag' ? 'Op aanvraag' : 'Standaarddienst'} · ${service.subtitle}`} title={service.heading} intro={service.intro[0]} crumbs={crumbs}>
     <p class="mt-6 text-lg text-on-dark">{service.priceFromHourly && <><span class="font-semibold text-gold-light">{priceLabel(service)}</span> · </>}Gericht op langdurige samenwerking</p>
     <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-      <a href={cta} class="btn btn-gold">Bespreek outsourcing <Icon name="arrowRight" class="size-4" /></a>
-      <a href={cta} class="btn btn-outline-light">Plan een kennismakingsgesprek</a>
+      <a href={cta} class="btn btn-gold">Plan een kennismakingsgesprek <Icon name="arrowRight" class="size-4" /></a>
+      <a href="/software" class="btn btn-outline-light">Bekijk onze softwarekennis</a>
     </div>
   </PageHero>
 
@@ -80,6 +81,14 @@ const cta = contactHref(service.slug);
         {service.scopeNote && (
           <p class="reveal mt-8 border-l-2 border-gold bg-mist p-5 text-[0.9375rem] leading-relaxed text-muted">{service.scopeNote}</p>
         )}
+        <div class="reveal mt-8">
+          <p class="text-sm font-semibold text-ink">Uitgevoerd in uw software</p>
+          <ul class="mt-3 flex flex-wrap gap-2">
+            {coreSoftware.map((sw) => (
+              <li><a href={softwarePath(sw)} class="inline-block border border-line px-3.5 py-2 text-sm font-medium text-ink transition-colors hover:border-ink">{sw.name}</a></li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -133,6 +142,6 @@ const cta = contactHref(service.slug);
     title="Meer capaciteit voor uw kantoor nodig?"
     text="Bespreek met ons hoe wij uw kantoor kunnen ondersteunen bij financiële administratieve werkzaamheden."
     primary={{ label: 'Plan een kennismakingsgesprek', href: cta }}
-    secondary={{ label: 'Vraag outsourcing aan', href: cta }}
+    secondary={{ label: 'Bekijk alle diensten', href: '/diensten' }}
   />
 </BaseLayout>

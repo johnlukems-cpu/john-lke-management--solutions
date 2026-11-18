@@ -8,7 +8,7 @@
 /** Waarvoor neemt de bezoeker contact op? */
 export const CATEGORIES = {
   suriname: 'Financiële diensten Suriname',
-  outsourcing: 'Financiële outsourcing Nederland',
+  outsourcing: 'Financiële outsourcing (NL/BE)',
   ai: 'AI & Automation',
   algemeen: 'Algemene vraag',
 };
@@ -27,6 +27,7 @@ export const OFFICE_TYPES = {
   administratiekantoor: 'Administratiekantoor',
   accountantskantoor: 'Accountantskantoor',
   boekhoudkantoor: 'Boekhoudkantoor',
+  fiduciaire: 'Fiduciaire (België)',
   'financiele-dienstverlener': 'Financiële dienstverlener',
   onderneming: 'Onderneming (eigen administratie)',
   anders: 'Anders',
@@ -41,18 +42,35 @@ export const ADMIN_COUNTS = {
 };
 
 export const OUTSOURCING_TASKS = {
-  'financiele-administratie': 'Financiële administratie (facturen, bank, grootboek)',
-  'btw-administratie': 'Btw-administratie',
-  'debiteuren-crediteuren': 'Debiteuren en crediteuren',
-  'maand-kwartaalafsluitingen': 'Maand- en kwartaalafsluitingen',
-  jaarafsluiting: 'Jaarafsluiting',
-  achterstanden: 'Administratieve achterstanden',
-  'backoffice-ondersteuning': 'Backoffice-ondersteuning / piekcapaciteit',
+  'financiele-administratie': 'Verwerking financiële administratie',
+  'debiteuren-crediteuren': 'Crediteuren- en debiteurenbeheer',
+  'financiele-controle': 'Financiële controle en aansluitingen',
+  'periode-en-jaarafsluiting': 'Periode- en jaarafsluiting',
+  achterstanden: 'Achterstanden wegwerken',
+  'tijdelijke-capaciteit': 'Tijdelijke capaciteit',
   automatisering: 'Automatisering van administratieve processen (o.a. Claude AI)',
-}
+};
+
+/** Land van het kantoor. */
+export const COUNTRIES = {
+  nederland: 'Nederland',
+  belgie: 'België',
+  anders: 'Ander land',
+};
+
+/** Geschatte ondersteuning per maand. */
+export const HOURS = {
+  'tot-20': 'Minder dan 20 uur per maand',
+  '20-40': '20 – 40 uur per maand',
+  '40-80': '40 – 80 uur per maand',
+  '80-160': '80 – 160 uur per maand',
+  '160-plus': 'Meer dan 160 uur per maand',
+  onbekend: 'Nog niet bekend',
+};
 
 export const SOFTWARE = {
   nmbrs: 'Nmbrs Accounting',
+  yuki: 'Voormalige Yuki-omgeving',
   'afas-profit': 'AFAS Profit',
   'afas-sb': 'AFAS SB',
   'exact-online': 'Exact Online',

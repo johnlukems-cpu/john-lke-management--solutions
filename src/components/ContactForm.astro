@@ -5,6 +5,8 @@ import {
   ADMIN_COUNTS,
   AI_PROCESSES,
   CATEGORIES,
+  COUNTRIES,
+  HOURS,
   OFFICE_TYPES,
   OUTSOURCING_TASKS,
   SOFTWARE,
@@ -18,7 +20,7 @@ interface Props {
   id: string;
   /**
    * 'algemeen': bezoeker kiest een van de vier categorieën; de vervolgvelden passen zich aan.
-   * 'outsourcing': vast outsourcingformulier voor Nederlandse kantoren.
+   * 'outsourcing': vast outsourcingformulier voor kantoren in Nederland en België.
    */
   mode?: 'algemeen' | 'outsourcing';
   /** Voorgekozen categorie (in algemene modus); de URL-parameter ?categorie= gaat voor. */
@@ -36,7 +38,7 @@ const categoryIcons: Record<Category, IconName> = {
   ai: 'automation',
   algemeen: 'chat',
 };
-const heading = title ?? (fixed ? 'Vraag outsourcing aan' : 'Waarvoor neemt u contact op?');
+const heading = title ?? (fixed ? 'Plan een kennismakingsgesprek' : 'Waarvoor neemt u contact op?');
 ---
 
 <form
@@ -50,7 +52,7 @@ const heading = title ?? (fixed ? 'Vraag outsourcing aan' : 'Waarvoor neemt u co
     fixed ? (
       <>
         <h3 class="font-display text-2xl text-ink">{heading}</h3>
-        <p class="mt-2 text-[0.9375rem] text-muted">Vertel ons over uw kantoor. Wij nemen binnen één werkdag contact met u op.</p>
+        <p class="mt-2 text-[0.9375rem] text-muted">Vertel ons over uw kantoor en uw capaciteitsbehoefte. Wij nemen binnen één werkdag contact met u op om een kennismakingsgesprek in te plannen.</p>
         <input type="hidden" name="categorie" value="outsourcing" />
       </>
     ) : (
@@ -72,20 +74,31 @@ const heading = title ?? (fixed ? 'Vraag outsourcing aan' : 'Waarvoor neemt u co
   <fieldset data-for="outsourcing" disabled={!on(['outsourcing'])} hidden={!on(['outsourcing'])} class="mt-7">
     <div class="grid gap-5 sm:grid-cols-2">
       <div>
+        <label for={`${id}-o-voornaam`} class="label">Voornaam <span class="text-error" aria-hidden="true">*</span></label>
+        <input id={`${id}-o-voornaam`} name="voornaam" type="text" class="field" autocomplete="given-name" required maxlength="60" />
+      </div>
+      <div>
+        <label for={`${id}-o-achternaam`} class="label">Achternaam <span class="text-error" aria-hidden="true">*</span></label>
+        <input id={`${id}-o-achternaam`} name="achternaam" type="text" class="field" autocomplete="family-name" required minlength="2" maxlength="80" />
+      </div>
+      <div>
         <label for={`${id}-o-bedrijf`} class="label">Bedrijfsnaam <span class="text-error" aria-hidden="true">*</span></label>
         <input id={`${id}-o-bedrijf`} name="bedrijf" type="text" class="field" autocomplete="organization" required maxlength="160" />
       </div>
       <div>
-        <label for={`${id}-o-naam`} class="label">Contactpersoon <span class="text-error" aria-hidden="true">*</span></label>
-        <input id={`${id}-o-naam`} name="naam" type="text" class="field" autocomplete="name" required maxlength="120" />
-      </div>
-      <div>
-        <label for={`${id}-o-email`} class="label">E-mailadres <span class="text-error" aria-hidden="true">*</span></label>
+        <label for={`${id}-o-email`} class="label">Zakelijk e-mailadres <span class="text-error" aria-hidden="true">*</span></label>
         <input id={`${id}-o-email`} name="email" type="email" class="field" autocomplete="email" required maxlength="200" />
       </div>
       <div>
         <label for={`${id}-o-telefoon`} class="label">Telefoonnummer</label>
-        <input id={`${id}-o-telefoon`} name="telefoon" type="tel" class="field" autocomplete="tel" maxlength="40" placeholder="+31" />
+        <input id={`${id}-o-telefoon`} name="telefoon" type="tel" class="field" autocomplete="tel" maxlength="40" placeholder="+31 of +32" />
+      </div>
+      <div>
+        <label for={`${id}-o-land`} class="label">Land <span class="text-error" aria-hidden="true">*</span></label>
+        <select id={`${id}-o-land`} name="land" class="field" required>
+          <option value="">Maak een keuze</option>
+          {Object.entries(COUNTRIES).map(([v, l]) => <option value={v}>{l}</option>)}
+        </select>
       </div>
       <div>
         <label for={`${id}-o-type`} class="label">Type kantoor <span class="text-error" aria-hidden="true">*</span></label>
@@ -104,7 +117,7 @@ const heading = title ?? (fixed ? 'Vraag outsourcing aan' : 'Waarvoor neemt u co
     </div>
 
     <fieldset class="mt-6">
-      <legend class="label">Gewenste werkzaamheden</legend>
+      <legend class="label">Gewenste ondersteuning</legend>
       <div class="mt-1 grid gap-x-5 gap-y-2.5 sm:grid-cols-2">
         {Object.entries(OUTSOURCING_TASKS).map(([v, l]) => (
           <label class="check"><input type="checkbox" name="werkzaamheden" value={v} /><span>{l}</span></label>
@@ -125,12 +138,19 @@ const heading = title ?? (fixed ? 'Vraag outsourcing aan' : 'Waarvoor neemt u co
 
     <div class="mt-6 grid gap-5 sm:grid-cols-2">
       <div>
+        <label for={`${id}-o-uren`} class="label">Geschatte uren per maand</label>
+        <select id={`${id}-o-uren`} name="urenPerMaand" class="field">
+          <option value="">Maak een keuze (optioneel)</option>
+          {Object.entries(HOURS).map(([v, l]) => <option value={v}>{l}</option>)}
+        </select>
+      </div>
+      <div>
         <label for={`${id}-o-start`} class="label">Gewenste startdatum</label>
         <input id={`${id}-o-start`} name="startdatum" type="date" class="field" />
       </div>
     </div>
     <div class="mt-5">
-      <label for={`${id}-o-bericht`} class="label">Toelichting</label>
+      <label for={`${id}-o-bericht`} class="label">Aanvullend bericht</label>
       <textarea id={`${id}-o-bericht`} name="bericht" rows="4" class="field" maxlength="4000" placeholder="Bijvoorbeeld: welke administraties, de gewenste frequentie of piekperiodes."></textarea>
     </div>
   </fieldset>
@@ -185,7 +205,9 @@ const heading = title ?? (fixed ? 'Vraag outsourcing aan' : 'Waarvoor neemt u co
   </div>
   <input type="hidden" name="gestart" value="" />
 
-  <label class="mt-6 flex items-start gap-3 text-sm text-muted">
+  <p class="mt-6 text-sm leading-relaxed text-muted">Wij gebruiken uw gegevens alleen om uw aanvraag te beantwoorden en een kennismakingsgesprek in te plannen. Wij delen ze niet met derden voor marketing. Deel via dit formulier geen financiële gegevens van uw klanten.</p>
+
+  <label class="mt-4 flex items-start gap-3 text-sm text-muted">
     <input type="checkbox" name="akkoord" value="ja" required class="mt-0.5 size-4 shrink-0 accent-[#161616]" />
     <span>Ik ga akkoord met het verwerken van mijn gegevens om mijn aanvraag te beantwoorden, zoals beschreven in de <a href="/privacy" class="underline underline-offset-2 hover:text-ink">privacyverklaring</a>. <span class="text-error" aria-hidden="true">*</span></span>
   </label>
@@ -193,7 +215,7 @@ const heading = title ?? (fixed ? 'Vraag outsourcing aan' : 'Waarvoor neemt u co
   <p class="form-status mt-6 hidden border-l-2 p-4 text-[0.9375rem]" role="status" aria-live="polite"></p>
 
   <button type="submit" class="btn btn-primary mt-6 w-full sm:w-auto">
-    <span class="submit-label">{fixed ? 'Verstuur outsourcingaanvraag' : 'Verstuur aanvraag'}</span>
+    <span class="submit-label">{fixed ? 'Verstuur uw aanvraag' : 'Verstuur aanvraag'}</span>
     <Icon name="arrowRight" class="size-4" />
   </button>
   <p class="mt-4 text-xs text-muted">Velden met <span class="text-error">*</span> zijn verplicht.</p>
@@ -320,6 +342,10 @@ const heading = title ?? (fixed ? 'Vraag outsourcing aan' : 'Waarvoor neemt u co
       const dienst = params.get('dienst');
       const box = dienst && form.querySelector<HTMLInputElement>(`input[name="werkzaamheden"][value="${CSS.escape(dienst)}"]`);
       if (box) box.checked = true;
+      // Land voorselecteren vanuit een landenpagina (?land=nederland|belgie)
+      const land = params.get('land');
+      const landSelect = form.querySelector<HTMLSelectElement>('select[name="land"]');
+      if (land && landSelect && [...landSelect.options].some((o) => o.value === land)) landSelect.value = land;
     }
     form.querySelectorAll('input[name="categorie"]').forEach((r) => r.addEventListener('change', applyCategory));
     applyCategory();

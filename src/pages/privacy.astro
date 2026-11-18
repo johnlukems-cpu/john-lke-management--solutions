@@ -12,32 +12,37 @@ import { site } from '@/config/site';
         <p class="text-lg">{site.name} gaat zorgvuldig en vertrouwelijk om met de persoonsgegevens die u aan ons verstrekt. In deze verklaring leest u welke gegevens wij via deze website verwerken en waarvoor.</p>
         <div>
           <h2>Welke gegevens</h2>
-          <p>Via het contactformulier vragen wij de naam van uw kantoor, uw naam als contactpersoon en uw e-mailadres, en optioneel uw telefoonnummer, het type kantoor, het aantal administraties, de gewenste werkzaamheden, de gebruikte software, een gewenste startdatum en uw toelichting.</p>
+          <p>Via het contactformulier vragen wij uw voor- en achternaam, de naam van uw kantoor, uw zakelijke e-mailadres, het land en het type kantoor, en optioneel uw telefoonnummer, het aantal administraties, de gewenste ondersteuning, de gebruikte software, het geschatte aantal uren per maand, een gewenste startdatum en uw aanvullende bericht. Deel via het formulier geen financiële gegevens van uw klanten.</p>
         </div>
         <div>
           <h2>Waarvoor</h2>
-          <p>Wij gebruiken deze gegevens uitsluitend om uw vraag te beantwoorden en, als u dat wenst, een kennismaking met u in te plannen. Wij verkopen uw gegevens niet en delen ze niet met derden voor marketingdoeleinden.</p>
+          <p>Wij gebruiken deze gegevens uitsluitend om uw aanvraag te beantwoorden, een kennismakingsgesprek met u in te plannen en uw aanvraag op te volgen. U ontvangt na verzending een automatische ontvangstbevestiging per e-mail. Wij verkopen uw gegevens niet en delen ze niet met derden voor marketingdoeleinden. Grondslag: uw toestemming en ons gerechtvaardigd belang bij het beantwoorden van zakelijke aanvragen.</p>
         </div>
         <div>
           <h2>Verwerking</h2>
-          <p>Berichten uit het formulier worden via een beveiligde verbinding per e-mail aan ons doorgestuurd. Daarvoor maken wij gebruik van een externe e-maildienst die de gegevens alleen voor dat doel verwerkt.</p>
+          <p>Berichten uit het formulier worden via een beveiligde verbinding per e-mail aan ons doorgestuurd. Daarvoor maken wij gebruik van de e-maildienst Resend, die de gegevens alleen voor dat doel verwerkt. De website wordt gehost door Vercel. Het formulier is beveiligd tegen misbruik (onder meer met een limiet op het aantal verzendingen per IP-adres); IP-adressen worden daarvoor alleen kortstondig in het werkgeheugen gebruikt.</p>
         </div>
         <div>
           <h2>Gevestigd buiten de EU</h2>
-          <p>{site.name} is gevestigd aan de {site.contact.address?.street}, {site.city} ({site.district}), Suriname{site.contact.kkf && ` (KKF-nummer ${site.contact.kkf})`}, buiten de Europese Economische Ruimte. Bij de verwerking van persoonsgegevens van Nederlandse relaties houden wij rekening met de Algemene verordening gegevensbescherming (AVG). Voor de verwerking van administraties in opdracht van kantoren leggen wij vooraf afspraken vast in een verwerkersovereenkomst, inclusief passende waarborgen voor de doorgifte van persoonsgegevens buiten de EER, zoals de modelcontractbepalingen (standard contractual clauses) van de Europese Commissie.</p>
+          <p>{site.name} is gevestigd aan de {site.contact.address?.street}, {site.city} ({site.district}), Suriname{site.contact.kkf && ` (KKF-nummer ${site.contact.kkf})`}, buiten de Europese Economische Ruimte. Bij de verwerking van persoonsgegevens van relaties in Nederland en België houden wij rekening met de Algemene verordening gegevensbescherming (AVG). Voor de verwerking van administraties in opdracht van kantoren leggen wij vooraf afspraken vast in een verwerkersovereenkomst, inclusief passende waarborgen voor de doorgifte van persoonsgegevens buiten de EER, zoals de modelcontractbepalingen (standard contractual clauses) van de Europese Commissie.</p>
         </div>
         <div>
           <h2>Bewaartermijn</h2>
           <p>Wij bewaren uw gegevens niet langer dan nodig is voor het afhandelen van uw vraag, of — als u klant wordt — zolang als nodig is voor onze dienstverlening en wettelijke verplichtingen.</p>
         </div>
         <div>
-          <h2>Cookies</h2>
-          <p>Deze website gebruikt geen tracking- of advertentiecookies.</p>
+          <h2 id="cookies" class="scroll-mt-28">Cookies</h2>
+          <p>Deze website plaatst zelf geen cookies en gebruikt geen analyse-, tracking- of advertentiediensten. Er is daarom geen cookiemelding nodig. Als wij dit in de toekomst wijzigen, passen wij deze verklaring vooraf aan en vragen wij waar nodig uw toestemming.</p>
         </div>
         <div>
           <h2>Uw rechten</h2>
-          <p>U kunt ons altijd vragen welke gegevens wij van u hebben, en verzoeken om die te corrigeren of te verwijderen. Neem daarvoor contact met ons op via de <a href="/contact">contactpagina</a>.</p>
+          <p>U kunt ons altijd vragen welke gegevens wij van u hebben, en verzoeken om die te corrigeren of te verwijderen. Neem daarvoor contact met ons op via <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a> of de <a href="/contact">contactpagina</a>. U heeft ook het recht een klacht in te dienen bij de toezichthouder in uw land, zoals de Autoriteit Persoonsgegevens (Nederland) of de Gegevensbeschermingsautoriteit (België).</p>
         </div>
+        <div>
+          <h2>Gegevens van klanten van kantoren</h2>
+          <p>Voor de werkzaamheden die wij voor kantoren uitvoeren, gelden aparte afspraken in een verwerkersovereenkomst. Lees meer op onze pagina over <a href="/gegevensbescherming">gegevensbescherming en veilige samenwerking</a>.</p>
+        </div>
+        <p class="text-sm">Laatst bijgewerkt: november 2026.</p>
       </div>
     </div>
   </section>

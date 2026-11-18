@@ -1,0 +1,98 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import Icon from '@/components/Icon.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { contactHref } from '@/data/navigation';
+import { breadcrumbSchema } from '@/lib/schema';
+import type { IconName } from '@/data/icons';
+
+const origin = (Astro.site?.origin ?? Astro.url.origin).replace(/\/$/, '');
+const crumbs = [{ name: 'Gegevensbescherming', path: '/gegevensbescherming' }];
+
+const measures: { icon: IconName; title: string; text: string }[] = [
+  { icon: 'user', title: 'Persoonlijke accounts', text: 'Elke medewerker werkt met een eigen gebruiker in uw software. Wij gebruiken nooit gedeelde inloggegevens.' },
+  { icon: 'shield', title: 'Beperkte toegangsrechten', text: 'Alleen de rechten die nodig zijn voor de taak. Betalingen, instellingen en afgesloten periodes blijven bij u, tenzij u schriftelijk anders bepaalt.' },
+  { icon: 'check', title: 'Tweestapsverificatie', text: 'Waar de software het ondersteunt, werken wij met multifactorauthenticatie. Wachtwoorden staan in een beveiligde wachtwoordkluis.' },
+  { icon: 'ledger', title: 'Data blijft in uw omgeving', text: 'Wij werken in uw systemen en maken geen lokale kopieën van administraties. U kunt de toegang op elk moment intrekken.' },
+  { icon: 'chat', title: 'Afgesproken kanalen', text: 'Stukken en vragen lopen via de kanalen die wij samen afspreken — nooit via privé-e-mail of berichtenapps.' },
+  { icon: 'users', title: 'Geheimhouding', text: 'Medewerkers tekenen een geheimhoudingsverklaring en werken op zakelijke, beveiligde apparatuur.' },
+];
+
+const agreements = [
+  ['Verwerkersovereenkomst', 'Vóór de start leggen wij vast welke gegevens wij verwerken, op wiens instructie, hoe wij ze beveiligen en wat er gebeurt bij een (vermoedelijk) datalek.'],
+  ['Doorgifte buiten de EER', 'Wij zijn gevestigd in Suriname. Voor de doorgifte van persoonsgegevens maken wij afspraken op basis van de modelcontractbepalingen (standard contractual clauses) van de Europese Commissie.'],
+  ['Datalekken', 'Een (vermoedelijk) datalek melden wij zonder onnodige vertraging aan uw kantoor, zodat u uw eigen meldplicht kunt nakomen.'],
+  ['Einde samenwerking', 'Bij het einde van de samenwerking laten wij de toegang intrekken, verwijderen wij werkbestanden en bevestigen wij dat schriftelijk.'],
+  ['AI-hulpmiddelen', 'Wij voeren geen gegevens van uw klanten in AI-tools in zonder uw schriftelijke toestemming en duidelijke afspraken over gegevensverwerking.'],
+];
+---
+
+<BaseLayout
+  title="Gegevensbescherming en veilige samenwerking | John-Luke"
+  rawTitle
+  description="Zo gaan wij om met vertrouwelijke financiële gegevens: persoonlijke accounts, beperkte rechten, tweestapsverificatie en een verwerkersovereenkomst."
+  schema={[breadcrumbSchema(origin, crumbs)]}
+>
+  <PageHero
+    eyebrow="Vertrouwen en veiligheid"
+    title="Gegevensbescherming en veilige samenwerking"
+    intro="Wie financiële administraties uitbesteedt, deelt vertrouwelijke informatie. Daarom werken wij met vaste afspraken over toegang, beveiliging en gegevensverwerking — vooraf vastgelegd en voor u controleerbaar."
+    crumbs={crumbs}
+  />
+
+  <section class="section bg-paper" aria-labelledby="maatregelen-title">
+    <div class="container-site">
+      <SectionHeading id="maatregelen-title" eyebrow="In de praktijk" title="Gecontroleerde toegang tot uw software" />
+      <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {measures.map((m) => (
+          <li class="reveal border border-line bg-paper p-7">
+            <span class="inline-flex size-12 items-center justify-center bg-ink text-gold-light"><Icon name={m.icon} class="size-6" /></span>
+            <h3 class="mt-5 text-xl">{m.title}</h3>
+            <p class="mt-2 leading-relaxed text-muted">{m.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section bg-mist" aria-labelledby="afspraken-title">
+    <div class="container-site grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+      <SectionHeading
+        id="afspraken-title"
+        eyebrow="AVG en afspraken"
+        title="Professionele afspraken, vooraf vastgelegd"
+        intro="Wij houden rekening met de Algemene verordening gegevensbescherming (AVG). De precieze afspraken stemmen wij af op de rol van uw kantoor en leggen wij schriftelijk vast."
+      />
+      <dl class="reveal divide-y divide-line border-y border-line">
+        {agreements.map(([t, d]) => (
+          <div class="grid gap-2 py-5 sm:grid-cols-[13rem_1fr] sm:gap-6">
+            <dt class="font-semibold text-ink">{t}</dt>
+            <dd class="leading-relaxed text-muted">{d}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <section class="section-tight bg-paper" aria-labelledby="afbakening-title">
+    <div class="container-site max-w-4xl">
+      <h2 id="afbakening-title" class="reveal text-2xl">Verdeling van verantwoordelijkheden</h2>
+      <p class="reveal mt-4 leading-relaxed text-muted">
+        Uw kantoor blijft eigenaar van de gegevens en eindverantwoordelijk voor de administraties, de fiscale beoordeling en
+        de indiening van aangiften. Wij verzorgen de administratieve verwerking en voorbereiding volgens uw instructies. Wij
+        voeren geen wettelijke controle uit en geven geen fiscaal advies. Onze privacyverklaring voor bezoekers van deze
+        website leest u op de pagina <a href="/privacy" class="text-ink underline underline-offset-2">privacyverklaring</a>.
+      </p>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow="Veilig samenwerken"
+    title="Vragen over beveiliging of de verwerkersovereenkomst?"
+    text="Wij bespreken uw eisen graag in een kennismakingsgesprek en stemmen de afspraken af op uw kantoor."
+    primary={{ label: 'Plan een kennismakingsgesprek', href: contactHref() }}
+    secondary={{ label: 'Bekijk onze werkwijze', href: '/#werkwijze' }}
+  />
+</BaseLayout>

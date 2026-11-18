@@ -1,6 +1,12 @@
 import { site, whatsappUrl } from '@/config/site';
 import type { FaqItem, Service } from '@/data/services';
 
+/** Werkgebied: Nederland en België. */
+const areaServed = [
+  { '@type': 'Country', name: 'Nederland' },
+  { '@type': 'Country', name: 'België' },
+];
+
 /**
  * Structured data (JSON-LD) voor Google. Bevat uitsluitend bevestigde gegevens:
  * velden die in src/config/site.ts op null staan, worden weggelaten.
@@ -25,7 +31,7 @@ export function organizationSchema(origin: string, logoUrl: string) {
     logo: logoUrl,
     image: logoUrl,
     slogan: site.tagline,
-    areaServed: { '@type': 'Country', name: 'Nederland' },
+    areaServed,
     knowsLanguage: 'nl',
     ...(contact.email && { email: contact.email }),
     ...(contact.phone && { telephone: contact.phone }),
@@ -63,7 +69,7 @@ export function serviceSchema(origin: string, s: Service) {
     serviceType: s.subtitle,
     description: s.seoDescription,
     url: `${origin}/diensten/${s.slug}`,
-    areaServed: { '@type': 'Country', name: 'Nederland' },
+    areaServed,
     provider: { '@id': `${origin}/#organisatie` },
     ...(s.priceFromHourly && {
       offers: {
@@ -97,5 +103,33 @@ export function breadcrumbSchema(origin: string, crumbs: { name: string; path: s
       name: c.name,
       item: `${origin}${c.path === '/' ? '/' : c.path}`,
     })),
+  };
+}
+
+/** Dienst per softwarepakket (geen partnerschap; alleen de ondersteuning die wij leveren). */
+export function softwareServiceSchema(origin: string, sw: { name: string; slug: string; seoDescription: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `Ondersteuning financiële administratie in ${sw.name}`,
+    serviceType: 'Uitbesteding van financiële administratie',
+    description: sw.seoDescription,
+    url: `${origin}/software/${sw.slug}`,
+    areaServed,
+    provider: { '@id': `${origin}/#organisatie` },
+  };
+}
+
+/** Landenpagina: dezelfde organisatie, gericht op één land. */
+export function countryServiceSchema(origin: string, path: string, country: string, description: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `Uitbesteding van financiële administratie — ${country}`,
+    serviceType: 'Uitbesteding van financiële administratie',
+    description,
+    url: `${origin}${path}`,
+    areaServed: { '@type': 'Country', name: country },
+    provider: { '@id': `${origin}/#organisatie` },
   };
 }

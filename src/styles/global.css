@@ -126,6 +126,10 @@
   .section {
     padding-block: var(--section-space);
   }
+  /* Compacte sectie (korte toelichtingen, afbakening) */
+  .section-tight {
+    padding-block: calc(var(--section-space) * 0.6);
+  }
 
   /* Label boven koppen — echoot "— FINANCE OUTSOURCING —" uit het logo */
   .eyebrow {

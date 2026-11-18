@@ -11,7 +11,7 @@ interface Props {
   title?: string;
   intro?: string;
   tone?: 'paper' | 'mist';
-  /** 'algemeen' = formulier met vier categorieën; 'outsourcing' = vast formulier voor NL-kantoren */
+  /** 'algemeen' = formulier met vier categorieën; 'outsourcing' = vast formulier voor kantoren in NL en BE */
   mode?: 'algemeen' | 'outsourcing';
   defaultCategory?: 'suriname' | 'outsourcing' | 'ai' | 'algemeen';
 }
@@ -89,8 +89,8 @@ const cards: Card[] = [
           )}
           <li class="border-l-2 border-gold bg-paper p-5 text-muted">
             {hasDirectContact
-              ? `Gevestigd in ${site.city} (${site.district}), Suriname. Wij ondersteunen Nederlandse administratie- en accountantskantoren op afstand.`
-              : `Vul het formulier in en wij nemen binnen één werkdag contact met u op. Gevestigd in ${site.city} (${site.district}), Suriname; wij ondersteunen Nederlandse kantoren op afstand.`}
+              ? `Gevestigd in ${site.city} (${site.district}), Suriname. Wij ondersteunen kantoren in Nederland en België op afstand.`
+              : `Vul het formulier in en wij nemen binnen één werkdag contact met u op. Gevestigd in ${site.city} (${site.district}), Suriname; wij ondersteunen kantoren in Nederland en België op afstand.`}
           </li>
         </ul>
       </div>

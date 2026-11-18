@@ -58,12 +58,12 @@
     },
     {
       "source": "/diensten/tax",
-      "destination": "/diensten/btw-administratie",
+      "destination": "/diensten/financiele-controle",
       "permanent": true
     },
     {
       "source": "/diensten/jaarrekening",
-      "destination": "/diensten/jaarafsluiting",
+      "destination": "/diensten/periode-en-jaarafsluiting",
       "permanent": true
     },
     {
@@ -84,6 +84,26 @@
     {
       "source": "/diensten/audit",
       "destination": "/diensten",
+      "permanent": true
+    },
+    {
+      "source": "/diensten/btw-administratie",
+      "destination": "/diensten/financiele-controle",
+      "permanent": true
+    },
+    {
+      "source": "/diensten/maand-kwartaalafsluitingen",
+      "destination": "/diensten/periode-en-jaarafsluiting",
+      "permanent": true
+    },
+    {
+      "source": "/diensten/jaarafsluiting",
+      "destination": "/diensten/periode-en-jaarafsluiting",
+      "permanent": true
+    },
+    {
+      "source": "/diensten/backoffice-ondersteuning",
+      "destination": "/diensten/tijdelijke-capaciteit",
       "permanent": true
     }
   ]
