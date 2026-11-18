@@ -126,6 +126,14 @@
   .section {
     padding-block: var(--section-space);
   }
+  /* Lange Nederlandse samenstellingen in koppen netjes afbreken op smalle schermen */
+  h1,
+  h2,
+  h3 {
+    overflow-wrap: anywhere;
+    hyphens: auto;
+  }
+
   /* Compacte sectie (korte toelichtingen, afbakening) */
   .section-tight {
     padding-block: calc(var(--section-space) * 0.6);
