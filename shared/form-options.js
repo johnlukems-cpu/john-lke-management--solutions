@@ -8,7 +8,7 @@
 /** Waarvoor neemt de bezoeker contact op? */
 export const CATEGORIES = {
   suriname: 'Financiële diensten Suriname',
-  outsourcing: 'Financiële outsourcing (NL/BE)',
+  outsourcing: 'Financiële outsourcing Nederland',
   ai: 'AI & Automation',
   algemeen: 'Algemene vraag',
 };
@@ -27,7 +27,6 @@ export const OFFICE_TYPES = {
   administratiekantoor: 'Administratiekantoor',
   accountantskantoor: 'Accountantskantoor',
   boekhoudkantoor: 'Boekhoudkantoor',
-  fiduciaire: 'Fiduciaire (België)',
   'financiele-dienstverlener': 'Financiële dienstverlener',
   onderneming: 'Onderneming (eigen administratie)',
   anders: 'Anders',
@@ -54,7 +53,6 @@ export const OUTSOURCING_TASKS = {
 /** Land van het kantoor. */
 export const COUNTRIES = {
   nederland: 'Nederland',
-  belgie: 'België',
   anders: 'Ander land',
 };
 

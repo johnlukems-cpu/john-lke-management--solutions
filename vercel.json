@@ -105,6 +105,11 @@
       "source": "/diensten/backoffice-ondersteuning",
       "destination": "/diensten/tijdelijke-capaciteit",
       "permanent": true
+    },
+    {
+      "source": "/belgie",
+      "destination": "/nederland",
+      "permanent": true
     }
   ]
 }

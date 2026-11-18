@@ -50,7 +50,7 @@ export const coreSoftware: CoreSoftware[] = [
     helps: 'Voor kantoren met veel administraties in Nmbrs Accounting of de voormalige Yuki-omgeving: wij beoordelen en verwerken, uw kantoor houdt de regie.',
     seoTitle: 'Nmbrs Accounting (Yuki) ondersteuning | John-Luke',
     seoDescription:
-      'Ondersteuning in Nmbrs Accounting, de nieuwe naam van Yuki: facturen, bank, aansluitingen, debiteuren, crediteuren en afsluitingen voor NL- en BE-kantoren.',
+      'Ondersteuning in Nmbrs Accounting, de nieuwe naam van Yuki: facturen, bank, aansluitingen, debiteuren, crediteuren en afsluitingen voor Nederlandse kantoren.',
     heading: 'Nmbrs Accounting-ondersteuning — ook voor de voormalige Yuki-omgeving',
     intro: [
       'Visma heeft Yuki per 1 september 2026 voortgezet onder de naam Nmbrs Accounting. Voor de dagelijkse verwerking verandert er inhoudelijk weinig: dezelfde functies en gegevens, met een nieuwe naam, vormgeving en webadres.',
@@ -66,7 +66,6 @@ export const coreSoftware: CoreSoftware[] = [
     faq: [
       { question: 'Is Nmbrs Accounting hetzelfde als Yuki?', answer: 'Ja. Volgens Visma gaat Yuki sinds 1 september 2026 verder onder de naam Nmbrs Accounting, met dezelfde functionaliteit en gegevens. Werkt uw kantoor nog met de oude naam of het oude webadres, dan kunnen wij u daar ook gewoon in ondersteunen.' },
       { question: 'Ondersteunen jullie ook Nmbrs Payroll?', answer: 'Nee. Wij richten ons uitsluitend op de financiële administratie in Nmbrs Accounting, niet op salarisadministratie.' },
-      { question: 'Werken jullie ook voor Belgische kantoren in Nmbrs Accounting?', answer: 'Ja, voor accountantskantoren in Vlaanderen ondersteunen wij de administratieve verwerking, onder de verantwoordelijkheid en volgens de instructies van uw kantoor.' },
     ],
     services: ['financiele-administratie', 'debiteuren-crediteuren', 'financiele-controle', 'periode-en-jaarafsluiting'],
   },
@@ -130,15 +129,15 @@ export const coreSoftware: CoreSoftware[] = [
     slug: 'exact-online',
     name: 'Exact Online',
     type: 'Online boekhouding (Exact)',
-    usedFor: 'Veelgebruikt online boekhoudpakket in Nederland en België, voor ondernemers en voor kantoren die meerdere administraties beheren.',
+    usedFor: 'Veelgebruikt online boekhoudpakket in Nederland, voor ondernemers en voor kantoren die meerdere administraties beheren.',
     tasks: ['Inkoop- en verkoopadministratie', 'Bankaansluiting', 'Grootboekverwerking', 'Btw-controles en rapportage'],
     helps: 'Voor kantoren die met Exact Online werken: verwerkingswerk direct in de bestaande administraties, zonder van omgeving te wisselen.',
     seoTitle: 'Exact Online ondersteuning voor kantoren | John-Luke',
     seoDescription:
-      'Exact Online ondersteuning voor kantoren in Nederland en België: inkoop, verkoop, bankaansluitingen, grootboek, debiteuren, crediteuren en btw-controles.',
+      'Exact Online ondersteuning voor kantoren in Nederland: inkoop, verkoop, bankaansluitingen, grootboek, debiteuren, crediteuren en btw-controles.',
     heading: 'Exact Online-ondersteuning voor uw kantoor',
     intro: [
-      'Exact Online is een van de meest gebruikte boekhoudpakketten in Nederland en wordt ook door Belgische kantoren gebruikt. Kantoren beheren er vaak tientallen tot honderden administraties in.',
+      'Exact Online is een van de meest gebruikte boekhoudpakketten in Nederland. Kantoren beheren er vaak tientallen tot honderden administraties in.',
       'Wij verwerken in de administraties die u ons toewijst: inkoop en verkoop, bank, grootboek en openstaande posten. Daarnaast controleren wij btw-coderingen en bereiden wij rapportages en afsluitingen voor.',
     ],
     workflows: ['Inkoop- en verkoopadministratie', 'Bankverwerking en bankaansluiting', 'Grootboekverwerking', 'Debiteuren- en crediteurenadministratie', 'Btw-controles', 'Ondersteuning bij financiële rapportages'],
@@ -150,7 +149,6 @@ export const coreSoftware: CoreSoftware[] = [
     ],
     faq: [
       { question: 'Hebben jullie een eigen Exact Online-licentie nodig?', answer: 'Nee. Wij werken met persoonlijke gebruikers in de omgeving van uw kantoor of uw klanten, met de rechten die u toekent.' },
-      { question: 'Werken jullie ook in Belgische Exact Online-administraties?', answer: 'Ja. Voor Vlaamse kantoren verwerken wij de aankoop-, verkoop- en financiële dagboeken volgens uw instructies. Belgische fiscale beoordeling blijft bij uw kantoor.' },
     ],
     services: ['financiele-administratie', 'debiteuren-crediteuren', 'financiele-controle', 'periode-en-jaarafsluiting'],
   },

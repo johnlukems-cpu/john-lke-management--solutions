@@ -20,7 +20,7 @@ interface Props {
   id: string;
   /**
    * 'algemeen': bezoeker kiest een van de vier categorieën; de vervolgvelden passen zich aan.
-   * 'outsourcing': vast outsourcingformulier voor kantoren in Nederland en België.
+   * 'outsourcing': vast outsourcingformulier voor kantoren in Nederland.
    */
   mode?: 'algemeen' | 'outsourcing';
   /** Voorgekozen categorie (in algemene modus); de URL-parameter ?categorie= gaat voor. */
@@ -91,7 +91,7 @@ const heading = title ?? (fixed ? 'Plan een kennismakingsgesprek' : 'Waarvoor ne
       </div>
       <div>
         <label for={`${id}-o-telefoon`} class="label">Telefoonnummer</label>
-        <input id={`${id}-o-telefoon`} name="telefoon" type="tel" class="field" autocomplete="tel" maxlength="40" placeholder="+31 of +32" />
+        <input id={`${id}-o-telefoon`} name="telefoon" type="tel" class="field" autocomplete="tel" maxlength="40" placeholder="+31" />
       </div>
       <div>
         <label for={`${id}-o-land`} class="label">Land <span class="text-error" aria-hidden="true">*</span></label>
@@ -342,7 +342,7 @@ const heading = title ?? (fixed ? 'Plan een kennismakingsgesprek' : 'Waarvoor ne
       const dienst = params.get('dienst');
       const box = dienst && form.querySelector<HTMLInputElement>(`input[name="werkzaamheden"][value="${CSS.escape(dienst)}"]`);
       if (box) box.checked = true;
-      // Land voorselecteren vanuit een landenpagina (?land=nederland|belgie)
+      // Land voorselecteren vanuit een landenpagina (?land=nederland)
       const land = params.get('land');
       const landSelect = form.querySelector<HTMLSelectElement>('select[name="land"]');
       if (land && landSelect && [...landSelect.options].some((o) => o.value === land)) landSelect.value = land;

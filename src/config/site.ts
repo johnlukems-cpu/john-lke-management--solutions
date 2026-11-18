@@ -22,8 +22,8 @@ export const site = {
   /** Kernpositionering */
   positioning: 'Meer financiële administratiecapaciteit. Zonder de extra wervingslast.',
   description:
-    'John-Luke Finance Outsourcing ondersteunt administratie-, boekhoud- en accountantskantoren in Nederland en België met financiële administratieve verwerking, controle en afsluitondersteuning — vanuit Suriname, in de software die zij al gebruiken.',
-  /** Doelmarkten: Nederland en België; de onderneming is gevestigd in Zanderij (district Para), Suriname */
+    'John-Luke Finance Outsourcing ondersteunt administratie-, boekhoud- en accountantskantoren in Nederland met financiële administratieve verwerking, controle en afsluitondersteuning — vanuit Suriname, in de software die zij al gebruiken.',
+  /** Doelmarkt: Nederland (België later); de onderneming is gevestigd in Zanderij (district Para), Suriname */
   locale: 'nl_NL',
   language: 'nl',
   city: 'Zanderij',

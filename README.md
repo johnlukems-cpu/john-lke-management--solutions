@@ -1,7 +1,7 @@
 # John-Luke Finance Outsourcing — website
 
 Bedrijfswebsite van **John-Luke Finance Outsourcing**: financiële administratie-outsourcing voor
-administratie-, boekhoud- en accountantskantoren in **Nederland en België**, vanuit Suriname.
+administratie-, boekhoud- en accountantskantoren in **Nederland**, vanuit Suriname.
 
 > The smarter way forward.
 
@@ -15,7 +15,6 @@ administratie-, boekhoud- en accountantskantoren in **Nederland en België**, va
 | Software (overzicht)   | `/software`                           | Softwarekennis                                  |
 | 4 softwarepagina's     | `/software/<slug>`                    | Nmbrs Accounting (Yuki), AFAS Profit, AFAS SB, Exact Online |
 | Nederland              | `/nederland`                          | Financiële administratie uitbesteden Nederland  |
-| België                 | `/belgie`                             | Boekhoudkundige ondersteuning België            |
 | Over ons               | `/over-ons`                           |                                                 |
 | Gegevensbescherming    | `/gegevensbescherming`                | Veilig uitbesteden, AVG                         |
 | Nieuws                 | `/nieuws`, `/nieuws/<slug>`           | Kennisartikelen (zie `docs/seo-en-content.md`)  |

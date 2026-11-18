@@ -6,7 +6,7 @@ export interface FaqItem {
   answer: string;
 }
 
-/** Een outsourcingdienst voor administratie- en accountantskantoren in Nederland en België. */
+/** Een outsourcingdienst voor administratie- en accountantskantoren in Nederland. */
 export interface Service {
   /** URL-deel: /diensten/<slug> (gelijk aan de formulierwaarde) */
   slug: string;
@@ -46,7 +46,7 @@ export const services: Service[] = [
     priceFromHourly: 12,
     seoTitle: 'Financiële administratie uitbesteden | John-Luke',
     seoDescription:
-      'Financiële administratie uitbesteden: wij verwerken inkoop- en verkoopfacturen, bank en grootboek voor kantoren in Nederland en België, in uw eigen software.',
+      'Financiële administratie uitbesteden: wij verwerken inkoop- en verkoopfacturen, bank en grootboek voor kantoren in Nederland, in uw eigen software.',
     summary:
       'Inkoop- en verkoopfacturen, bankmutaties en grootboekboekingen verwerkt volgens de werkwijze van uw kantoor.',
     heading: 'Verwerking van de financiële administratie',

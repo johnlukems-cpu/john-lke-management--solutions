@@ -1,10 +1,9 @@
 import { site, whatsappUrl } from '@/config/site';
 import type { FaqItem, Service } from '@/data/services';
 
-/** Werkgebied: Nederland en België. */
+/** Werkgebied: Nederland. */
 const areaServed = [
   { '@type': 'Country', name: 'Nederland' },
-  { '@type': 'Country', name: 'België' },
 ];
 
 /**

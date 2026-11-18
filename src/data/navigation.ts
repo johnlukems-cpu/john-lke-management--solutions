@@ -7,7 +7,7 @@ export interface NavItem {
 }
 
 /** Contactformulier (outsourcingaanvraag), optioneel met voorgeselecteerde werkzaamheid. */
-export const contactHref = (dienst?: string, land?: 'nederland' | 'belgie') => {
+export const contactHref = (dienst?: string, land?: 'nederland') => {
   const params = new URLSearchParams();
   if (dienst) params.set('dienst', dienst);
   if (land) params.set('land', land);
@@ -27,7 +27,6 @@ export const mainNav: NavItem[] = [
   },
   { label: 'Software', href: '/software' },
   { label: 'Nederland', href: '/nederland' },
-  { label: 'België', href: '/belgie' },
   { label: 'Over ons', href: '/over-ons' },
   { label: 'Contact', href: '/contact' },
 ];

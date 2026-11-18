@@ -2,7 +2,7 @@
  * Vercel-functie voor de contactformulieren: POST /api/contact
  *
  * Eén endpoint voor het algemene contactformulier (vier categorieën) en het
- * outsourcingformulier voor kantoren in Nederland en België. Verstuurt de aanvraag per e-mail
+ * outsourcingformulier voor kantoren in Nederland. Verstuurt de aanvraag per e-mail
  * via Resend (https://resend.com).
  *
  * Benodigde environment variables (Vercel → Settings → Environment Variables):
