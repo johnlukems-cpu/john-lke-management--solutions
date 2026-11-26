@@ -87,7 +87,16 @@ Elke aanvraag krijgt een **lead-ID** (`JL-JJMMDD-XXXX`), status *Nieuw* en een *
 (volgende werkdag). De interne melding bevat alle leadgegevens plus een agenda-item (`.ics`) als
 opvolgherinnering. De aanvrager ontvangt een ontvangstbevestiging (zonder telefoon of bericht).
 Een succesmelding verschijnt alleen als Resend de interne melding heeft aangenomen; een mislukte
-bevestiging blokkeert de aanvraag niet. Leads worden (nog) niet in een database of CRM opgeslagen. Beveiliging: zelfde-origin-controle,
+bevestiging blokkeert de aanvraag niet.
+
+**HubSpot (CRM).** Met `HUBSPOT_TOKEN` ingesteld wordt elke aanvraag ook vastgelegd in HubSpot:
+contact (op e-mailadres) + bedrijf + deal in de pijplijn *Website-leads*, fase *Nieuw*, met de
+velden Lead-ID, Land, Type kantoor, Boekhoudsoftware, Gewenste ondersteuning, Uren per maand,
+Gewenste startdatum en Opvolgdatum. De fases (Nieuw → Gecontacteerd → Afspraak gepland →
+Voorstel verstuurd → Onderhandeling → Pilot → Actieve klant / Niet geïnteresseerd) beheert u in
+HubSpot; het pijplijnbord en de standaardrapporten dienen als leaddashboard. Lukt HubSpot niet,
+dan komt de aanvraag gewoon per e-mail binnen (met de melding om hem handmatig toe te voegen).
+Code: `api/_hubspot.js` (de underscore voorkomt dat Vercel er een eigen endpoint van maakt). Beveiliging: zelfde-origin-controle,
 maximale grootte, validatie, honeypot, minimale invultijd, rate-limit per IP en opschonen
 van headerwaarden.
 
@@ -100,6 +109,8 @@ Stel in Vercel (*Settings → Environment Variables*) in:
 | `RESEND_FROM`    | Afzender op een bij Resend geverifieerd domein                    |
 | `SITE_URL`       | Het definitieve domein: `https://www.johnlukefinance.nl`          |
 | `CONFIRMATION_EMAIL` | Optioneel: `off` zet de ontvangstbevestiging aan de aanvrager uit |
+| `HUBSPOT_TOKEN`  | Token van een HubSpot private app (scopes: contacts, companies, deals — read/write) |
+| `HUBSPOT_PORTAL_ID` | Optioneel: HubSpot-accountnummer, voor een directe dealink in de e-mail |
 
 Zonder deze variabelen geeft het formulier een nette foutmelding (HTTP 503) en wordt er niets
 verstuurd.

@@ -10,6 +10,7 @@
  *   CONTACT_TO      ontvanger, het zakelijke e-mailadres van John-Luke Finance Outsourcing
  *   RESEND_FROM     afzender op een bij Resend geverifieerd domein
  *   CONFIRMATION_EMAIL  optioneel: 'off' zet de ontvangstbevestiging aan de aanvrager uit
+ *   HUBSPOT_TOKEN       optioneel: zet de HubSpot-koppeling aan (zie api/_hubspot.ts)
  *
  * Elke aanvraag krijgt een lead-ID (JL-JJMMDD-XXXX), status 'Nieuw' en een opvolgdatum
  * (volgende werkdag). De interne melding bevat een agenda-item (.ics) als opvolgherinnering.
@@ -31,6 +32,7 @@ import {
   SOFTWARE,
   SURINAME_SERVICES,
 } from '../shared/form-options.js';
+import { syncLeadToHubSpot } from './_hubspot.js';
 
 const MAX_BODY = 16 * 1024;
 const MIN_FILL_MS = 2500;
@@ -146,6 +148,8 @@ export interface LeadMeta {
   receivedAt: string;
   /** Opvolgen vóór (JJJJ-MM-DD) */
   followUp: string;
+  /** Status van de HubSpot-koppeling, voor in de interne melding */
+  crm?: string;
 }
 
 /** Uniek, goed leesbaar lead-ID: JL-JJMMDD-XXXX. */
@@ -185,7 +189,7 @@ export function followUpIcs(d: ContactInput, meta: LeadMeta): string {
 
 export function buildEmail(d: ContactInput, meta?: LeadMeta) {
   const rows: [string, string][] = meta
-    ? [['Lead-ID', meta.id], ['Ontvangen', meta.receivedAt.slice(0, 16).replace('T', ' ') + ' UTC'], ['Status', 'Nieuw'], ['Opvolgen vóór', meta.followUp], ['Categorie', CATEGORIES[d.categorie]]]
+    ? [['Lead-ID', meta.id], ['Ontvangen', meta.receivedAt.slice(0, 16).replace('T', ' ') + ' UTC'], ['Status', 'Nieuw'], ['Opvolgen vóór', meta.followUp], ...(meta.crm ? [['HubSpot', meta.crm] as [string, string]] : []), ['Categorie', CATEGORIES[d.categorie]]]
     : [['Categorie', CATEGORIES[d.categorie]]];
   if (d.categorie === 'outsourcing') {
     const software = [labels(d.software.filter((s) => s !== 'anders'), SOFTWARE)];
@@ -345,6 +349,34 @@ export async function POST(request: Request): Promise<Response> {
   }
 
   const meta: LeadMeta = { id: leadId(), receivedAt: new Date().toISOString(), followUp: nextWorkday() };
+
+  // 0. HubSpot (best effort): contact + bedrijf + deal in "Website-leads", fase "Nieuw"
+  if (data.categorie === 'outsourcing' && process.env.HUBSPOT_TOKEN) {
+    try {
+      const hs = await syncLeadToHubSpot({
+        leadId: meta.id,
+        followUp: meta.followUp,
+        voornaam: data.voornaam,
+        achternaam: data.achternaam,
+        email: data.email,
+        telefoon: data.telefoon,
+        bedrijf: data.bedrijf,
+        land: data.land,
+        typeKantoor: data.typeKantoor,
+        urenPerMaand: data.urenPerMaand,
+        startdatum: data.startdatum,
+        software: [labels(data.software.filter((x) => x !== 'anders'), SOFTWARE), data.software.includes('anders') ? `Anders: ${data.softwareAnders || '—'}` : '']
+          .filter((x) => x && x !== '—')
+          .join(' · '),
+        diensten: data.werkzaamheden.length ? labels(data.werkzaamheden, OUTSOURCING_TASKS) : '',
+        bericht: data.bericht,
+      });
+      if (hs) meta.crm = hs.dealUrl ?? `deal ${hs.dealId} aangemaakt`;
+    } catch (err) {
+      console.error('HubSpot-koppeling mislukt', err);
+      meta.crm = 'niet gelukt — lead handmatig in HubSpot zetten';
+    }
+  }
   const { subject, text: textBody, html } = buildEmail(data, meta);
   const send = (payload: Record<string, unknown>) =>
     fetch('https://api.resend.com/emails', {
