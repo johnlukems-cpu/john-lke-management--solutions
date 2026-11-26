@@ -36,7 +36,7 @@ const cta = contactHref(service.slug);
 >
   <PageHero eyebrow={`${service.availability === 'op-aanvraag' ? 'Op aanvraag' : 'Standaarddienst'} · ${service.subtitle}`} title={service.heading} intro={service.intro[0]} crumbs={crumbs}>
     <p class="mt-6 text-lg text-on-dark">{service.priceFromHourly && <><span class="font-semibold text-gold-light">{priceLabel(service)}</span> · </>}Gericht op langdurige samenwerking</p>
-    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
       <a href={cta} class="btn btn-gold">Plan een kennismakingsgesprek <Icon name="arrowRight" class="size-4" /></a>
       <a href="/software" class="btn btn-outline-light">Bekijk onze softwarekennis</a>
     </div>
@@ -64,7 +64,7 @@ const cta = contactHref(service.slug);
           <div class="reveal mt-6">
             <p class="text-sm font-semibold text-ink">Op aanvraag</p>
             <ul class="mt-2 space-y-2">
-              {service.onRequest.map((t) => <li class="flex items-start gap-3 text-muted"><Icon name="arrowRight" class="mt-1 size-4 shrink-0 text-gold-deep" />{t}</li>)}
+              {service.onRequest.map((t) => <li class="flex items-start gap-3 text-muted"><Icon name="arrowRight" class="mt-1 size-4 shrink-0 text-gold-deep" /><span class="min-w-0">{t}</span></li>)}
             </ul>
           </div>
         )}
@@ -96,7 +96,7 @@ const cta = contactHref(service.slug);
   <section class="section bg-mist" aria-labelledby="voordelen-title">
     <div class="container-site">
       <SectionHeading id="voordelen-title" eyebrow="Wat het uw kantoor oplevert" title="Voordelen voor uw kantoor" />
-      <ul class="mt-12 grid gap-6 md:grid-cols-3">
+      <ul class="mt-12 grid gap-6 lg:grid-cols-3">
         {service.benefits.map((b, i) => (
           <li class="reveal border-t-2 border-ink bg-paper p-7">
             <span class="font-display text-sm text-gold-deep">0{i + 1}</span>

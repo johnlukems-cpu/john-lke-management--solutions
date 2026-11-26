@@ -107,8 +107,13 @@
       "permanent": true
     },
     {
+      "source": "/nederland",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/belgie",
-      "destination": "/nederland",
+      "destination": "/",
       "permanent": true
     }
   ]

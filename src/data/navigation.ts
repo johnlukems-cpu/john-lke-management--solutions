@@ -7,13 +7,7 @@ export interface NavItem {
 }
 
 /** Contactformulier (outsourcingaanvraag), optioneel met voorgeselecteerde werkzaamheid. */
-export const contactHref = (dienst?: string, land?: 'nederland') => {
-  const params = new URLSearchParams();
-  if (dienst) params.set('dienst', dienst);
-  if (land) params.set('land', land);
-  const q = params.toString();
-  return `/contact${q ? `?${q}` : ''}#formulier`;
-};
+export const contactHref = (dienst?: string) => `/contact${dienst ? `?dienst=${dienst}` : ''}#formulier`;
 
 /** Header-CTA */
 export const kennismakingHref = contactHref();
@@ -26,7 +20,6 @@ export const mainNav: NavItem[] = [
     children: services.map((s) => ({ label: s.name, href: servicePath(s), hint: s.subtitle })),
   },
   { label: 'Software', href: '/software' },
-  { label: 'Nederland', href: '/nederland' },
   { label: 'Over ons', href: '/over-ons' },
   { label: 'Contact', href: '/contact' },
 ];

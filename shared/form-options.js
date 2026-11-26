@@ -28,7 +28,7 @@ export const OFFICE_TYPES = {
   accountantskantoor: 'Accountantskantoor',
   boekhoudkantoor: 'Boekhoudkantoor',
   'financiele-dienstverlener': 'Financiële dienstverlener',
-  onderneming: 'Onderneming (eigen administratie)',
+  onderneming: 'Mkb-bedrijf (eigen administratie)',
   anders: 'Anders',
 };
 

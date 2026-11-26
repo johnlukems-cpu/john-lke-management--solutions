@@ -118,17 +118,3 @@ export function softwareServiceSchema(origin: string, sw: { name: string; slug: 
     provider: { '@id': `${origin}/#organisatie` },
   };
 }
-
-/** Landenpagina: dezelfde organisatie, gericht op één land. */
-export function countryServiceSchema(origin: string, path: string, country: string, description: string) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: `Uitbesteding van financiële administratie — ${country}`,
-    serviceType: 'Uitbesteding van financiële administratie',
-    description,
-    url: `${origin}${path}`,
-    areaServed: { '@type': 'Country', name: country },
-    provider: { '@id': `${origin}/#organisatie` },
-  };
-}

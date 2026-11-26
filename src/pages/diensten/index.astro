@@ -15,7 +15,7 @@ const crumbs = [{ name: 'Diensten', path: '/diensten' }];
 <BaseLayout
   title="Diensten: financiële administratie uitbesteden | John-Luke"
   rawTitle
-  description="Verwerking, crediteuren en debiteuren, controles en aansluitingen, afsluitingen, achterstanden en tijdelijke capaciteit voor kantoren in Nederland."
+  description="Verwerking, debiteuren en crediteuren, controles, afsluitingen, achterstanden en tijdelijke capaciteit voor Nederlandse kantoren en mkb-bedrijven."
   schema={[
     breadcrumbSchema(origin, crumbs),
     {
@@ -27,11 +27,11 @@ const crumbs = [{ name: 'Diensten', path: '/diensten' }];
 >
   <PageHero
     eyebrow="Diensten"
-    title="Diensten voor administratie- en accountantskantoren"
-    intro="Zes diensten voor kantoren in Nederland: van dagelijkse verwerking en controles tot afsluitingen, achterstanden en tijdelijke capaciteit. Altijd in uw software en volgens uw werkwijze — gericht op langdurige samenwerking. Verwerking financiële administratie vanaf €12 per uur."
+    title="Diensten voor kantoren en mkb-bedrijven"
+    intro="Zes diensten voor Nederlandse administratiekantoren, accountantskantoren en mkb-bedrijven: van dagelijkse verwerking en controles tot afsluitingen, achterstanden en tijdelijke capaciteit. Altijd in uw software en volgens uw werkwijze — gericht op langdurige samenwerking. Verwerking financiële administratie vanaf €12 per uur."
     crumbs={crumbs}
   >
-    <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+    <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
       <a href={contactHref()} class="btn btn-gold">Plan een kennismakingsgesprek <Icon name="arrowRight" class="size-4" /></a>
     </div>
   </PageHero>
@@ -48,11 +48,11 @@ const crumbs = [{ name: 'Diensten', path: '/diensten' }];
             <p class="mt-4 font-semibold text-ink">{priceLabel(s)}</p>
             <ul class="mt-7 grid gap-3 sm:grid-cols-2">
               {s.tasks.map((t) => (
-                <li class="flex items-start gap-3 text-[0.9375rem] text-ink"><Icon name="check" class="mt-0.5 size-4 shrink-0 text-gold-deep" stroke={2.2} />{t}</li>
+                <li class="flex items-start gap-3 text-[0.9375rem] text-ink"><Icon name="check" class="mt-0.5 size-4 shrink-0 text-gold-deep" stroke={2.2} /><span class="min-w-0">{t}</span></li>
               ))}
             </ul>
-            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a href={servicePath(s)} class="btn btn-primary">Meer over {s.name.toLowerCase()} <Icon name="arrowRight" class="size-4" /></a>
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a href={servicePath(s)} class="btn btn-primary">Bekijk deze dienst <Icon name="arrowRight" class="size-4" /></a>
               <a href={contactHref(s.slug)} class="btn btn-outline">Bespreek deze dienst</a>
             </div>
           </div>

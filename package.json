@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && node scripts/check-csp.mjs",
+    "build": "astro check && astro build && node scripts/nobr-compounds.mjs && node scripts/check-csp.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "assets": "node scripts/generate-icons.mjs"

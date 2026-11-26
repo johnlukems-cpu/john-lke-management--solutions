@@ -96,8 +96,7 @@ const heading = title ?? (fixed ? 'Plan een kennismakingsgesprek' : 'Waarvoor ne
       <div>
         <label for={`${id}-o-land`} class="label">Land <span class="text-error" aria-hidden="true">*</span></label>
         <select id={`${id}-o-land`} name="land" class="field" required>
-          <option value="">Maak een keuze</option>
-          {Object.entries(COUNTRIES).map(([v, l]) => <option value={v}>{l}</option>)}
+          {Object.entries(COUNTRIES).map(([v, l]) => <option value={v} selected={v === 'nederland'}>{l}</option>)}
         </select>
       </div>
       <div>
@@ -342,10 +341,6 @@ const heading = title ?? (fixed ? 'Plan een kennismakingsgesprek' : 'Waarvoor ne
       const dienst = params.get('dienst');
       const box = dienst && form.querySelector<HTMLInputElement>(`input[name="werkzaamheden"][value="${CSS.escape(dienst)}"]`);
       if (box) box.checked = true;
-      // Land voorselecteren vanuit een landenpagina (?land=nederland)
-      const land = params.get('land');
-      const landSelect = form.querySelector<HTMLSelectElement>('select[name="land"]');
-      if (land && landSelect && [...landSelect.options].some((o) => o.value === land)) landSelect.value = land;
     }
     form.querySelectorAll('input[name="categorie"]').forEach((r) => r.addEventListener('change', applyCategory));
     applyCategory();

@@ -39,7 +39,6 @@ const socials = [
         <h2 class="font-sans text-xs font-semibold tracking-[0.2em] !text-gold-light uppercase">Bedrijf</h2>
         <ul class="mt-5 space-y-3">
           <li><a href="/software" class="text-on-dark-muted transition-colors hover:text-on-dark">Software</a></li>
-          <li><a href="/nederland" class="text-on-dark-muted transition-colors hover:text-on-dark">Nederland</a></li>
           <li><a href="/over-ons" class="text-on-dark-muted transition-colors hover:text-on-dark">Over ons</a></li>
           <li><a href="/#werkwijze" class="text-on-dark-muted transition-colors hover:text-on-dark">Werkwijze</a></li>
           <li><a href="/veelgestelde-vragen" class="text-on-dark-muted transition-colors hover:text-on-dark">Veelgestelde vragen</a></li>
@@ -56,7 +55,7 @@ const socials = [
             <li><a href={wa} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 hover:text-on-dark"><Icon name="whatsapp" class="size-4 text-gold" />WhatsApp</a></li>
           )}
           {contact.email && (
-            <li><a href={`mailto:${contact.email}`} class="inline-flex items-center gap-3 break-all hover:text-on-dark"><Icon name="mail" class="size-4 shrink-0 text-gold" />{contact.email}</a></li>
+            <li><a href={`mailto:${contact.email}`} class="inline-flex min-w-0 items-center gap-3 hover:text-on-dark"><Icon name="mail" class="size-4 shrink-0 text-gold" /><span class="break-address min-w-0">{contact.email}</span></a></li>
           )}
           {tel && (
             <li><a href={tel} class="inline-flex items-center gap-3 hover:text-on-dark"><Icon name="phone" class="size-4 text-gold" />{contact.phone}</a></li>

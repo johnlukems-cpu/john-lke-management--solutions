@@ -35,7 +35,7 @@ const cta = contactHref();
   schema={[softwareServiceSchema(origin, sw), breadcrumbSchema(origin, crumbs), faqSchema(sw.faq)]}
 >
   <PageHero eyebrow={`Software · ${sw.type}`} title={sw.heading} intro={sw.intro[0]} crumbs={crumbs}>
-    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
       <a href={cta} class="btn btn-gold">Plan een kennismakingsgesprek <Icon name="arrowRight" class="size-4" /></a>
       <a href="/diensten" class="btn btn-outline-light">Bekijk onze diensten</a>
     </div>
@@ -65,7 +65,7 @@ const cta = contactHref();
         <div class="reveal">
           <h3 class="font-sans text-sm font-semibold tracking-wide text-ink uppercase">Vormen van ondersteuning</h3>
           <ul class="mt-4 grid gap-2 sm:grid-cols-2">
-            {sw.support.map((t) => <li class="flex items-start gap-3 text-muted"><Icon name="arrowRight" class="mt-1 size-4 shrink-0 text-gold-deep" />{t}</li>)}
+            {sw.support.map((t) => <li class="flex items-start gap-3 text-muted"><Icon name="arrowRight" class="mt-1 size-4 shrink-0 text-gold-deep" /><span class="min-w-0">{t}</span></li>)}
           </ul>
         </div>
       </div>
@@ -75,7 +75,7 @@ const cta = contactHref();
   <section class="section bg-mist" aria-labelledby="voordelen-title">
     <div class="container-site">
       <SectionHeading id="voordelen-title" eyebrow="Voor uw kantoor" title={`Voordelen van uitbesteden in ${sw.name}`} />
-      <ul class="mt-12 grid gap-6 md:grid-cols-3">
+      <ul class="mt-12 grid gap-6 lg:grid-cols-3">
         {sw.benefits.map((b, i) => (
           <li class="reveal border-t-2 border-ink bg-paper p-7">
             <span class="font-display text-sm text-gold-deep">0{i + 1}</span>

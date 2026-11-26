@@ -8,7 +8,7 @@ Er worden geen posities in Google beloofd en er worden geen zoekvolumes genoemd.
 
 | Pagina | Title (≤ 65 tekens) | Primair zoekthema | Secundair |
 |---|---|---|---|
-| `/` | Financiële administratie uitbesteden voor kantoren \| John-Luke | financiële administratie uitbesteden | financiële outsourcing, administratieve ondersteuning accountantskantoor |
+| `/` | Financiële administratie uitbesteden in Nederland \| John-Luke | financiële administratie uitbesteden | administratieve outsourcing, administratie uitbesteden Nederland, ondersteuning administratiekantoor, mkb |
 | `/diensten` | Diensten: financiële administratie uitbesteden \| John-Luke | administratie uitbesteden | boekhouding outsourcing |
 | `/diensten/financiele-administratie` | Financiële administratie uitbesteden \| John-Luke | financiële administratie uitbesteden | financiële verwerking uitbesteden, boekhouding uitbesteden |
 | `/diensten/debiteuren-crediteuren` | Debiteuren- en crediteurenbeheer uitbesteden \| John-Luke | debiteurenbeheer / crediteurenbeheer uitbesteden | openstaande posten |
@@ -21,7 +21,6 @@ Er worden geen posities in Google beloofd en er worden geen zoekvolumes genoemd.
 | `/software/afas-profit` | AFAS Profit ondersteuning \| John-Luke | AFAS Profit ondersteuning | |
 | `/software/afas-sb` | AFAS SB administratie uitbesteden \| John-Luke | AFAS SB administratie / ondersteuning | |
 | `/software/exact-online` | Exact Online ondersteuning voor kantoren \| John-Luke | Exact Online ondersteuning | |
-| `/nederland` | Financiële administratie uitbesteden Nederland \| John-Luke | administratie uitbesteden Nederland | financiële administratie outsourcing |
 | `/gegevensbescherming` | Gegevensbescherming en veilige samenwerking \| John-Luke | veilig administratie uitbesteden | AVG uitbesteding |
 | `/over-ons`, `/contact`, `/veelgestelde-vragen`, `/privacy`, `/nieuws` | Unieke titels en beschrijvingen | merk, kennismaking | |
 
@@ -35,7 +34,7 @@ Alle pagina's hebben:
 
 ## 2. Technische verbeteringen
 
-- **Nieuwe pagina's:** 4 softwarepagina's, Nederland en Gegevensbescherming. De Belgiëpagina is op verzoek verwijderd (eerst focus op Nederland); `/belgie` stuurt door naar `/nederland`. Ze staan automatisch in `sitemap-index.xml`, en `robots.txt` verwijst naar de sitemap.
+- **Nieuwe pagina's:** 4 softwarepagina's en Gegevensbescherming. De België- en Nederlandpagina zijn op verzoek verwijderd; de homepage is de centrale pagina voor de Nederlandse markt. `/belgie` en `/nederland` sturen permanent door naar `/`. Ze staan automatisch in `sitemap-index.xml`, en `robots.txt` verwijst naar de sitemap.
 - **Structured data:**
   - `ProfessionalService` (areaServed: Nederland);
   - `Service` per dienst, softwarepakket en landenpagina;
@@ -48,10 +47,10 @@ Alle pagina's hebben:
 - **Interne links:**
   - dienstpagina's → softwarepagina's;
   - softwarepagina's → bijbehorende diensten en de andere pakketten;
-  - Nederlandpagina → software, diensten en gegevensbescherming;
-  - footer → Nederland, Gegevensbescherming en Nieuws.
-- **Duplicate content:** geen dubbele titels of beschrijvingen; de Nederlandpagina heeft eigen teksten en FAQ's (rekeningschema, btw-aangifte, Wwft).
-- **Mobiel:** getest op 320–1920 px zonder horizontale overloop. Het hoofdmenu klapt onder 1024 px in; de header-CTA verschijnt vanaf 1280 px naast het menu.
+  - homepage → diensten, software, gegevensbescherming;
+  - footer → Gegevensbescherming en Nieuws.
+- **Duplicate content:** geen dubbele titels, beschrijvingen of pagina's; de Nederlandse procesinhoud (rekeningschema, btw-aangifte, Wwft) staat op de homepage.
+- **Mobiel en typografie:** getest op 360, 375, 390, 430, 768, 1024, 1280, 1440 en 1920 px: geen horizontale overloop, geen woorden die midden in het woord of op een koppelteken worden afgebroken, en geen knoppen of menu-items over twee regels. Het hoofdmenu klapt onder 1024 px in; de header-CTA verschijnt vanaf 1280 px naast het menu.
 - **Snelheid:**
   - de site blijft statisch (Astro);
   - afbeeldingen in AVIF/WebP met `srcset` en lazy loading;

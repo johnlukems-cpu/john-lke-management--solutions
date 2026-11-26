@@ -51,7 +51,7 @@ export const coreSoftware: CoreSoftware[] = [
     seoTitle: 'Nmbrs Accounting (Yuki) ondersteuning | John-Luke',
     seoDescription:
       'Ondersteuning in Nmbrs Accounting, de nieuwe naam van Yuki: facturen, bank, aansluitingen, debiteuren, crediteuren en afsluitingen voor Nederlandse kantoren.',
-    heading: 'Nmbrs Accounting-ondersteuning — ook voor de voormalige Yuki-omgeving',
+    heading: 'Ondersteuning in Nmbrs Accounting, ook voor de voormalige Yuki-omgeving',
     intro: [
       'Visma heeft Yuki per 1 september 2026 voortgezet onder de naam Nmbrs Accounting. Voor de dagelijkse verwerking verandert er inhoudelijk weinig: dezelfde functies en gegevens, met een nieuwe naam, vormgeving en webadres.',
       'Nmbrs Accounting verwerkt veel documenten en bankmutaties automatisch. Juist dan is menselijke controle belangrijk: automatische voorstellen beoordelen, uitzonderingen afhandelen en zorgen dat btw-coderingen en leveranciersinstellingen kloppen. Dat werk nemen wij voor uw kantoor over.',
@@ -79,7 +79,7 @@ export const coreSoftware: CoreSoftware[] = [
     seoTitle: 'AFAS Profit ondersteuning | John-Luke',
     seoDescription:
       'Ondersteuning in AFAS Profit: financiële transacties, grootboekcontroles, crediteuren, debiteuren en voorbereiding van afsluitingen binnen uw workflows.',
-    heading: 'AFAS Profit-ondersteuning voor de financiële administratie',
+    heading: 'Ondersteuning in AFAS Profit voor de financiële administratie',
     intro: [
       'AFAS Profit wordt gebruikt door organisaties met meer structuur in hun administratie: workflows met goedkeuringsroutes, autorisaties en dimensies zoals kostenplaatsen en projecten.',
       'Wij verwerken financiële transacties binnen die bestaande inrichting, voeren grootboekcontroles uit en bereiden rapportages en afsluitingen voor. Werk in AFAS Profit wordt bij ons uitgevoerd door ervaren medewerkers, met controle door een tweede persoon.',
@@ -107,7 +107,7 @@ export const coreSoftware: CoreSoftware[] = [
     seoTitle: 'AFAS SB administratie uitbesteden | John-Luke',
     seoDescription:
       'AFAS SB administratie uitbesteden: inkoop, verkoop, bank, voorbereiding van de btw-administratie en financiële controles voor administratiekantoren.',
-    heading: 'AFAS SB-administratie uitbesteden',
+    heading: 'Uw administratie in AFAS SB uitbesteden',
     intro: [
       'AFAS SB is de online boekhoudoplossing van AFAS voor kantoren die veel mkb-administraties bedienen. Ondernemers leveren bonnetjes en facturen vaak aan via de app; het kantoor zorgt dat alles juist wordt verwerkt.',
       'Wij nemen de verwerking en de eerste controle over: transacties boeken, bank verwerken, aangeleverde stukken op volledigheid controleren en de btw-gegevens voorbereiden voor beoordeling door uw kantoor.',
@@ -135,7 +135,7 @@ export const coreSoftware: CoreSoftware[] = [
     seoTitle: 'Exact Online ondersteuning voor kantoren | John-Luke',
     seoDescription:
       'Exact Online ondersteuning voor kantoren in Nederland: inkoop, verkoop, bankaansluitingen, grootboek, debiteuren, crediteuren en btw-controles.',
-    heading: 'Exact Online-ondersteuning voor uw kantoor',
+    heading: 'Ondersteuning in Exact Online voor uw kantoor',
     intro: [
       'Exact Online is een van de meest gebruikte boekhoudpakketten in Nederland. Kantoren beheren er vaak tientallen tot honderden administraties in.',
       'Wij verwerken in de administraties die u ons toewijst: inkoop en verkoop, bank, grootboek en openstaande posten. Daarnaast controleren wij btw-coderingen en bereiden wij rapportages en afsluitingen voor.',

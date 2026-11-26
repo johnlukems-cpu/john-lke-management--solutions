@@ -11,7 +11,7 @@ import NewsCard from '@/components/NewsCard.astro';
 import { Picture } from 'astro:assets';
 import { services } from '@/data/services';
 import { coreSoftware, softwarePath } from '@/data/software';
-import { experience, generalFaq, problems, steps, trustPoints } from '@/data/content';
+import { dutchProcesses, experience, generalFaq, problems, steps, trustPoints } from '@/data/content';
 import { contactHref } from '@/data/navigation';
 import { faqSchema } from '@/lib/schema';
 import { getNews } from '@/lib/news';
@@ -22,9 +22,9 @@ const latestNews = (await getNews()).slice(0, 1);
 ---
 
 <BaseLayout
-  title="Financiële administratie uitbesteden voor kantoren | John-Luke"
+  title="Financiële administratie uitbesteden in Nederland | John-Luke"
   rawTitle
-  description="Meer financiële verwerkingscapaciteit voor administratie- en accountantskantoren in Nederland, in Nmbrs Accounting (Yuki), AFAS en Exact Online."
+  description="Financiële administratieve outsourcing voor Nederlandse administratiekantoren, accountantskantoren en mkb-bedrijven, in Nmbrs Accounting, AFAS en Exact Online."
   schema={[faqSchema(generalFaq)]}
 >
   <!-- 1. HERO -->
@@ -33,22 +33,22 @@ const latestNews = (await getNews()).slice(0, 1);
     <div class="container-site relative grid items-center gap-12 py-12 md:py-16 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16 lg:py-24">
       <div class="reveal min-w-0">
         <p class="eyebrow mb-6">{site.tagline}</p>
-        <h1 class="text-[1.75rem] leading-[1.12] min-[400px]:text-[2.125rem] sm:text-[3rem] lg:text-[3.5rem] lg:leading-[1.08]">
+        <h1 class="text-[1.75rem] leading-[1.12] min-[400px]:text-[2.125rem] sm:text-[3rem] lg:text-[2.75rem] lg:leading-[1.08] xl:text-[3.5rem]">
           Meer financiële verwerkingscapaciteit voor <span class="italic text-gold-deep">uw kantoor</span>.
         </h1>
-        <p class="mt-6 text-xl font-medium text-ink">Financiële administratie-outsourcing voor administratie- en accountantskantoren in Nederland.</p>
+        <p class="mt-6 text-xl font-medium text-ink">{site.positioning}</p>
         <p class="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-          John-Luke Finance Outsourcing ondersteunt administratie- en accountantskantoren met professionele financiële
-          administratieve verwerking. Vanuit Suriname bieden wij flexibele capaciteit, softwarekennis en persoonlijke
-          kwaliteitscontrole, zodat uw kantoor zich kan blijven richten op klanten en groei.
+          John-Luke Finance Outsourcing ondersteunt administratiekantoren, accountantskantoren en mkb-bedrijven met
+          professionele financiële administratieve verwerking. Vanuit Suriname bieden wij flexibele capaciteit, softwarekennis en persoonlijke
+          kwaliteitscontrole, zodat u zich kunt blijven richten op klanten en groei.
         </p>
-        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <a href={contactHref()} class="btn btn-primary">Plan een kennismakingsgesprek <Icon name="arrowRight" class="size-4" /></a>
           <a href="#diensten" class="btn btn-outline">Bekijk onze diensten</a>
         </div>
         <ul class="mt-10 grid gap-3 border-t border-line pt-7 sm:grid-cols-3">
-          {['Voor Nederlandse administratiekantoren', 'In Nmbrs Accounting, AFAS en Exact Online', 'Verwerking vanaf €12 per uur'].map((t) => (
-            <li class="flex items-start gap-2.5 text-[0.9375rem] font-medium text-ink"><Icon name="check" class="mt-0.5 size-5 shrink-0 text-gold-deep" stroke={2} />{t}</li>
+          {['Voor kantoren en mkb-bedrijven', 'In Nmbrs Accounting, AFAS en Exact Online', 'Verwerking vanaf €12 per uur'].map((t) => (
+            <li class="flex items-start gap-2.5 text-[0.9375rem] font-medium text-ink"><Icon name="check" class="mt-0.5 size-5 shrink-0 text-gold-deep" stroke={2} /><span class="min-w-0">{t}</span></li>
           ))}
         </ul>
       </div>
@@ -101,7 +101,7 @@ const latestNews = (await getNews()).slice(0, 1);
           ))}
         </ul>
       </div>
-      <div class="reveal self-center border-l-2 border-gold bg-mist p-8 lg:p-10">
+      <div class="reveal min-w-0 self-center border-l-2 border-gold bg-mist p-5 sm:p-8 lg:p-10">
         <p class="eyebrow mb-4">De oplossing</p>
         <h3 class="text-2xl sm:text-[1.75rem]">Extra capaciteit die direct in uw werkwijze past</h3>
         <p class="mt-4 text-lg leading-relaxed text-muted">
@@ -114,8 +114,40 @@ const latestNews = (await getNews()).slice(0, 1);
     </div>
   </section>
 
+  <!-- 3b. NEDERLANDSE PRAKTIJK -->
+  <section class="section bg-mist" aria-labelledby="praktijk-title">
+    <div class="container-site">
+      <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <SectionHeading
+          id="praktijk-title"
+          eyebrow="De Nederlandse praktijk"
+          title="Afgestemd op Nederlandse administratieve processen"
+          intro="Wij werken in het Nederlands, volgens uw rekeningschema en werkinstructies, en met kennis van Nederlandse btw-processen."
+        />
+        <div class="reveal space-y-4 text-lg leading-relaxed text-muted lg:pt-10">
+          <p>
+            Bij een gemiddeld administratiekantoor staat meer dan 12% van de functies open, gemiddeld zo'n zes maanden lang.
+            Personeelstekort is volgens de NOAB de belangrijkste reden waarom kantoren werk uitbesteden.
+          </p>
+          <p class="text-sm">Bron: NOAB, Benchmark Kantoorcijfers 2025; NOAB-enquête uitbesteding, juli 2026.</p>
+        </div>
+      </div>
+      <ul class="mt-12 grid gap-6 md:grid-cols-2">
+        {dutchProcesses.map((p) => (
+          <li class="reveal flex flex-col gap-4 border border-line bg-paper p-6 sm:flex-row sm:gap-5 sm:p-7">
+            <span class="inline-flex size-12 shrink-0 items-center justify-center bg-ink text-gold-light"><Icon name={p.icon} class="size-6" /></span>
+            <div class="min-w-0">
+              <h3 class="text-xl">{p.title}</h3>
+              <p class="mt-2 leading-relaxed text-muted">{p.text}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
   <!-- 4. DIENSTEN -->
-  <section id="diensten" class="section scroll-mt-24 bg-mist" aria-labelledby="diensten-title">
+  <section id="diensten" class="section scroll-mt-24 bg-paper" aria-labelledby="diensten-title">
     <div class="container-site">
       <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <SectionHeading
@@ -133,7 +165,7 @@ const latestNews = (await getNews()).slice(0, 1);
   </section>
 
   <!-- 5. SOFTWARE -->
-  <section class="section bg-paper" aria-labelledby="software-title">
+  <section class="section bg-mist" aria-labelledby="software-title">
     <div class="container-site">
       <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <SectionHeading
@@ -161,7 +193,7 @@ const latestNews = (await getNews()).slice(0, 1);
   </section>
 
   <!-- 6. WERKWIJZE -->
-  <section id="werkwijze" class="section scroll-mt-24 bg-mist" aria-labelledby="werkwijze-title">
+  <section id="werkwijze" class="section scroll-mt-24 bg-paper" aria-labelledby="werkwijze-title">
     <div class="container-site grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
       <div>
         <SectionHeading id="werkwijze-title" eyebrow="Zo werkt het" title="In vier stappen naar extra capaciteit" />
@@ -186,7 +218,7 @@ const latestNews = (await getNews()).slice(0, 1);
   </section>
 
   <!-- 7. OVER JOHN-LUKE -->
-  <section class="section bg-paper" aria-labelledby="over-title">
+  <section class="section bg-mist" aria-labelledby="over-title">
     <div class="container-site grid items-center gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
       <figure class="reveal relative mx-auto w-full max-w-sm">
         <Picture src={ownerPhoto} alt={`${site.owner.name}, ${site.owner.role.toLowerCase()}`} formats={['avif', 'webp']} widths={[400, 700]} sizes="(min-width: 1024px) 24rem, 100vw" class="aspect-[3/4] w-full object-cover" />
@@ -197,7 +229,7 @@ const latestNews = (await getNews()).slice(0, 1);
           id="over-title"
           eyebrow="Over John-Luke Finance Outsourcing"
           title="Uw partner achter de financiële verwerking"
-          intro={`Opgericht in 2025 door ${site.owner.name} (${site.owner.role.toLowerCase()}, ${site.owner.education}). Vanuit Suriname ondersteunen wij kantoren in Nederland, met kennis van administratieve processen, moderne boekhoudsoftware en een gestructureerde werkwijze.`}
+          intro={`Opgericht in 2025 door ${site.owner.name} (${site.owner.role.toLowerCase()}, ${site.owner.education}). Vanuit Suriname ondersteunen wij Nederlandse kantoren en mkb-bedrijven, met kennis van administratieve processen, moderne boekhoudsoftware en een gestructureerde werkwijze.`}
         />
         <ul class="reveal mt-7 grid gap-3 sm:grid-cols-2">
           {experience.map((e) => (
@@ -211,7 +243,7 @@ const latestNews = (await getNews()).slice(0, 1);
 
   <!-- NIEUWS -->
   {latestNews.length > 0 && (
-    <section id="nieuws" class="section bg-mist" aria-labelledby="nieuws-title">
+    <section id="nieuws" class="section bg-paper" aria-labelledby="nieuws-title">
       <div class="container-site">
         <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading id="nieuws-title" eyebrow="Nieuws" title="Actueel bij John-Luke" />
@@ -225,7 +257,7 @@ const latestNews = (await getNews()).slice(0, 1);
   )}
 
   <!-- 8. FAQ -->
-  <section id="faq" class="section bg-paper" aria-labelledby="faq-title">
+  <section id="faq" class="section bg-mist" aria-labelledby="faq-title">
     <div class="container-site grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
       <div>
         <SectionHeading id="faq-title" eyebrow="Vragen" title="Veelgestelde vragen" intro="Over samenwerken op afstand, gegevensbescherming, verantwoordelijkheden en tarieven." />

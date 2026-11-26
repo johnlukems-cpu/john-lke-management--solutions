@@ -11,7 +11,7 @@ export const reasons: { icon: IconName; title: string; text: string }[] = [
   { icon: 'check', title: 'Gestructureerde werkprocessen', text: 'Vaste checklists per werkzaamheid, zodat de kwaliteit voorspelbaar is.' },
   { icon: 'shield', title: 'Kwaliteitscontroles', text: 'Controle op boekingen, btw-coderingen, aansluitingen en dubbele facturen, met vastgelegde correcties.' },
   { icon: 'chat', title: 'Vertrouwelijk', text: 'Zorgvuldige omgang met financiële gegevens, met afspraken over toegang, beveiliging en gegevensverwerking.' },
-  { icon: 'globe', title: 'Ondersteuning vanuit Suriname', text: 'Nederlandstalig, met een werkdag die overlapt met de middag in Nederland.' },
+  { icon: 'globe', title: 'Ondersteuning vanuit Suriname', text: 'Nederlandstalig, met een werkdag die overlapt met de Nederlandse middag.' },
 ];
 
 /** Werkwijze van kennismaking tot vaste samenwerking. */
@@ -29,7 +29,7 @@ export const trustPoints: { icon: IconName; title: string; text: string }[] = [
   { icon: 'report', title: 'Dagelijkse financiële administratie', text: 'Facturen, bank, debiteuren, crediteuren en aansluitingen: het terugkerende werk dat uw kantoor draaiende houdt.' },
   { icon: 'handshake', title: 'Persoonlijke begeleiding', text: 'Een vast aanspreekpunt dat uw kantoor, uw werkwijze en uw administraties kent.' },
   { icon: 'shield', title: 'Kwaliteitscontrole', text: 'Werk wordt gecontroleerd door een tweede persoon, met vaste checklists en vastgelegde correcties.' },
-  { icon: 'globe', title: 'Samenwerking op afstand', text: 'Nederlandstalig, met een werkdag die overlapt met de middag in Nederland en veilige toegang tot uw systemen.' },
+  { icon: 'globe', title: 'Samenwerking op afstand', text: 'Nederlandstalig, met een werkdag die overlapt met de Nederlandse middag en veilige toegang tot uw systemen.' },
 ];
 
 /** Veelvoorkomende capaciteitsproblemen (homepage). */
@@ -52,10 +52,18 @@ export const experience = [
 
 /** Algemene veelgestelde vragen (homepage + FAQ-pagina). */
 export const generalFaq: FaqItem[] = [
-  { question: 'Voor welke kantoren werkt John-Luke Finance Outsourcing?', answer: 'Voor Nederlandse administratie-, boekhoud- en accountantskantoren en financiële dienstverleners die financiële administratieve werkzaamheden willen uitbesteden — structureel of tijdelijk.' },
+  { question: 'Voor welke kantoren werkt John-Luke Finance Outsourcing?', answer: 'Voor Nederlandse administratiekantoren, accountantskantoren en boekhoudkantoren, en voor mkb-bedrijven die hun financiële administratie (deels) willen uitbesteden — structureel of tijdelijk.' },
   { question: 'Hoe werkt ondersteuning op afstand vanuit Suriname?', answer: 'Wij werken in de (online) software van uw kantoor of uw klanten, met de toegang die u verleent. Communicatie verloopt via e-mail, telefoon of videobellen. Nederlands is in Suriname de officiële taal.' },
   { question: 'Wat is het tijdsverschil met Nederland?', answer: 'Suriname loopt in de winter 4 uur en in de zomer 5 uur achter op Nederland. Onze werkdag overlapt met uw middag; werk dat u ’s middags aanlevert, kan dezelfde dag nog worden opgepakt.' },
   { question: 'Hoe gaan jullie om met de gegevens van onze klanten?', answer: 'Vertrouwelijk. Wij werken uitsluitend met de gegevens die nodig zijn voor de opdracht, met persoonlijke accounts en tweestapsverificatie, en leggen afspraken over gegevensverwerking en internationale doorgifte vooraf contractueel vast.' },
   { question: 'Wat kost outsourcing?', answer: 'Financiële administratie verzorgen wij vanaf €12 per uur. Voor de overige diensten maken wij een voorstel op maat. Het definitieve tarief hangt af van de werkzaamheden, het aantal administraties, het volume en de looptijd. Wij werken met een uurtarief, een vast maandbedrag of een tarief per administratie, en bouwen bij voorkeur aan een langdurige samenwerking. Na de kennismaking ontvangt u een voorstel; een pilot is mogelijk.' },
   { question: 'Wie is verantwoordelijk voor de eindcontrole en de aangiften?', answer: 'Uw kantoor. Wij verzorgen de verwerking en de voorbereidende controles; beoordeling, fiscale keuzes en indiening van aangiften blijven bij uw kantoor. Dat leggen wij vooraf vast.' },
+];
+
+/** Nederlandse administratieve processen (homepage). */
+export const dutchProcesses: { icon: IconName; title: string; text: string }[] = [
+  { icon: 'ledger', title: 'Inkoop, verkoop en bank', text: 'Inkoop- en verkoopfacturen en bankmutaties verwerken, coderen volgens uw rekeningschema en openstaande posten afletteren.' },
+  { icon: 'tax', title: 'Voorbereiding btw-aangifte', text: 'Btw-coderingen controleren, inclusief verlegde btw en intracommunautaire transacties, en de aangifte aansluiten op het grootboek. U beoordeelt en dient in.' },
+  { icon: 'report', title: 'Periodeafsluitingen', text: 'Maand- en kwartaalafsluitingen volgens uw afsluitkalender, en het jaarwerk voorbereiden met specificaties en aansluitingen.' },
+  { icon: 'shield', title: 'Controle en signalering', text: 'Bankaansluitingen, tussenrekeningen en dubbele facturen bewaken. Ongebruikelijke posten melden wij direct, zodat u uw Wwft-verplichtingen kunt nakomen.' },
 ];

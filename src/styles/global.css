@@ -46,7 +46,10 @@
     color: var(--color-text);
     background: var(--color-paper);
     -webkit-font-smoothing: antialiased;
-    overflow-wrap: break-word;
+    /* Normale woordafbreking: woorden worden nooit midden in het woord gesplitst */
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: manual;
   }
   h1,
   h2,
@@ -126,12 +129,14 @@
   .section {
     padding-block: var(--section-space);
   }
-  /* Lange Nederlandse samenstellingen in koppen netjes afbreken op smalle schermen */
-  h1,
-  h2,
-  h3 {
+  /* Samengestelde woorden met koppelteken niet afbreken (zie scripts/nobr-compounds.mjs) */
+  .nobr {
+    white-space: nowrap;
+  }
+
+  /* Alleen e-mailadressen en URL's mogen breken, zodat ze binnen hun container blijven */
+  .break-address {
     overflow-wrap: anywhere;
-    hyphens: auto;
   }
 
   /* Compacte sectie (korte toelichtingen, afbakening) */
@@ -141,10 +146,9 @@
 
   /* Label boven koppen — echoot "— FINANCE OUTSOURCING —" uit het logo */
   .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
+    display: block;
     font-size: 0.75rem;
+    line-height: 1.6;
     font-weight: 600;
     font-style: italic;
     letter-spacing: 0.22em;
@@ -153,15 +157,24 @@
   }
   .eyebrow::before {
     content: '';
+    display: inline-block;
     width: 1.75rem;
     height: 1px;
+    margin-right: 0.75rem;
+    vertical-align: middle;
     background: currentColor;
   }
   .eyebrow-center::after {
     content: '';
+    display: inline-block;
     width: 1.75rem;
     height: 1px;
+    margin-left: 0.75rem;
+    vertical-align: middle;
     background: currentColor;
+  }
+  .eyebrow-center {
+    text-align: center;
   }
   .on-dark .eyebrow {
     color: var(--color-gold-light);
@@ -197,12 +210,20 @@
     font-weight: 600;
     letter-spacing: 0.01em;
     text-align: center;
+    white-space: nowrap;
     border: 1px solid transparent;
     transition:
       background-color 200ms var(--ease-out),
       color 200ms var(--ease-out),
       border-color 200ms var(--ease-out),
       transform 200ms var(--ease-out);
+  }
+  /* Op heel smalle telefoons iets compactere knoppen, zodat de tekst op één regel past */
+  @media (max-width: 399px) {
+    .btn {
+      padding-inline: 1rem;
+      font-size: 0.875rem;
+    }
   }
   .btn svg {
     transition: transform 200ms var(--ease-out);
