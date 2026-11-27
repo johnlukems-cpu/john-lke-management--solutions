@@ -34,14 +34,6 @@ export const site = {
 
   /** Oprichting en eigenaar — door de eigenaar aangeleverd */
   founded: '2025-06',
-  owner: {
-    name: 'Jagernath John',
-    role: 'Eigenaar en Finance Controller',
-    education: 'Master of Accounting',
-    experience: 'Meer dan 10 jaar ervaring in administratie',
-    quote: 'Sterke financiële controle is de ruggengraat van goed bestuur.',
-  },
-
   contact: {
     /** Zakelijk e-mailadres, bijv. 'info@uwdomein.com'. null = niet tonen. */
     email: 'info@johnlukefinance.nl' as string | null,

@@ -16,7 +16,8 @@ import { contactHref } from '@/data/navigation';
 import { faqSchema } from '@/lib/schema';
 import { getNews } from '@/lib/news';
 import { site } from '@/config/site';
-import ownerPhoto from '@/assets/team/jagernath-john.webp';
+import { owner, showOwner, getOwnerPhoto } from '@/config/owner';
+const ownerPhoto = await getOwnerPhoto();
 
 const latestNews = (await getNews()).slice(0, 1);
 ---
@@ -221,7 +222,11 @@ const latestNews = (await getNews()).slice(0, 1);
   <section class="section bg-mist" aria-labelledby="over-title">
     <div class="container-site grid items-center gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
       <figure class="reveal relative mx-auto w-full max-w-sm">
-        <Picture src={ownerPhoto} alt={`${site.owner.name}, ${site.owner.role.toLowerCase()}`} formats={['avif', 'webp']} widths={[400, 700]} sizes="(min-width: 1024px) 24rem, 100vw" class="aspect-[3/4] w-full object-cover" />
+        {showOwner ? (
+          <Picture src={ownerPhoto!} alt={`${owner.name}, ${owner.role.toLowerCase()}`} formats={['avif', 'webp']} widths={[400, 700]} sizes="(min-width: 1024px) 24rem, 100vw" class="aspect-[3/4] w-full object-cover" />
+        ) : (
+          <Photo slot="advies" class="aspect-[3/4] w-full" sizes="(min-width: 1024px) 48rem, 150vw" />
+        )}
         <span aria-hidden="true" class="absolute -top-3 -right-3 size-24 border-t border-r border-gold"></span>
       </figure>
       <div>
@@ -229,7 +234,7 @@ const latestNews = (await getNews()).slice(0, 1);
           id="over-title"
           eyebrow="Over John-Luke Finance Outsourcing"
           title="Uw partner achter de financiële verwerking"
-          intro={`Opgericht in 2025 door ${site.owner.name} (${site.owner.role.toLowerCase()}, ${site.owner.education}). Vanuit Suriname ondersteunen wij Nederlandse kantoren en mkb-bedrijven, met kennis van administratieve processen, moderne boekhoudsoftware en een gestructureerde werkwijze.`}
+          intro={`${showOwner ? `Opgericht in 2025 door ${owner.name} (${owner.role.toLowerCase()}, ${owner.education}).` : 'Opgericht in 2025.'} Vanuit Suriname ondersteunen wij Nederlandse kantoren en mkb-bedrijven, met kennis van administratieve processen, moderne boekhoudsoftware en een gestructureerde werkwijze.`}
         />
         <ul class="reveal mt-7 grid gap-3 sm:grid-cols-2">
           {experience.map((e) => (

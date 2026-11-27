@@ -10,7 +10,8 @@ import { contactHref } from '@/data/navigation';
 import { breadcrumbSchema } from '@/lib/schema';
 import { Picture } from 'astro:assets';
 import { site } from '@/config/site';
-import ownerPhoto from '@/assets/team/jagernath-john.webp';
+import { owner, showOwner, getOwnerPhoto } from '@/config/owner';
+const ownerPhoto = await getOwnerPhoto();
 
 const origin = (Astro.site?.origin ?? Astro.url.origin).replace(/\/$/, '');
 const crumbs = [{ name: 'Over ons', path: '/over-ons' }];
@@ -47,7 +48,7 @@ const values = [
             Groei van ons team volgt op groei van het werk, zodat kwaliteit en continuïteit voorop blijven staan.
           </p>
           <p>
-            De eigenaar heeft meer dan 10 jaar ervaring in administratie, waarvan meer dan 3 jaar met Nederlandse
+            Wij brengen meer dan 10 jaar ervaring in administratie mee, waarvan meer dan 3 jaar met Nederlandse
             administraties en btw. Die praktijkkennis combineren wij met moderne boekhoudsoftware en een gestructureerde
             werkwijze.
           </p>
@@ -80,25 +81,26 @@ const values = [
     </div>
   </section>
 
+  {showOwner && (
   <section class="section bg-mist" aria-labelledby="eigenaar-title">
     <div class="container-site grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
       <figure class="reveal relative mx-auto w-full max-w-md">
         <Picture
-          src={ownerPhoto}
-          alt={`${site.owner.name}, ${site.owner.role.toLowerCase()} van ${site.name}`}
+          src={ownerPhoto!}
+          alt={`${owner.name}, ${owner.role.toLowerCase()} van ${site.name}`}
           formats={['avif', 'webp']}
           widths={[400, 700, 1000]}
           sizes="(min-width: 1024px) 28rem, 100vw"
           class="aspect-[3/4] w-full object-cover"
         />
         <span aria-hidden="true" class="absolute -top-3 -right-3 size-24 border-t border-r border-gold"></span>
-        <figcaption class="mt-4 text-sm text-muted">{site.owner.name} · {site.owner.role}</figcaption>
+        <figcaption class="mt-4 text-sm text-muted">{owner.name} · {owner.role}</figcaption>
       </figure>
       <div>
-        <SectionHeading id="eigenaar-title" eyebrow="De eigenaar" title={site.owner.name} />
-        <p class="reveal mt-2 font-medium text-gold-deep">{site.owner.role} · {site.owner.education}</p>
+        <SectionHeading id="eigenaar-title" eyebrow="De eigenaar" title={owner.name} />
+        <p class="reveal mt-2 font-medium text-gold-deep">{owner.role} · {owner.education}</p>
         <p class="reveal mt-6 text-lg leading-relaxed text-muted">
-          {site.name} is in juni 2025 opgericht door {site.owner.name}. Als eigenaar en Finance Controller is hij het vaste
+          {site.name} is in juni 2025 opgericht door {owner.name}. Als eigenaar en Finance Controller is hij het vaste
           aanspreekpunt voor de kantoren waarmee wij samenwerken en bewaakt hij de kwaliteit van het werk.
         </p>
         <ul class="reveal mt-7 divide-y divide-line border-y border-line">
@@ -110,12 +112,13 @@ const values = [
           ))}
         </ul>
         <blockquote class="reveal mt-9 border-l-2 border-gold pl-6">
-          <p class="font-display text-[1.6rem] leading-snug text-ink italic sm:text-[1.875rem]">“{site.owner.quote}”</p>
-          <footer class="mt-3 text-sm font-medium text-muted">— {site.owner.name}</footer>
+          <p class="font-display text-[1.6rem] leading-snug text-ink italic sm:text-[1.875rem]">“{owner.quote}”</p>
+          <footer class="mt-3 text-sm font-medium text-muted">— {owner.name}</footer>
         </blockquote>
       </div>
     </div>
   </section>
+  )}
 
   <section class="section bg-paper" aria-labelledby="waarden-title">
     <div class="container-site">

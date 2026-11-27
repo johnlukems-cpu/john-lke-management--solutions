@@ -241,7 +241,7 @@ export function buildConfirmation(d: ContactInput, meta: LeadMeta) {
   ];
   const subject = oneLine(`Ontvangstbevestiging van uw aanvraag — John-Luke Finance Outsourcing (${meta.id})`);
   const intro = `Beste ${first},\n\nHartelijk dank voor uw aanvraag. Wij hebben deze goed ontvangen en nemen binnen één werkdag contact met u op om een kennismakingsgesprek in te plannen.`;
-  const outro = 'Heeft u in de tussentijd een vraag? Beantwoord dan gewoon deze e-mail.\n\nMet vriendelijke groet,\n\nJagernath John\nJohn-Luke Finance Outsourcing\nThe smarter way forward.\n\nU ontvangt deze e-mail omdat u het contactformulier op onze website heeft ingevuld. Heeft u dat niet gedaan? Dan kunt u dit bericht negeren.';
+  const outro = 'Heeft u in de tussentijd een vraag? Beantwoord dan gewoon deze e-mail.\n\nMet vriendelijke groet,\n\nJohn-Luke Finance Outsourcing\nThe smarter way forward.\n\nU ontvangt deze e-mail omdat u het contactformulier op onze website heeft ingevuld. Heeft u dat niet gedaan? Dan kunt u dit bericht negeren.';
   const textBody = `${intro}\n\n${items.map(([k, v]) => `${k}: ${v}`).join('\n')}\n\n${outro}\n`;
   const html = `<div style="font-family:Arial,sans-serif;font-size:15px;line-height:1.6;color:#161616;max-width:560px">
 <p>Beste ${escapeHtml(first)},</p>
@@ -250,7 +250,7 @@ export function buildConfirmation(d: ContactInput, meta: LeadMeta) {
     .map(([k, v]) => `<tr><td style="color:#55555b;vertical-align:top">${k}</td><td><strong>${escapeHtml(v)}</strong></td></tr>`)
     .join('')}</table>
 <p>Heeft u in de tussentijd een vraag? Beantwoord dan gewoon deze e-mail.</p>
-<p>Met vriendelijke groet,<br><br>Jagernath John<br>John-Luke Finance Outsourcing<br><em style="color:#8a6a2e">The smarter way forward.</em></p>
+<p>Met vriendelijke groet,<br><br>John-Luke Finance Outsourcing<br><em style="color:#8a6a2e">The smarter way forward.</em></p>
 <p style="color:#8a8a8f;font-size:12px;margin-top:24px">U ontvangt deze e-mail omdat u het contactformulier op onze website heeft ingevuld. Heeft u dat niet gedaan? Dan kunt u dit bericht negeren.</p>
 </div>`;
   return { subject, text: textBody, html };

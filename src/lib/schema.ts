@@ -1,3 +1,4 @@
+import { owner, showOwner } from '@/config/owner';
 import { site, whatsappUrl } from '@/config/site';
 import type { FaqItem, Service } from '@/data/services';
 
@@ -20,12 +21,14 @@ export function organizationSchema(origin: string, logoUrl: string) {
     name: site.name,
     description: site.description,
     foundingDate: site.founded,
-    founder: {
-      '@type': 'Person',
-      name: site.owner.name,
-      jobTitle: site.owner.role,
-      hasCredential: { '@type': 'EducationalOccupationalCredential', name: site.owner.education },
-    },
+    ...(showOwner && {
+      founder: {
+        '@type': 'Person',
+        name: owner.name,
+        jobTitle: owner.role,
+        hasCredential: { '@type': 'EducationalOccupationalCredential', name: owner.education },
+      },
+    }),
     url: `${origin}/`,
     logo: logoUrl,
     image: logoUrl,
