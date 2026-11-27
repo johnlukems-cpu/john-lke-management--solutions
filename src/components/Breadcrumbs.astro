@@ -10,15 +10,15 @@ const all: Crumb[] = [{ name: 'Home', path: '/' }, ...Astro.props.crumbs];
 ---
 
 <nav aria-label="Kruimelpad" class="mb-8">
-  <ol class="flex flex-wrap items-center gap-2 text-sm text-on-dark-muted">
+  <ol class="flex flex-wrap items-center gap-2 text-sm text-muted">
     {
       all.map((c, i) => (
         <li class="flex items-center gap-2">
           {i === all.length - 1 ? (
-            <span aria-current="page" class="text-off-white">{c.name}</span>
+            <span aria-current="page" class="text-charcoal">{c.name}</span>
           ) : (
             <>
-              <a href={c.path} class="hover:text-off-white">{c.name}</a>
+              <a href={c.path} class="hover:text-burgundy">{c.name}</a>
               <span aria-hidden="true" class="text-muted-copper">/</span>
             </>
           )}

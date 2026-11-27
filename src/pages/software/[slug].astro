@@ -36,8 +36,8 @@ const cta = contactHref();
 >
   <PageHero eyebrow={`Software · ${sw.type}`} title={sw.heading} intro={sw.intro[0]} crumbs={crumbs}>
     <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-      <a href={cta} class="btn btn-gold">Plan een kennismakingsgesprek <Icon name="arrowRight" class="size-4" /></a>
-      <a href="/diensten" class="btn btn-outline-light">Bekijk onze diensten</a>
+      <a href={cta} class="btn btn-primary">Plan een kennismakingsgesprek <Icon name="arrowRight" class="size-4" /></a>
+      <a href="/diensten" class="btn btn-outline">Bekijk onze diensten</a>
     </div>
   </PageHero>
 
@@ -56,7 +56,7 @@ const cta = contactHref();
           <ul class="mt-4 divide-y divide-line border-y border-line">
             {sw.workflows.map((w) => (
               <li class="flex items-start gap-4 py-3">
-                <span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-burgundy text-warm-cream"><Icon name="check" class="size-3.5" stroke={2.5} /></span>
+                <span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-midnight-blue text-copper-light"><Icon name="check" class="size-3.5" stroke={2.5} /></span>
                 <span class="text-charcoal">{w}</span>
               </li>
             ))}

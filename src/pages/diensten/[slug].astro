@@ -35,10 +35,10 @@ const cta = contactHref(service.slug);
   schema={[serviceSchema(origin, service), breadcrumbSchema(origin, crumbs), faqSchema(service.faq)]}
 >
   <PageHero eyebrow={`${service.availability === 'op-aanvraag' ? 'Op aanvraag' : 'Standaarddienst'} · ${service.subtitle}`} title={service.heading} intro={service.intro[0]} crumbs={crumbs}>
-    <p class="mt-6 text-lg text-off-white">{service.priceFromHourly && <><span class="font-semibold text-copper-light">{priceLabel(service)}</span> · </>}Gericht op langdurige samenwerking</p>
+    <p class="mt-6 text-lg text-charcoal">{service.priceFromHourly && <><span class="font-semibold text-burgundy">{priceLabel(service)}</span> · </>}Gericht op langdurige samenwerking</p>
     <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-      <a href={cta} class="btn btn-gold">Plan een kennismakingsgesprek <Icon name="arrowRight" class="size-4" /></a>
-      <a href="/software" class="btn btn-outline-light">Bekijk onze softwarekennis</a>
+      <a href={cta} class="btn btn-primary">Plan een kennismakingsgesprek <Icon name="arrowRight" class="size-4" /></a>
+      <a href="/software" class="btn btn-outline">Bekijk onze softwarekennis</a>
     </div>
   </PageHero>
 
@@ -55,7 +55,7 @@ const cta = contactHref(service.slug);
         <ul class="reveal mt-8 divide-y divide-line border-y border-line">
           {service.tasks.map((task) => (
             <li class="flex items-start gap-4 py-3.5">
-              <span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-burgundy text-warm-cream"><Icon name="check" class="size-3.5" stroke={2.5} /></span>
+              <span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-midnight-blue text-copper-light"><Icon name="check" class="size-3.5" stroke={2.5} /></span>
               <span class="text-lg text-charcoal">{task}</span>
             </li>
           ))}

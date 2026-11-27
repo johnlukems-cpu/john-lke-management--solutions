@@ -61,7 +61,7 @@
   h3 {
     font-family: var(--font-display);
     font-weight: 500;
-    color: var(--color-burgundy);
+    color: var(--color-charcoal);
     letter-spacing: -0.005em;
     text-wrap: balance;
     /* Cormorant heeft een kleine x-hoogte: schaal optisch op, zodat koppen even goed leesbaar blijven */
@@ -253,31 +253,32 @@
   .btn:hover svg {
     transform: translateX(3px);
   }
-  /* Primair: bordeaux met off-white tekst */
+  /* Primair: midnight blue met off-white tekst */
   .btn-primary {
-    background: var(--color-burgundy);
+    background: var(--color-midnight-blue);
     color: var(--color-off-white);
   }
   .btn-primary:hover {
-    background: var(--color-burgundy-deep);
+    background: var(--color-charcoal);
   }
-  /* Op donkere achtergronden: crème knop met bordeaux tekst */
+  /* Op donkere achtergronden: crème knop met donkere tekst */
   .btn-gold,
   .btn-light {
     background: var(--color-warm-cream);
-    color: var(--color-burgundy);
+    color: var(--color-midnight-blue);
   }
   .btn-gold:hover,
   .btn-light:hover {
     background: var(--color-off-white);
   }
-  /* Secundair: transparant met bordeaux rand */
+  /* Secundair: transparant met donkere rand */
   .btn-outline {
-    border-color: var(--color-burgundy);
-    color: var(--color-burgundy);
+    border-color: var(--color-charcoal);
+    color: var(--color-charcoal);
   }
   .btn-outline:hover {
-    background: var(--color-burgundy);
+    background: var(--color-midnight-blue);
+    border-color: var(--color-midnight-blue);
     color: var(--color-off-white);
   }
   .btn-outline-light {

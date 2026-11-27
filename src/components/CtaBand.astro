@@ -1,5 +1,6 @@
 ---
 import Icon from './Icon.astro';
+import GrowthLines from './GrowthLines.astro';
 import { kennismakingHref } from '@/data/navigation';
 import { whatsappUrl } from '@/config/site';
 
@@ -25,8 +26,9 @@ const {
 } = Astro.props;
 ---
 
-<section class="lines-dark on-dark bg-burgundy text-off-white" aria-labelledby="cta-title">
-  <div class="container-site py-16 lg:py-20">
+<section class="lines-dark on-dark relative overflow-hidden bg-midnight-blue text-off-white" aria-labelledby="cta-title">
+  <GrowthLines class="pointer-events-none absolute right-0 bottom-0 h-full w-[60%] text-muted-copper opacity-70 xl:w-[42%]" />
+  <div class="container-site relative py-16 lg:py-20">
     <div class="reveal flex flex-col gap-8 xl:flex-row xl:items-center xl:justify-between">
       <div class="max-w-2xl">
         <p class="eyebrow mb-5">{eyebrow}</p>

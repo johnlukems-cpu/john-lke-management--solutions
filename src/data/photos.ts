@@ -21,28 +21,28 @@ export const photoSlots = {
     brief: 'Een moderne, eenvoudige kantooromgeving.',
   },
   administratie: {
-    alt: 'Financiële documenten met een rekenmachine op een bureau',
-    brief: 'Facturen, documenten en financiële rapportages.',
+    alt: 'Handen met pen bij financiële documenten naast een laptop',
+    brief: 'Professionele werkplek met financiële documenten en een laptop.',
   },
   payroll: {
-    alt: 'Klembord met formulier naast een laptop',
-    brief: 'Een georganiseerde werkplek voor salarisadministratie.',
+    alt: 'Facturen en financiële documenten met een rekenmachine op een bureau',
+    brief: 'Facturen, documenten en een rekenmachine: crediteuren- en debiteurenbeheer.',
   },
   tax: {
-    alt: 'Rekenmachine voor administratief werk',
-    brief: 'Een calculator, notitieboek en kantoorbenodigdheden.',
+    alt: 'Controle van financiële stukken met een pen',
+    brief: 'Controle van rapportages en cijfers.',
   },
   jaarrekening: {
-    alt: 'Grafiek op papier met liniaal en pennen',
-    brief: 'Een bureau met financiële jaaroverzichten.',
+    alt: 'Maandplanner met koffie op een bureau',
+    brief: 'Planning van periodieke afsluitingen.',
   },
   advies: {
-    alt: 'Notitieboek met pen en bril',
-    brief: 'Een notitieboek met aantekeningen, een begroting en een laptop op een vergadertafel.',
+    alt: 'Licht, modern kantoor met meerdere werkplekken',
+    brief: 'Moderne kantooromgeving met meerdere werkplekken: capaciteit en continuïteit.',
   },
   automation: {
-    alt: 'Financieel dashboard met grafieken op een scherm',
-    brief: 'Een laptop met digitale administratie of een dashboard, naast een scanner of gedigitaliseerde documenten.',
+    alt: 'Checklist die met een pen wordt afgevinkt',
+    brief: 'Structuur, overzicht en voortgang bij het wegwerken van achterstanden.',
   },
   werkwijze: {
     alt: 'Laptop met een financieel dashboard',

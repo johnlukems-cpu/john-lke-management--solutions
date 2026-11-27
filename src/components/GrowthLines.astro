@@ -1,0 +1,27 @@
+---
+/**
+ * Decoratief lijnenspel in koper: verbonden punten die rustig oplopen.
+ * Staat voor verbinding, structuur en duurzame groei — zonder pijlen of clichés.
+ * Kleur via `text-*` (currentColor); grootte en positie via `class`.
+ */
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+const a = [[40, 352], [150, 318], [250, 326], [350, 252], [450, 220], [560, 120]];
+const b = [[90, 380], [200, 356], [300, 300], [400, 288], [500, 196], [590, 168]];
+const path = (pts: number[][]) => pts.map(([x, y], i) => `${i ? 'L' : 'M'}${x} ${y}`).join(' ');
+---
+
+<svg aria-hidden="true" focusable="false" class={className} viewBox="0 0 600 400" preserveAspectRatio="xMaxYMax meet" fill="none" stroke="currentColor">
+  <g stroke-width="0.6" opacity="0.35">
+    {[100, 200, 300, 400, 500].map((x) => <line x1={x} y1="40" x2={x} y2="400" />)}
+  </g>
+  <path d={path(b)} stroke-width="0.8" opacity="0.45" />
+  <g stroke-width="0.6" stroke-dasharray="2 4" opacity="0.5">
+    {a.map(([x, y], i) => <line x1={x} y1={y} x2={b[i][0]} y2={b[i][1]} />)}
+  </g>
+  <path d={path(a)} stroke-width="1.1" opacity="0.8" />
+  {a.map(([x, y]) => <circle cx={x} cy={y} r="4" stroke-width="1.1" opacity="0.85" />)}
+  {b.map(([x, y]) => <circle cx={x} cy={y} r="2.6" stroke-width="0.9" opacity="0.5" />)}
+</svg>

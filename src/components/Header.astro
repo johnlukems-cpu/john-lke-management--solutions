@@ -8,7 +8,7 @@ const isActive = (href: string) =>
   href === '/' ? current === '/' : !href.includes('#') && (current === href || current.startsWith(`${href}/`));
 ---
 
-<header id="site-header" class="sticky top-0 z-40 border-b border-transparent bg-off-white/95 backdrop-blur transition-[border-color,box-shadow] duration-200">
+<header id="site-header" class="sticky top-0 z-40 border-b border-line/70 bg-off-white/95 backdrop-blur transition-[border-color,box-shadow] duration-200">
   <div class="container-site flex h-[84px] items-center justify-between gap-6 lg:h-[100px]">
     <Logo height={60} heightLg={78} priority />
 
