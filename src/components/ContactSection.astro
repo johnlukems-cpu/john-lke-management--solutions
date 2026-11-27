@@ -52,7 +52,7 @@ const cards: Card[] = [
 ].filter(Boolean) as Card[];
 ---
 
-<section id={id} class:list={['section', tone === 'mist' ? 'bg-mist' : 'bg-paper']} aria-labelledby={`${id}-title`}>
+<section id={id} class:list={['section', tone === 'mist' ? 'bg-warm-cream' : 'bg-off-white']} aria-labelledby={`${id}-title`}>
   <div class="container-site">
     <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
       <div>
@@ -65,29 +65,29 @@ const cards: Card[] = [
                 href={c.href}
                 target={c.external ? '_blank' : undefined}
                 rel={c.external ? 'noopener noreferrer' : undefined}
-                class="group flex items-center gap-5 border border-line bg-paper p-5 transition-colors hover:border-ink"
+                class="group flex items-center gap-5 border border-line bg-off-white p-5 transition-colors hover:border-charcoal"
               >
-                <span class:list={['inline-flex size-12 shrink-0 items-center justify-center rounded-full text-white', c.dark ? 'bg-ink' : 'bg-[#128c7e]']}>
+                <span class:list={['inline-flex size-12 shrink-0 items-center justify-center rounded-full text-white', c.dark ? 'bg-burgundy' : 'bg-[#128c7e]']}>
                   <Icon name={c.icon} class="size-5" stroke={1.6} />
                 </span>
                 <span class="min-w-0 flex-1">
-                  <span class="block font-semibold text-ink">{c.title}</span>
+                  <span class="block font-semibold text-charcoal">{c.title}</span>
                   <span class="break-address block text-sm text-muted">{c.text}</span>
                 </span>
-                <Icon name="arrowRight" class="size-5 text-gold-deep transition-transform group-hover:translate-x-1" />
+                <Icon name="arrowRight" class="size-5 text-burgundy transition-transform group-hover:translate-x-1" />
               </a>
             </li>
           ))}
           {contact.address && (
             <li class="flex items-start gap-5 p-5">
-              <Icon name="pin" class="mt-0.5 size-5 shrink-0 text-gold-deep" />
+              <Icon name="pin" class="mt-0.5 size-5 shrink-0 text-burgundy" />
               <address class="not-italic text-muted">{contact.address.street}<br />{contact.address.city}{contact.address.district && `, ${contact.address.district}`}, {site.country}{contact.kkf && <><br />KKF-nummer {contact.kkf}</>}</address>
             </li>
           )}
           {contact.openingHours && (
-            <li class="flex items-center gap-5 px-5"><Icon name="clock" class="size-5 text-gold-deep" /><span class="text-muted">{contact.openingHours}</span></li>
+            <li class="flex items-center gap-5 px-5"><Icon name="clock" class="size-5 text-burgundy" /><span class="text-muted">{contact.openingHours}</span></li>
           )}
-          <li class="border-l-2 border-gold bg-paper p-5 text-muted">
+          <li class="border-l-2 border-muted-copper bg-off-white p-5 text-muted">
             {hasDirectContact
               ? `Gevestigd in ${site.city} (${site.district}), Suriname. Wij ondersteunen Nederlandse kantoren en mkb-bedrijven op afstand.`
               : `Vul het formulier in en wij nemen binnen één werkdag contact met u op. Gevestigd in ${site.city} (${site.district}), Suriname; wij ondersteunen Nederlandse kantoren en mkb-bedrijven op afstand.`}

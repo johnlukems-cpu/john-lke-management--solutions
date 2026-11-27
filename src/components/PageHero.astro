@@ -10,15 +10,15 @@ interface Props {
 const { eyebrow, title, intro, crumbs = [] } = Astro.props;
 ---
 
-<section class="hatch-dark on-dark relative overflow-hidden bg-ink text-on-dark">
+<section class="lines-dark on-dark relative overflow-hidden bg-burgundy text-off-white">
   <div class="container-site py-14 md:py-20">
     {crumbs.length > 0 && <Breadcrumbs crumbs={crumbs} />}
     <div class="max-w-3xl">
       {eyebrow && <p class="eyebrow mb-5">{eyebrow}</p>}
-      <h1 class="text-[1.625rem] leading-[1.12] !text-on-dark min-[400px]:text-[2rem] sm:text-5xl lg:text-[3.5rem]">{title}</h1>
+      <h1 class="text-[1.625rem] leading-[1.12] !text-off-white min-[400px]:text-[2rem] sm:text-5xl lg:text-[3.5rem]">{title}</h1>
       {intro && <p class="mt-6 max-w-2xl text-lg leading-relaxed text-on-dark-muted">{intro}</p>}
       <slot />
     </div>
   </div>
-  <div aria-hidden="true" class="h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-60"></div>
+  <div aria-hidden="true" class="h-px bg-gradient-to-r from-transparent via-muted-copper to-transparent opacity-60"></div>
 </section>

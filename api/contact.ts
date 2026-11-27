@@ -219,13 +219,13 @@ export function buildEmail(d: ContactInput, meta?: LeadMeta) {
   const subject = oneLine(`${meta ? `[${meta.id}] ` : ''}Nieuwe lead — ${who}${d.land ? ` (${COUNTRIES[d.land as keyof typeof COUNTRIES]})` : ''}`).slice(0, 180);
   const message = d.bericht || '—';
   const textBody = `${rows.map(([k, v]) => `${k}: ${v}`).join('\n')}\n\n${d.categorie === 'outsourcing' ? 'Aanvullend bericht' : 'Bericht'}:\n${message}\n`;
-  const html = `<div style="font-family:Arial,sans-serif;font-size:15px;color:#161616">
+  const html = `<div style="font-family:Arial,sans-serif;font-size:15px;color:#252329">
 <h2 style="font-family:Georgia,serif;font-weight:normal">Nieuwe aanvraag via de website</h2>
 <table cellpadding="6" style="border-collapse:collapse">${rows
-    .map(([k, v]) => `<tr><td style="color:#55555b;vertical-align:top">${k}</td><td><strong>${escapeHtml(v)}</strong></td></tr>`)
+    .map(([k, v]) => `<tr><td style="color:#5C555E;vertical-align:top">${k}</td><td><strong>${escapeHtml(v)}</strong></td></tr>`)
     .join('')}</table>
-<p style="color:#55555b;margin-top:20px">${d.categorie === 'outsourcing' ? 'Aanvullend bericht' : 'Bericht'}:</p>
-<p style="white-space:pre-wrap;border-left:2px solid #b39250;padding-left:12px">${escapeHtml(message)}</p>
+<p style="color:#5C555E;margin-top:20px">${d.categorie === 'outsourcing' ? 'Aanvullend bericht' : 'Bericht'}:</p>
+<p style="white-space:pre-wrap;border-left:2px solid #A47768;padding-left:12px">${escapeHtml(message)}</p>
 </div>`;
   return { subject, text: textBody, html };
 }
@@ -241,16 +241,16 @@ export function buildConfirmation(d: ContactInput, meta: LeadMeta) {
   ];
   const subject = oneLine(`Ontvangstbevestiging van uw aanvraag — John-Luke Finance Outsourcing (${meta.id})`);
   const intro = `Beste ${first},\n\nHartelijk dank voor uw aanvraag. Wij hebben deze goed ontvangen en nemen binnen één werkdag contact met u op om een kennismakingsgesprek in te plannen.`;
-  const outro = 'Heeft u in de tussentijd een vraag? Beantwoord dan gewoon deze e-mail.\n\nMet vriendelijke groet,\n\nJohn-Luke Finance Outsourcing\nThe smarter way forward.\n\nU ontvangt deze e-mail omdat u het contactformulier op onze website heeft ingevuld. Heeft u dat niet gedaan? Dan kunt u dit bericht negeren.';
+  const outro = 'Heeft u in de tussentijd een vraag? Beantwoord dan gewoon deze e-mail.\n\nMet vriendelijke groet,\n\nJohn-Luke Finance Outsourcing\nUw cijfers. Onze expertise. Uw groei.\n\nU ontvangt deze e-mail omdat u het contactformulier op onze website heeft ingevuld. Heeft u dat niet gedaan? Dan kunt u dit bericht negeren.';
   const textBody = `${intro}\n\n${items.map(([k, v]) => `${k}: ${v}`).join('\n')}\n\n${outro}\n`;
-  const html = `<div style="font-family:Arial,sans-serif;font-size:15px;line-height:1.6;color:#161616;max-width:560px">
+  const html = `<div style="font-family:Arial,sans-serif;font-size:15px;line-height:1.6;color:#252329;max-width:560px">
 <p>Beste ${escapeHtml(first)},</p>
 <p>Hartelijk dank voor uw aanvraag. Wij hebben deze goed ontvangen en nemen <strong>binnen één werkdag</strong> contact met u op om een kennismakingsgesprek in te plannen.</p>
 <table cellpadding="6" style="border-collapse:collapse;margin:16px 0">${items
-    .map(([k, v]) => `<tr><td style="color:#55555b;vertical-align:top">${k}</td><td><strong>${escapeHtml(v)}</strong></td></tr>`)
+    .map(([k, v]) => `<tr><td style="color:#5C555E;vertical-align:top">${k}</td><td><strong>${escapeHtml(v)}</strong></td></tr>`)
     .join('')}</table>
 <p>Heeft u in de tussentijd een vraag? Beantwoord dan gewoon deze e-mail.</p>
-<p>Met vriendelijke groet,<br><br>John-Luke Finance Outsourcing<br><em style="color:#8a6a2e">The smarter way forward.</em></p>
+<p>Met vriendelijke groet,<br><br>John-Luke Finance Outsourcing<br><em style="color:#5B2038">Uw cijfers. Onze expertise. Uw groei.</em></p>
 <p style="color:#8a8a8f;font-size:12px;margin-top:24px">U ontvangt deze e-mail omdat u het contactformulier op onze website heeft ingevuld. Heeft u dat niet gedaan? Dan kunt u dit bericht negeren.</p>
 </div>`;
   return { subject, text: textBody, html };

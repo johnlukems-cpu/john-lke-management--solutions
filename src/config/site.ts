@@ -18,7 +18,7 @@ export const site = {
   /** Officiële bedrijfsnaam — schrijf dit altijd exact zo */
   name: 'John-Luke Finance Outsourcing',
   shortName: 'John-Luke',
-  tagline: 'The smarter way forward.',
+  tagline: 'Uw cijfers. Onze expertise. Uw groei.',
   /** Kernpositionering */
   positioning: 'Financiële administratieve outsourcing voor Nederlandse administratiekantoren, accountantskantoren en mkb-bedrijven.',
   description:
@@ -43,7 +43,7 @@ export const site = {
      * WhatsApp-nummer in internationaal formaat zonder plus, spaties of streepjes
      * (zo verwacht wa.me het), bijv. '5971234567'. null = geen WhatsApp-knop.
      */
-    whatsapp: null as string | null,
+    whatsapp: '31643060319' as string | null,
     /** Vestigingsadres. null = niet tonen. */
     address: { street: 'Moeristraat 44', city: 'Zanderij', district: 'Para' } as Address | null,
     /** Bereikbaarheid, bijv. 'Ma–vr 08:00–16:30'. null = niet tonen. */

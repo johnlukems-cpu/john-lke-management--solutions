@@ -12,7 +12,7 @@ const { items } = Astro.props;
   {
     items.map((item) => (
       <details class="faq group">
-        <summary class="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-left text-lg font-medium text-ink [&::-webkit-details-marker]:hidden">
+        <summary class="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-left text-lg font-medium text-charcoal [&::-webkit-details-marker]:hidden">
           <span>{item.question}</span>
           <span class="mt-1 inline-flex size-7 shrink-0 items-center justify-center border border-line transition-transform duration-200 group-open:rotate-180">
             <Icon name="chevronDown" class="size-4" />

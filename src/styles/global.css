@@ -1,36 +1,41 @@
 @import 'tailwindcss';
 @import '@fontsource-variable/inter';
-@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/cormorant-garamond';
+@import '@fontsource-variable/cormorant-garamond/wght-italic.css';
 
 /* =============================================================================
    HUISSTIJL — John-Luke Finance Outsourcing
-   Afgeleid van het logo: zwart/antraciet lijnwerk op wit, met een subtiel goud
-   accent voor knoppen, lijnen en details. Pas kleuren uitsluitend hier aan.
+   Zes officiële merkkleuren. Pas kleuren uitsluitend hier aan.
+   Tailwind zet elke --color-* ook als CSS-variabele op :root, dus
+   var(--color-burgundy) e.d. zijn overal beschikbaar (ook buiten Tailwind).
    ============================================================================ */
 @theme {
   --color-*: initial;
-  --color-ink: #161616; /* primaire merkkleur (zwart) */
-  --color-ink-soft: #26262a; /* antraciet */
-  --color-ink-muted: #3a3a3f;
-  --color-paper: #ffffff;
-  --color-mist: #f4f4f1; /* lichtgrijze achtergrond */
-  --color-mist-strong: #e9e8e3;
-  --color-line: #dcdad3;
-  --color-text: #1d1d1f;
-  --color-muted: #55555b; /* AA op wit en mist */
-  --color-gold: #b39250; /* decoratief accent */
-  --color-gold-deep: #7f6328; /* goud voor tekst op licht (AA) */
-  --color-gold-light: #d9c28e; /* goud op donker */
-  --color-on-dark: #ffffff;
-  --color-on-dark-muted: #c4c3bd;
-  --color-success: #23683f;
-  --color-error: #a3261d;
-  --color-white: #ffffff;
+
+  /* Officieel merkpalet */
+  --color-burgundy: #5B2038; /* primair */
+  --color-warm-cream: #F2E7D5; /* primair: lichte achtergronden */
+  --color-charcoal: #252329; /* secundair: tekst */
+  --color-off-white: #FCFAF6; /* secundair: kaarten en vlakken */
+  --color-midnight-blue: #15192E; /* ondersteunend: donkere secties */
+  --color-muted-copper: #A47768; /* ondersteunend: accenten en lijnen (decoratief) */
+
+  /* Afgeleide neutrale tinten — alleen voor randen, toegankelijke tekst en staten */
+  --color-cream-strong: #E9DCC6; /* iets donkerder crème voor vlakken op crème */
+  --color-line: #E2D4BE; /* randen en scheidingslijnen */
+  --color-muted: #5C555E; /* secundaire tekst (AA op crème en off-white) */
+  --color-copper-deep: #7D5546; /* koper als kleine tekst op licht (AA) */
+  --color-copper-light: #C9A698; /* koper als tekst op donker (AA) */
+  --color-on-dark-muted: #C8C3BC; /* secundaire tekst op midnight blue en bordeaux (AA) */
+  --color-burgundy-deep: #48182C; /* hoverstaat van bordeaux knoppen */
+  --color-success: #23683F;
+  --color-error: #A3261D;
+  --color-white: #FFFFFF;
   --color-transparent: transparent;
   --color-current: currentColor;
 
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-  --font-display: 'Fraunces Variable', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-display: 'Cormorant Garamond Variable', 'Cormorant Garamond', ui-serif, Georgia, 'Times New Roman', serif;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -43,8 +48,8 @@
   }
   body {
     font-family: var(--font-sans);
-    color: var(--color-text);
-    background: var(--color-paper);
+    color: var(--color-charcoal);
+    background: var(--color-off-white);
     -webkit-font-smoothing: antialiased;
     /* Normale woordafbreking: woorden worden nooit midden in het woord gesplitst */
     word-break: normal;
@@ -56,20 +61,21 @@
   h3 {
     font-family: var(--font-display);
     font-weight: 500;
-    color: var(--color-ink);
-    letter-spacing: -0.012em;
+    color: var(--color-burgundy);
+    letter-spacing: -0.005em;
     text-wrap: balance;
-    font-variation-settings: 'opsz' 72, 'SOFT' 0, 'WONK' 0;
+    /* Cormorant heeft een kleine x-hoogte: schaal optisch op, zodat koppen even goed leesbaar blijven */
+    font-size-adjust: 0.44;
   }
   p {
     text-wrap: pretty;
   }
   ::selection {
-    background: var(--color-gold-light);
-    color: var(--color-ink);
+    background: var(--color-warm-cream);
+    color: var(--color-burgundy);
   }
   :focus-visible {
-    outline: 2px solid var(--color-gold);
+    outline: 2px solid var(--color-burgundy);
     outline-offset: 3px;
     border-radius: 4px;
   }
@@ -153,7 +159,7 @@
     font-style: italic;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--color-gold-deep);
+    color: var(--color-copper-deep);
   }
   .eyebrow::before {
     content: '';
@@ -177,24 +183,40 @@
     text-align: center;
   }
   .on-dark .eyebrow {
-    color: var(--color-gold-light);
+    color: var(--color-copper-light);
+  }
+  .on-dark h1,
+  .on-dark h2,
+  .on-dark h3 {
+    color: var(--color-off-white);
   }
 
-  /* Gravure-arcering, zoals in de manchetten van het logo */
+  /* Architecturale patronen: dunne verticale lijnen (geïnspireerd op de referentie).
+     .lines      — fijn lijnenraster op licht (crème)
+     .lines-dark — idem op bordeaux of midnight blue
+     .hatch/.hatch-dark blijven bestaan als alias voor bestaande markup. */
+  .lines,
   .hatch {
-    background-color: var(--color-mist);
+    background-color: var(--color-warm-cream);
     background-image: repeating-linear-gradient(
-      -62deg,
-      transparent 0 9px,
-      rgba(22, 22, 22, 0.075) 9px 10px
+      90deg,
+      transparent 0 47px,
+      rgba(164, 119, 104, 0.16) 47px 48px
     );
   }
+  .lines-dark,
   .hatch-dark {
     background-image: repeating-linear-gradient(
-      -62deg,
-      transparent 0 9px,
-      rgba(255, 255, 255, 0.05) 9px 10px
+      90deg,
+      transparent 0 47px,
+      rgba(164, 119, 104, 0.14) 47px 48px
     );
+  }
+  /* Koperen haarlijn als sectie-overgang */
+  .rule-copper {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-muted-copper) 20%, var(--color-muted-copper) 80%, transparent);
+    opacity: 0.7;
   }
 
   /* Knoppen */
@@ -231,35 +253,40 @@
   .btn:hover svg {
     transform: translateX(3px);
   }
+  /* Primair: bordeaux met off-white tekst */
   .btn-primary {
-    background: var(--color-ink);
-    color: #fff;
+    background: var(--color-burgundy);
+    color: var(--color-off-white);
   }
   .btn-primary:hover {
-    background: var(--color-ink-muted);
+    background: var(--color-burgundy-deep);
   }
-  .btn-gold {
-    background: var(--color-gold);
-    color: var(--color-ink);
+  /* Op donkere achtergronden: crème knop met bordeaux tekst */
+  .btn-gold,
+  .btn-light {
+    background: var(--color-warm-cream);
+    color: var(--color-burgundy);
   }
-  .btn-gold:hover {
-    background: var(--color-gold-light);
+  .btn-gold:hover,
+  .btn-light:hover {
+    background: var(--color-off-white);
   }
+  /* Secundair: transparant met bordeaux rand */
   .btn-outline {
-    border-color: var(--color-ink);
-    color: var(--color-ink);
+    border-color: var(--color-burgundy);
+    color: var(--color-burgundy);
   }
   .btn-outline:hover {
-    background: var(--color-ink);
-    color: #fff;
+    background: var(--color-burgundy);
+    color: var(--color-off-white);
   }
   .btn-outline-light {
-    border-color: rgba(255, 255, 255, 0.45);
-    color: #fff;
+    border-color: rgba(252, 250, 246, 0.5);
+    color: var(--color-off-white);
   }
   .btn-outline-light:hover {
-    border-color: #fff;
-    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--color-off-white);
+    background: rgba(252, 250, 246, 0.08);
   }
   .btn-whatsapp {
     background: #128c7e;
@@ -275,9 +302,12 @@
     gap: 0.4rem;
     font-weight: 600;
     font-size: 0.9375rem;
-    color: var(--color-ink);
-    border-bottom: 1px solid var(--color-gold);
+    color: var(--color-burgundy);
+    border-bottom: 1px solid var(--color-muted-copper);
     padding-bottom: 2px;
+  }
+  .on-dark .link-arrow {
+    color: var(--color-off-white);
   }
   .link-arrow svg {
     transition: transform 200ms var(--ease-out);
@@ -293,19 +323,19 @@
     min-height: 3rem;
     border: 1px solid var(--color-line);
     border-radius: 2px;
-    background: #fff;
+    background: var(--color-off-white);
     padding: 0.7rem 0.9rem;
     font-size: 1rem;
-    color: var(--color-text);
+    color: var(--color-charcoal);
     transition: border-color 150ms;
   }
   .field:hover {
     border-color: var(--color-muted);
   }
   .field:focus {
-    outline: 2px solid var(--color-gold);
+    outline: 2px solid var(--color-burgundy);
     outline-offset: 0;
-    border-color: var(--color-ink);
+    border-color: var(--color-burgundy);
   }
   .field[aria-invalid='true'] {
     border-color: var(--color-error);
@@ -317,11 +347,18 @@
     top: -100px;
     z-index: 100;
     padding: 0.6rem 1rem;
-    background: var(--color-ink);
-    color: #fff;
+    background: var(--color-burgundy);
+    color: var(--color-off-white);
   }
   .skip-link:focus {
     top: 1rem;
+  }
+}
+
+/* Secundaire tekst automatisch leesbaar op donkere secties */
+@layer utilities {
+  .on-dark .text-muted {
+    color: var(--color-on-dark-muted);
   }
 }
 

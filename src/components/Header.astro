@@ -8,7 +8,7 @@ const isActive = (href: string) =>
   href === '/' ? current === '/' : !href.includes('#') && (current === href || current.startsWith(`${href}/`));
 ---
 
-<header id="site-header" class="sticky top-0 z-40 border-b border-transparent bg-paper/95 backdrop-blur transition-[border-color,box-shadow] duration-200">
+<header id="site-header" class="sticky top-0 z-40 border-b border-transparent bg-off-white/95 backdrop-blur transition-[border-color,box-shadow] duration-200">
   <div class="container-site flex h-[84px] items-center justify-between gap-6 lg:h-[100px]">
     <Logo height={60} heightLg={78} priority />
 
@@ -22,7 +22,7 @@ const isActive = (href: string) =>
                 aria-current={isActive(item.href) ? 'page' : undefined}
                 class:list={[
                   'inline-flex h-11 items-center gap-1 px-2.5 text-[0.9375rem] font-medium transition-colors xl:px-3',
-                  isActive(item.href) ? 'text-ink' : 'text-muted hover:text-ink',
+                  isActive(item.href) ? 'text-burgundy shadow-[inset_0_-2px_0_var(--color-muted-copper)]' : 'text-charcoal hover:text-burgundy',
                 ]}
               >
                 {item.label}
@@ -30,11 +30,11 @@ const isActive = (href: string) =>
               </a>
               {item.children && (
                 <div class="dropdown invisible absolute top-full left-0 pt-2 opacity-0 transition-all duration-200">
-                  <ul class="w-80 border border-line bg-paper p-2 shadow-[0_20px_40px_-16px_rgba(0,0,0,.18)]">
+                  <ul class="w-80 border border-line bg-off-white p-2 shadow-[0_20px_40px_-16px_rgba(0,0,0,.18)]">
                     {item.children.map((child) => (
                       <li>
-                        <a href={child.href} class="block px-4 py-3 transition-colors hover:bg-mist">
-                          <span class="block font-medium text-ink">{child.label}</span>
+                        <a href={child.href} class="block px-4 py-3 transition-colors hover:bg-warm-cream">
+                          <span class="block font-medium text-charcoal">{child.label}</span>
                           <span class="mt-0.5 block text-sm text-muted">{child.hint}</span>
                         </a>
                       </li>
@@ -56,7 +56,7 @@ const isActive = (href: string) =>
       <button
         type="button"
         id="menu-toggle"
-        class="inline-flex size-11 items-center justify-center text-ink lg:hidden"
+        class="inline-flex size-11 items-center justify-center text-charcoal lg:hidden"
         aria-expanded="false"
         aria-controls="mobile-menu"
         aria-label="Menu openen"
@@ -67,18 +67,18 @@ const isActive = (href: string) =>
     </div>
   </div>
 
-  <div id="mobile-menu" class="hidden border-t border-line bg-paper lg:hidden">
+  <div id="mobile-menu" class="hidden border-t border-line bg-off-white lg:hidden">
     <nav aria-label="Mobiele navigatie" class="container-site py-4">
       <ul class="flex flex-col">
         {
           mainNav.map((item) => (
             <li class="border-b border-line last:border-0">
-              <a href={item.href} class="block py-3.5 text-lg font-medium text-ink">{item.label}</a>
+              <a href={item.href} class="block py-3.5 text-lg font-medium text-charcoal">{item.label}</a>
               {item.children && (
-                <ul class="mb-3 ml-1 border-l border-gold pl-4">
+                <ul class="mb-3 ml-1 border-l border-muted-copper pl-4">
                   {item.children.map((child) => (
                     <li>
-                      <a href={child.href} class="block py-2 text-muted hover:text-ink">{child.label}</a>
+                      <a href={child.href} class="block py-2 text-muted hover:text-burgundy">{child.label}</a>
                     </li>
                   ))}
                 </ul>

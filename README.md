@@ -3,7 +3,7 @@
 Bedrijfswebsite van **John-Luke Finance Outsourcing**: financiële administratie-outsourcing voor
 Nederlandse **administratiekantoren, accountantskantoren en mkb-bedrijven**, vanuit Suriname.
 
-> The smarter way forward.
+> Uw cijfers. Onze expertise. Uw groei.
 
 ## Pagina's
 
@@ -26,8 +26,8 @@ Oude dienstadressen worden in `vercel.json` permanent doorgestuurd naar de nieuw
 ## Techniek
 
 - **Astro 7** — elke pagina wordt bij de build een statische HTML-pagina (snel, goed vindbaar).
-- **Tailwind CSS 4** — huisstijl in `src/styles/global.css` (zwart/antraciet, wit, lichtgrijs, goud).
-- **Fonts** Inter + Fraunces, zelf gehost (geen externe requests).
+- **Tailwind CSS 4** — huisstijl in `src/styles/global.css`: zes merkkleuren als CSS-variabelen (`--color-burgundy` #5B2038, `--color-warm-cream` #F2E7D5, `--color-charcoal` #252329, `--color-off-white` #FCFAF6, `--color-midnight-blue` #15192E, `--color-muted-copper` #A47768).
+- **Fonts** Cormorant Garamond (koppen) + Inter (tekst), zelf gehost (geen externe requests).
 - **Contactformulier** via de Vercel-functie `api/contact.ts` en Resend (e-mail).
 - **Hosting** Vercel (`vercel.json`: build, beveiligingsheaders, nette URL's).
 - Vereist **Node.js 22.23.4 of hoger** (zie `.nvmrc`).

@@ -42,13 +42,13 @@ const agreements = [
     crumbs={crumbs}
   />
 
-  <section class="section bg-paper" aria-labelledby="maatregelen-title">
+  <section class="section bg-off-white" aria-labelledby="maatregelen-title">
     <div class="container-site">
       <SectionHeading id="maatregelen-title" eyebrow="In de praktijk" title="Gecontroleerde toegang tot uw software" />
       <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {measures.map((m) => (
-          <li class="reveal border border-line bg-paper p-7">
-            <span class="inline-flex size-12 items-center justify-center bg-ink text-gold-light"><Icon name={m.icon} class="size-6" /></span>
+          <li class="reveal border border-line bg-off-white p-7">
+            <span class="inline-flex size-12 items-center justify-center bg-burgundy text-warm-cream"><Icon name={m.icon} class="size-6" /></span>
             <h3 class="mt-5 text-xl">{m.title}</h3>
             <p class="mt-2 leading-relaxed text-muted">{m.text}</p>
           </li>
@@ -57,7 +57,7 @@ const agreements = [
     </div>
   </section>
 
-  <section class="section bg-mist" aria-labelledby="afspraken-title">
+  <section class="section bg-warm-cream" aria-labelledby="afspraken-title">
     <div class="container-site grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
       <SectionHeading
         id="afspraken-title"
@@ -68,7 +68,7 @@ const agreements = [
       <dl class="reveal divide-y divide-line border-y border-line">
         {agreements.map(([t, d]) => (
           <div class="grid gap-2 py-5 sm:grid-cols-[13rem_1fr] sm:gap-6">
-            <dt class="font-semibold text-ink">{t}</dt>
+            <dt class="font-semibold text-charcoal">{t}</dt>
             <dd class="leading-relaxed text-muted">{d}</dd>
           </div>
         ))}
@@ -76,14 +76,14 @@ const agreements = [
     </div>
   </section>
 
-  <section class="section-tight bg-paper" aria-labelledby="afbakening-title">
+  <section class="section-tight bg-off-white" aria-labelledby="afbakening-title">
     <div class="container-site max-w-4xl">
       <h2 id="afbakening-title" class="reveal text-2xl">Verdeling van verantwoordelijkheden</h2>
       <p class="reveal mt-4 leading-relaxed text-muted">
         Uw kantoor blijft eigenaar van de gegevens en eindverantwoordelijk voor de administraties, de fiscale beoordeling en
         de indiening van aangiften. Wij verzorgen de administratieve verwerking en voorbereiding volgens uw instructies. Wij
         voeren geen wettelijke controle uit en geven geen fiscaal advies. Onze privacyverklaring voor bezoekers van deze
-        website leest u op de pagina <a href="/privacy" class="text-ink underline underline-offset-2">privacyverklaring</a>.
+        website leest u op de pagina <a href="/privacy" class="text-charcoal underline underline-offset-2">privacyverklaring</a>.
       </p>
     </div>
   </section>

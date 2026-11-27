@@ -33,7 +33,7 @@ const values = [
 >
   <PageHero eyebrow="Over ons" title="Uw partner achter de financiële verwerking." intro="Wij leveren Nederlandse administratiekantoren, accountantskantoren en mkb-bedrijven betrouwbare capaciteit voor de financiële administratie — vanuit Suriname, in de software die zij al gebruiken." crumbs={crumbs} />
 
-  <section class="section bg-paper" aria-labelledby="wie-title">
+  <section class="section bg-off-white" aria-labelledby="wie-title">
     <div class="container-site grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
       <div>
         <SectionHeading id="wie-title" eyebrow="Wie wij zijn" title="Een gespecialiseerde partner in financiële outsourcing" />
@@ -58,11 +58,11 @@ const values = [
     </div>
   </section>
 
-  <section class="section hatch-dark on-dark bg-ink text-on-dark" aria-labelledby="missie-title">
+  <section class="section lines-dark on-dark bg-midnight-blue text-off-white" aria-labelledby="missie-title">
     <div class="container-site grid gap-12 lg:grid-cols-2 lg:gap-16">
       <div class="reveal">
         <p class="eyebrow mb-5">Missie</p>
-        <h2 id="missie-title" class="text-[1.75rem] leading-snug !text-on-dark sm:text-[2rem]">Waar wij voor staan</h2>
+        <h2 id="missie-title" class="text-[1.75rem] leading-snug !text-off-white sm:text-[2rem]">Waar wij voor staan</h2>
         <p class="mt-5 text-lg leading-relaxed text-on-dark-muted">
           Wij ondersteunen Nederlandse kantoren en mkb-bedrijven met betrouwbare, flexibele en
           kwalitatieve administratieve outsourcing, zodat zij hun capaciteit kunnen vergroten en hun tijd kunnen besteden aan advies,
@@ -71,7 +71,7 @@ const values = [
       </div>
       <div class="reveal">
         <p class="eyebrow mb-5">Visie</p>
-        <h2 class="text-[1.75rem] leading-snug !text-on-dark sm:text-[2rem]">Waar wij naartoe werken</h2>
+        <h2 class="text-[1.75rem] leading-snug !text-off-white sm:text-[2rem]">Waar wij naartoe werken</h2>
         <p class="mt-5 text-lg leading-relaxed text-on-dark-muted">
           Wij bouwen vanuit Suriname een professioneel outsourcingbedrijf op dat langdurige samenwerkingen aangaat met
           Nederlandse kantoren en mkb-bedrijven: met een vakkundig team, gestructureerde werkprocessen en kwaliteit die kantoren
@@ -82,7 +82,7 @@ const values = [
   </section>
 
   {showOwner && (
-  <section class="section bg-mist" aria-labelledby="eigenaar-title">
+  <section class="section bg-warm-cream" aria-labelledby="eigenaar-title">
     <div class="container-site grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
       <figure class="reveal relative mx-auto w-full max-w-md">
         <Picture
@@ -93,12 +93,12 @@ const values = [
           sizes="(min-width: 1024px) 28rem, 100vw"
           class="aspect-[3/4] w-full object-cover"
         />
-        <span aria-hidden="true" class="absolute -top-3 -right-3 size-24 border-t border-r border-gold"></span>
+        <span aria-hidden="true" class="absolute -top-3 -right-3 size-24 border-t border-r border-muted-copper"></span>
         <figcaption class="mt-4 text-sm text-muted">{owner.name} · {owner.role}</figcaption>
       </figure>
       <div>
         <SectionHeading id="eigenaar-title" eyebrow="De eigenaar" title={owner.name} />
-        <p class="reveal mt-2 font-medium text-gold-deep">{owner.role} · {owner.education}</p>
+        <p class="reveal mt-2 font-medium text-burgundy">{owner.role} · {owner.education}</p>
         <p class="reveal mt-6 text-lg leading-relaxed text-muted">
           {site.name} is in juni 2025 opgericht door {owner.name}. Als eigenaar en Finance Controller is hij het vaste
           aanspreekpunt voor de kantoren waarmee wij samenwerken en bewaakt hij de kwaliteit van het werk.
@@ -106,13 +106,13 @@ const values = [
         <ul class="reveal mt-7 divide-y divide-line border-y border-line">
           {experience.map((item) => (
             <li class="flex items-start gap-4 py-3.5">
-              <span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-ink text-gold-light"><Icon name="check" class="size-3.5" stroke={2.5} /></span>
-              <span class="text-lg text-ink">{item}</span>
+              <span class="mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full bg-burgundy text-warm-cream"><Icon name="check" class="size-3.5" stroke={2.5} /></span>
+              <span class="text-lg text-charcoal">{item}</span>
             </li>
           ))}
         </ul>
-        <blockquote class="reveal mt-9 border-l-2 border-gold pl-6">
-          <p class="font-display text-[1.6rem] leading-snug text-ink italic sm:text-[1.875rem]">“{owner.quote}”</p>
+        <blockquote class="reveal mt-9 border-l-2 border-muted-copper pl-6">
+          <p class="font-display text-[1.6rem] leading-snug text-charcoal italic sm:text-[1.875rem]">“{owner.quote}”</p>
           <footer class="mt-3 text-sm font-medium text-muted">— {owner.name}</footer>
         </blockquote>
       </div>
@@ -120,13 +120,13 @@ const values = [
   </section>
   )}
 
-  <section class="section bg-paper" aria-labelledby="waarden-title">
+  <section class="section bg-off-white" aria-labelledby="waarden-title">
     <div class="container-site">
       <SectionHeading id="waarden-title" eyebrow="Onze kernwaarden" title="Hoe wij samenwerken" />
       <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {values.map((v, i) => (
-          <li class="reveal border-t-2 border-ink pt-6">
-            <span class="font-display text-sm text-gold-deep">0{i + 1}</span>
+          <li class="reveal border-t-2 border-charcoal pt-6">
+            <span class="font-display text-sm text-burgundy">0{i + 1}</span>
             <h3 class="mt-3 text-xl">{v.title}</h3>
             <p class="mt-2 leading-relaxed text-muted">{v.text}</p>
           </li>
@@ -135,13 +135,13 @@ const values = [
     </div>
   </section>
 
-  <section class="section bg-mist" aria-labelledby="usp-title">
+  <section class="section bg-warm-cream" aria-labelledby="usp-title">
     <div class="container-site">
       <SectionHeading id="usp-title" eyebrow="Onderscheidend vermogen" title="Waarom kantoren met ons samenwerken" />
       <ul class="mt-12 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
         {reasons.map((r) => (
           <li class="reveal">
-            <Icon name={r.icon} class="size-7 text-gold-deep" stroke={1.3} />
+            <Icon name={r.icon} class="size-7 text-burgundy" stroke={1.3} />
             <h3 class="mt-4 text-xl">{r.title}</h3>
             <p class="mt-2 leading-relaxed text-muted">{r.text}</p>
           </li>

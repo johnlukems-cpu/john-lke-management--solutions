@@ -16,7 +16,7 @@ const titleParts = title.split(/(John-Luke)/);
 
 <div class:list={['reveal max-w-2xl', center && 'mx-auto text-center', className]}>
   {eyebrow && <p class:list={['eyebrow mb-5', center && 'eyebrow-center']}>{eyebrow}</p>}
-  <h2 id={id} class:list={['text-[1.75rem] leading-[1.15] min-[400px]:text-[2rem] sm:text-[2.5rem] lg:text-[2.75rem]', onDark && '!text-on-dark']}>
+  <h2 id={id} class:list={['text-[1.75rem] leading-[1.15] min-[400px]:text-[2rem] sm:text-[2.5rem] lg:text-[2.75rem]', onDark && '!text-off-white']}>
     {titleParts.map((part) => (part === 'John-Luke' ? <span class="whitespace-nowrap">{part}</span> : part))}
   </h2>
   {intro && <p class:list={['mt-5 text-lg leading-relaxed', onDark ? 'text-on-dark-muted' : 'text-muted']}>{intro}</p>}

@@ -36,7 +36,7 @@ const crumbs = [{ name: 'Diensten', path: '/diensten' }];
     </div>
   </PageHero>
 
-  <section class="section bg-paper" aria-label="Overzicht van de diensten">
+  <section class="section bg-off-white" aria-label="Overzicht van de diensten">
     <div class="container-site space-y-20 lg:space-y-28">
       {services.map((s, i) => (
         <article class="grid items-center gap-10 lg:grid-cols-2 lg:gap-20" aria-labelledby={`dienst-${s.slug}`}>
@@ -45,10 +45,10 @@ const crumbs = [{ name: 'Diensten', path: '/diensten' }];
             <p class="eyebrow mb-5">{s.availability === 'op-aanvraag' ? 'Op aanvraag' : 'Standaarddienst'} · {s.subtitle}</p>
             <h2 id={`dienst-${s.slug}`} class="text-[1.625rem] leading-[1.15] min-[400px]:text-[2rem] sm:text-[2.5rem]">{s.name}</h2>
             <p class="mt-5 text-lg leading-relaxed text-muted">{s.summary}</p>
-            <p class="mt-4 font-semibold text-ink">{priceLabel(s)}</p>
+            <p class="mt-4 font-semibold text-charcoal">{priceLabel(s)}</p>
             <ul class="mt-7 grid gap-3 sm:grid-cols-2">
               {s.tasks.map((t) => (
-                <li class="flex items-start gap-3 text-[0.9375rem] text-ink"><Icon name="check" class="mt-0.5 size-4 shrink-0 text-gold-deep" stroke={2.2} /><span class="min-w-0">{t}</span></li>
+                <li class="flex items-start gap-3 text-[0.9375rem] text-charcoal"><Icon name="check" class="mt-0.5 size-4 shrink-0 text-burgundy" stroke={2.2} /><span class="min-w-0">{t}</span></li>
               ))}
             </ul>
             <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -61,7 +61,7 @@ const crumbs = [{ name: 'Diensten', path: '/diensten' }];
     </div>
   </section>
 
-  <section class="section-tight bg-mist" aria-labelledby="afbakening-title">
+  <section class="section-tight bg-warm-cream" aria-labelledby="afbakening-title">
     <div class="container-site grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
       <h2 id="afbakening-title" class="reveal text-2xl">Wat wij wel en niet doen</h2>
       <div class="reveal space-y-4 leading-relaxed text-muted">
